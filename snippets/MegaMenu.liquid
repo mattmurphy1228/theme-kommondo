@@ -1,0 +1,96 @@
+{%- liquid
+  if class_name != blank
+    assign wrapper_class = class_name | append: ' mega-menu js-mega-menu'
+  else
+    assign wrapper_class = 'mega-menu js-mega-menu'
+  endif
+-%}
+
+<ul
+  class='{{ wrapper_class }}'
+  aria-label='{{ 'main_menu.mega_menu' | t }}'
+>
+  {%- for menu_item in menu_links -%}
+    <li class='mega-menu__item'>
+      <div
+        class='mega-menu-item'
+        aria-label='{{ 'main_menu.mega_menu_item' | t }}'
+        role='navigation'
+        aria-haspopup='{% if menu_item.links and menu_item.links.size > 0 %}true{% else %}false{% endif %}'
+      >
+        <a
+          class='
+            anchor
+            mega-menu-item__link
+            js-mega-menu-item__link
+          '
+          href='{{ menu_item.url }}'
+        >
+          {%- liquid
+            assign collection = null
+            assign product = null
+
+            assign url_parts = menu_item.url | split: '/collections/'
+            if url_parts.size > 1
+              assign collection_handle = url_parts[1]
+              assign collection = collections[collection_handle]
+            else
+              assign url_parts = menu_item.url | split: '/products/'
+              if url_parts.size > 1
+                assign product_handle = url_parts[1]
+                assign product = all_products[product_handle]
+              endif
+            endif
+            assign image_width = 40
+            assign image_class = 'image mega-menu-item__image js-mega-menu-item__image'
+          -%}
+
+          {%- if collection != blank and collection.featured_image != blank -%}
+            {{
+              collection.featured_image
+              | image_url: width: image_width
+              | image_tag: class: image_class, loading: 'lazy'
+            }}
+          {%- elsif product != blank and product.featured_image != blank -%}
+            {{
+              product.featured_image
+              | image_url: width: image_width
+              | image_tag: class: image_class, loading: 'lazy'
+            }}
+          {%- elsif menu_item_placeholder_image != blank -%}
+            {{
+              menu_item_placeholder_image
+              | image_url: width: image_width
+              | image_tag: class: image_class, loading: 'lazy'
+            }}
+          {%- endif -%}
+          <span class='text text--regular mega-menu-item__title js-mega-menu-item__title'>
+            {{ menu_item.title }}
+          </span>
+        </a>
+        {%- if menu_item.links and menu_item.links.size > 0 -%}
+          <ul
+            class='mega-menu-item__sub-menu'
+            role='menu'
+            aria-label='{{ 'main_menu.submenu' | t }}'
+          >
+            {%- for sub_menu_item in menu_item.links -%}
+              <li class='mega-menu-item__sub-menu-item'>
+                <a
+                  class='anchor mega-menu-item__sub-menu-link js-mega-menu-item__sub-menu-link'
+                  href='{{ sub_menu_item.url }}'
+                >
+                  <span
+                    class='text text--regular mega-menu-item__sub-menu-title js-mega-menu-item__sub-menu-title'
+                  >
+                    {{ sub_menu_item.title }}
+                  </span>
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+    </li>
+  {%- endfor -%}
+</ul>

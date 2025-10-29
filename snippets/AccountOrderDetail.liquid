@@ -1,0 +1,17 @@
+<order-detail data-order-no='{{ order.name }}'>
+  <section class='order-detail'>
+    <div class='order-detail__inner js-order-detail__inner'>
+      {% render 'AccountOrderDetailHeader',
+        order: order,
+        order_status: order_status
+      %}
+      {% render 'AccountOrderDetailBody',
+        order: order,
+        order_status: order_status
+      %}
+    </div>
+    <div class='order-detail__return order-detail__return--hidden js-order-detail__return'>
+      {% render 'AccountOrderReturn', order: order %}
+    </div>
+  </section>
+</order-detail>

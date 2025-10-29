@@ -1,0 +1,104 @@
+{%- for order in orders -%}
+  {%- liquid
+    assign order_status = order.financial_status
+    if order.financial_status != 'paid'
+      assign order_status = 'planned'
+    endif
+  -%}
+  <order-item>
+    <article class='order-item js-order-item'>
+      {%- for line_item in order.line_items -%}
+        <div class='order-item__product js-order-item__product'>
+          <input type='hidden' class='order-item-product__id js-order-item-product__id' value='{{ line_item.product.selected_or_first_available_variant.id }}' />
+          <input type='hidden' class='order-item-product__quantity js-order-item-product__quantity' value={{ line_item.quantity }} />
+        </div>
+      {%- endfor -%}
+      <div class='order-item__body js-order-item__body'>
+        <div class='order-item__info'>
+          <div class='order-item__main-info'>
+            <span class='text text--bold'>
+              {{ 'account.order' | t }} #{{ order.name }}
+            </span>
+            <span class='text text--regular'>
+              {{ order.created_at | date: '%-d. %B %Y' }}, {{ order.line_items.size }} {{ 'account.article' | t }}
+            </span>
+            <span
+              class='price price--regular'
+              aria-label='{{ 'account.total_price' | t }}'
+            >
+              {{ order.total_net_amount | money_with_currency }}
+            </span>
+          </div>
+          <span class='text text--regular order-status-badge order-status-badge--{{ order_status }}'>
+            {{ order.financial_status_label }}
+          </span>
+        </div>
+        <div class='order-item__products'>
+          <order-product-slider class='order-product-slider'>
+            <div class='order-product-slider__swiper'>
+              {%- if order.line_items.size == 0 -%}
+                <div class='order-product-slider__empty'>
+                  <span class='text text--regular'>
+                    {{ 'account.no_products_available' | t }}
+                  </span>
+                </div>
+              {%- else -%}
+                <div class='swiper js-order-product-swiper'>
+                  <div class='swiper-wrapper'>
+                    {%- for line_item in order.line_items -%}
+                      <div class='swiper-slide'>
+                        <a class='anchor' href='{{ line_item.product.url }}'>
+                          {%- if line_item.product.featured_image != null -%}
+                            {{
+                              line_item.product.featured_image
+                              | image_url: width: 48
+                              | image_tag:
+                                class: 'image',
+                                loading: lazy,
+                                alt: line_item.product.featured_image.alt | default: line_item.title
+                            }}
+                          {%- else -%}
+                            {{ 'product-1' | placeholder_svg_tag }}
+                          {%- endif -%}
+                        </a>
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                </div>
+              {%- endif -%}
+            </div>
+          </order-product-slider>
+        </div>
+        <div class='order-item__buttons'>
+          <button
+            class='button button--solid order-item-button__buy js-order-item-button__buy button--width-fluid button--padding-md'
+            type='button'
+            aria-disabled='false'
+          >
+            <span class='button__text'>
+              {{ 'account.buy_again' | t }}
+            </span>
+          </button>
+          <button
+            class='button button--outlined order-item-button__detail js-order-item-button__detail button--width-fluid button--padding-md'
+            type='button'
+            aria-disabled='false'
+          >
+            <span class='button__text'>
+              {{ 'account.view_details' | t }}
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class='order-item__detail order-item__detail--hidden js-order-item__detail'
+        data-order-no='{{ order.name }}'
+      >
+        {% render 'AccountOrderDetail',
+          order: order,
+          order_status: order_status
+        %}
+      </div>
+    </article>
+  </order-item>
+{%- endfor -%}

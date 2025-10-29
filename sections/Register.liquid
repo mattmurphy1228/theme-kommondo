@@ -1,0 +1,204 @@
+{%- form 'create_customer', customer -%}
+  <div class='register-form'>
+    <div class='register-form__header'>
+      <h2 class='text text--headline text--h2'>{{ 'register.title' | t }}</h2>
+    </div>
+
+    {%- if form.errors -%}
+      <div class='register-form__error'>
+        <svg class="icon js-icon" width="16" height="16" aria-hidden="true">
+          <use xlink:href="#error"></use>
+        </svg>
+        <span class='text text--regular'>
+          {%- if form.errors contains 'form' -%}
+            {{ form.errors.messages['form'] }}
+          {%- else -%}
+            {{ 'register.error' | t }}
+          {%- endif -%}
+        </span>
+      </div>
+    {%- endif -%}
+
+    <div class='register-form__body'>
+      <div class='register-form__main-info'>
+        <div class='register-form__row'>
+          {%
+            render 'FormFieldSelect',
+            label: 'register.salutation' | t,
+            id: 'salutation',
+            name: 'customer[salutation]',
+            placeholder: 'register.salutation_placeholder' | t,
+            selectOptions: shop.metaobjects['salutation_list']['salutation-list-9zyrhdyj'].items.value,
+            required: true,
+            width: 'fixed'
+          %}
+          {%
+            render 'FormFieldInput',
+            label: 'register.first_name' | t,
+            id: 'first_name',
+            name: 'customer[first_name]',
+            type: 'text',
+            placeholder: 'register.first_name_placeholder' | t,
+            required: true,
+            width: 'fluid',
+            error: form.errors
+          %}
+        </div>
+        {%
+          render 'FormFieldInput',
+          label: 'register.last_name' | t,
+          id: 'last_name',
+          name: 'customer[last_name]',
+          type: 'text',
+          placeholder: 'register.last_name_placeholder' | t,
+          required: true,
+          error: form.errors
+        %}
+        {%
+          render 'FormFieldInput',
+          label: 'register.company' | t,
+          id: 'company',
+          name: 'customer[company]',
+          type: 'text',
+          placeholder: 'register.company_placeholder' | t,
+          required: true,
+          error: form.errors
+        %}
+        {%
+          render 'FormFieldSelect',
+          label: 'register.department' | t,
+          id: 'department',
+          name: 'customer[department]',
+          placeholder: 'register.department_placeholder' | t,
+          selectOptions: shop.metaobjects['department_list']['department-list-ps6kv8n9'].items.value,
+          required: true,
+          width: 'fluid'
+        %}
+        {%
+          render 'FormFieldInput',
+          label: 'register.vat_id' | t,
+          id: 'vat_id',
+          name: 'customer[vat_id]',
+          type: 'text',
+          placeholder: 'register.vat_id_placeholder' | t,
+          required: false,
+          error: form.errors
+        %}
+        {%
+          render 'FormFieldInput',
+          label: 'register.email' | t,
+          id: 'email',
+          name: 'customer[email]',
+          type: 'email',
+          placeholder: 'register.email_placeholder' | t,
+          required: true,
+          error: form.errors
+        %}
+        {%
+          render 'FormFieldInput',
+          label: 'register.password' | t,
+          id: 'password',
+          name: 'customer[password]',
+          type: 'password',
+          placeholder: 'register.password_placeholder' | t,
+          required: true,
+          error: form.errors
+        %}
+      </div>
+      <div class='register-form__address-info'>
+        <h3 class='text text--headline text--h3'>
+          {{ 'register.address_title' | t }}
+        </h3>
+        {%
+          render 'FormFieldInput',
+          label: 'register.street_house_number' | t,
+          id: 'street_house_number',
+          name: 'customer[street_house_number]',
+          type: 'text',
+          placeholder: 'register.street_house_number_placeholder' | t,
+          required: true,
+          error: form.errors
+        %}
+        <div class='register-form__row register-form__row--address'>
+          {%
+            render 'FormFieldInput',
+            label: 'register.zip_code' | t,
+            id: 'zip_code',
+            name: 'customer[zip_code]',
+            type: 'text',
+            placeholder: 'register.zip_code_placeholder' | t,
+            required: true,
+            width: '122',
+            error: form.errors,
+            class_name: 'form-field-input--fixed'
+          %}
+          {%
+            render 'FormFieldInput',
+            label: 'register.city' | t,
+            id: 'city',
+            name: 'customer[city]',
+            type: 'text',
+            placeholder: 'register.city_placeholder' | t,
+            required: true,
+            error: form.errors
+          %}
+        </div>
+        {%
+          render 'FormFieldSelect',
+          label: 'register.country' | t,
+          id: 'country',
+          name: 'customer[country]',
+          placeholder: 'register.country_placeholder' | t,
+          selectOptions: 'country',
+          required: true,
+          width: 'fluid'
+        %}
+      </div>
+    </div>
+    <div class='register-form__footer'>
+      <custom-checkbox>
+        <div class='checkbox'>
+          <input
+            type='checkbox'
+            class='checkbox__input js-checkbox__input'
+            id='terms_of_service'
+            name='customer[terms_accepted]'
+            required
+            {% if form.errors contains 'terms_accepted' %}
+              aria-invalid='true'
+              aria-describedby='terms_of_service_error'
+            {% endif %}
+          >
+          <label for='terms_of_service' class='checkbox__label'>
+            <span class='text text--regular checkbox__text js-checkbox__text'>
+              {{ 'register.terms_of_service' | t }}
+            </span>
+          </label>
+          {% if form.errors contains 'terms_accepted' %}
+            <div id='terms_of_service_error' class='form__error'>
+              {{ 'register.terms_error' | t }}
+            </div>
+          {% endif %}
+        </div>
+      </custom-checkbox>
+      <button
+        class='button button--solid button--width-fluid button--padding-md'
+        type='submit'
+      >
+        <span class='button__text'>{{ 'register.register' | t }}</span>
+      </button>
+    </div>
+  </div>
+{%- endform -%}
+
+{% schema %}
+{
+  "name": "Register",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Register"
+    }
+  ]
+}
+{% endschema %}

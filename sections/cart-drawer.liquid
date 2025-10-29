@@ -1,0 +1,31 @@
+{% render 'CartDrawer',
+  like_collection: section.settings.like_collection
+%}
+
+{% schema %}
+{
+  "name": "Cart drawer",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "like_collection",
+      "label": "DAS KÖNNTE AUCH IHNEN GEFALLEN"
+    },
+    {
+      "type": "range",
+      "id": "slides_per_group",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "default": 4,
+      "label": "Slides per group (number of slides that advance per click)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cart drawer",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

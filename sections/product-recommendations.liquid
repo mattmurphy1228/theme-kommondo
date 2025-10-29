@@ -1,0 +1,33 @@
+<div class="recommended-products__container">
+  {% render 'ProductRecommendations',
+    page_template: page_template,
+    products_to_show: section.settings.products_to_show,
+    section_id: section.id,
+    product_id: product.id
+  %}
+</div>
+
+{% schema %}
+{
+  "name": "Product recommendations",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 8,
+      "label": "Maximum products to show"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product recommendations",
+      "settings": {
+        "products_to_show": 8
+      }
+    }
+  ]
+}
+{% endschema %}

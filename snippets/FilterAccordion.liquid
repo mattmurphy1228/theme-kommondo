@@ -1,0 +1,42 @@
+{% capture sort_by_label %}
+  <span class='filter-accordion__summary-title-wrapper' id='Farbe-title'>
+  <span class='text text--regular filter-accordion__summary-title'>
+    {{ filter.label }}
+  </span>
+  <span class='text text--small filter-accordion__summary-selected js-filter-accordion__summary-selected {% if filter.active_values.size == 0 %} filter-accordion__summary-selected--hidden {% endif %}' aria-live='polite'>
+    {{ filter.active_values.size }}
+    </span>
+  </span>
+{% endcapture %}
+
+{% capture content %}
+  <div
+    class='filter-accordion__options'
+    role='radiogroup'
+    aria-label='Choose an option'
+  >
+    {% for value in filter.values %}
+      {% assign checkbox_id = 'filter-' | append: value.label | handleize %}
+      {% assign checked = value.active %}
+
+      {%- unless value.value == 'search_show' -%}
+        {% render 'Checkbox',
+          id: checkbox_id,
+          name: value.param_name,
+          label: value.label,
+          value: value.value,
+          checked: checked
+        %}
+      {%- endunless -%}
+    {% endfor %}
+  </div>
+{% endcapture %}
+
+<filter-accordion role='group' aria-labeledby='Farbe-title'>
+  {% render 'AccordionItem',
+    summary: sort_by_label,
+    isOpened: false,
+    content: content,
+    itemId: 'filter-accordion-item'
+  %}
+</filter-accordion>

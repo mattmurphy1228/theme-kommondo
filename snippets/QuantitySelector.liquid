@@ -1,0 +1,76 @@
+{% comment %}
+  This snippet creates an accessible and user-friendly quantity selector component for adjusting the number of items to add to the cart.
+
+  Key functionality:
+  - The `quantity-selector` element is styled as a group and includes buttons for incrementing and decrementing the quantity, along with a numeric input field.
+  - The `role='group'` and `aria-labelledby='quantity-label'` attributes enhance accessibility by grouping the controls and providing a descriptive label.
+  - The `quantity-label` element, hidden with `visually-hidden`, provides screen readers with the context 'Adjust quantity.'
+
+  Components:
+  - `button.js-minus`: Decreases the quantity. Initially disabled (`disabled=''`) to prevent reducing the quantity below the minimum value.
+  - `input.number-input`: Numeric input field for manual quantity adjustments, with attributes:
+    - `value="1"`: Default quantity.
+    - `min="1"`: Ensures the quantity cannot go below 1.
+    - `max="1"`: Maximum quantity allowed.
+    - `name="quantity"`: Sets the input's name for form submission.
+  - `button.js-plus`: Increases the quantity, with an `aria-label` of "Increase quantity."
+
+  CSS classes:
+  - `quantity-selector`: Styles the entire quantity selector.
+  - `button--text`: Ensures the buttons have a consistent text-based style.
+  - `js-minus` and `js-plus`: JavaScript hooks for decrement and increment functionality.
+  - `number-input-container` and `js-number-input`: Style and enhance the numeric input field.
+{% endcomment %}
+
+{%- liquid
+  assign quantity_value = value | default: 1
+  assign quantity_min = min | default: 1
+  assign quantity_step = step | default: 1
+  assign quantity_variant_id = variant_id | default: ''
+  assign quantity_id = id | default: 1
+-%}
+
+<quantity-selector
+  class='quantity-selector'
+  role='group'
+  aria-labelledby='quantity-label'
+>
+  <span id='quantity-label' class='visually-hidden'>
+    {{ 'product.add_to_cart.adjust_quantity' | t }}
+  </span>
+  <button
+    class='button button--text js-minus button--width-auto button--padding-md'
+    type='button'
+    disabled=''
+    aria-label='{{- 'product.add_to_cart.decrease_quantity' | t }}'
+  >
+    <span class='button__text'>-</span>
+  </button>
+  <number-input class='number-input-container'>
+    <input
+      class='number-input js-number-input js-quantity-input'
+      type='number'
+      name='quantity'
+      value='{{ quantity_value }}'
+      min='{{ quantity_min }}'
+      data-min='{{ quantity_min }}'
+      {% if max != null %}
+        max='{{ max }}'
+        data-max='{{ max }}'
+      {% endif %}
+      data-quantity-variant-id="{{ quantity_variant_id }}"
+      data-cart-quantity="{{ cart | item_count_for_variant: quantity_variant_id }}"
+      step="{{ quantity_step }}"
+      aria-label="{{ 'product.add_to_cart.input_label' | t: product: cart_item.product.title | escape }}"
+      id="Product-quantity-{{ quantity_id }}"
+      data-index="{{ quantity_id }}"
+    />
+  </number-input>
+  <button
+    class='button button--text js-plus button--width-auto button--padding-md'
+    type='button'
+    aria-label='{{- 'product.add_to_cart.increase_quantity' | t }}'
+  >
+    <span class='button__text'>+</span>
+  </button>
+</quantity-selector>

@@ -1,0 +1,37 @@
+<product-recommendations
+  class='product-slider js-product-slider product-recommendations'
+  data-page-template='{{ page_template }}'
+  data-url="{{ routes.product_recommendations_url }}?limit={{ products_to_show }}"
+  data-section-id="{{ section_id }}"
+  data-product-id="{{ product_id }}"
+>
+  <div class='product-slider__swiper'>
+    {%- if recommendations.performed -%}
+      {%- if recommendations.products_count == 0 -%}
+        <div class='product-slider__empty'>
+          <span class='text text--regular'>{{ 'product.carousels.no_products_available' | t }}</span>
+        </div>
+      {%- else -%}
+        <div class='swiper js-swiper'>
+          <div class='swiper-wrapper'>
+            {% for recommendation in recommendations.products %}
+              <div class='swiper-slide'>
+                {% render 'ProductCard',
+                  product: recommendation
+                %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div
+          class='swiper-button-prev js-swiper-button-prev swiper-button js-swiper-button'
+          aria-label='{{ 'general.prev_slide' | t }}'
+        ></div>
+        <div
+          class='swiper-button-next js-swiper-button-next swiper-button js-swiper-button'
+          aria-label='{{ 'general.next_slide' | t }}'
+        ></div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</product-recommendations>

@@ -1,0 +1,230 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page-header": {
+      "type": "PageHeader",
+      "settings": {}
+    },
+    "hero_Q3gTbM": {
+      "type": "Hero",
+      "blocks": {
+        "image_zmCL3w": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_zmCL3w"
+      ],
+      "settings": {}
+    },
+    "image-with-text": {
+      "type": "ImageWithText",
+      "settings": {
+        "title": "<p>KOMMUNALE BESCHAFFUNG LEICHT GEMACHT!</p>",
+        "text": "<p>Mit großer Leidenschaft arbeitet unser Team daran, den Beschaffungsprozess einfacher, effizienter und digitaler zu gestalten. Ende 2022 haben wir Kommondo gegründet, denn wir sagen „Kommunale Beschaffung muss nicht kompliziert sein!“ Durch unsere langjährige Erfahrung kennen wir die Herausforderungen von Kommunen. Wir qualifizieren die Produkte vor, um sicherzustellen, dass nur geprüfte und zugelassene Artikel gelistet werden. Als herstellerunabhängiges Unternehmen bieten wir nur hochwertige Artikel im guten Preis-Leistungsverhältnis an. Einfache Bestellvorgänge und eine individuelle Beratung entlasten die Mitarbeiterinnen und Mitarbeiter in den Gemeinden.</p>",
+        "button_1_label": "",
+        "button_1_link": "",
+        "button_2_label": "",
+        "button_2_link": "",
+        "flip_order": false,
+        "background_color": "white"
+      }
+    },
+    "image-with-text-2": {
+      "type": "ImageWithText",
+      "settings": {
+        "image": "shopify://shop_images/image_4.png",
+        "title": "<p>Kommondo macht die Beschaffung einfach!</p>",
+        "text": "<p>Mit großer Leidenschaft arbeitet unser Team daran, den Kunden ein perfektes Produktsortiment anzubieten. Wir gestalten den Beschaffungsprozess einfach, und beraten praxisnah. Dem Kunden bei der Beschaffung zu helfen ist unser Ziel (Purpose).</p><p>Durch unsere langjährige Erfahrung kennen wir die Herausforderungen in der kommunalen Welt sehr gut. Wir qualifizieren die Produkte vor, um sicherzustellen, dass nur geprüfte und zugelassene Artikel gelistet werden. Hierbei profitieren wir von unserem engen persönlichen Kundenkontakt. Denn was in der Praxis erprobt ist, schauen wir uns gerne genauer an. Wir bieten hochwertige Artikel im guten Preis-Leistungsverhältnis an. Einfache Bestellvorgänge, eine digitale Plattform und eine individuelle Beratung entlasten unsere Kunden.</p>",
+        "button_1_label": "",
+        "button_1_link": "",
+        "button_2_label": "",
+        "button_2_link": "",
+        "flip_order": false,
+        "background_color": "greylight"
+      }
+    },
+    "image_with_text_zRRAYG": {
+      "type": "ImageWithText",
+      "settings": {
+        "image": "shopify://shop_images/unternehmen-wirfuersie-titel_1920x1920_310d6c5c-2da4-4ba1-99a5-3ab6a149076f.jpg",
+        "title": "<p>Wir sind für Kommunen da</p>",
+        "text": "<p>Die Herausforderungen von Kommunen kennen wir Kommondos und wissen, dass die Beschaffung notwendiger Ressourcen kompliziert sein kann. Von der Lieferantensuche, der Einholung von Angeboten bis hin zur Bestellung ist es ein langwieriger Prozess. Zudem hat jede Gemeinde spezielle Anforderungen. Unsere erfahrenen Fachleute im Innen- und Außendienst bieten individuelle Beratungsleistungen an. Gemeinsam finden wir genau die Lösungen, die Sie als Gemeinde brauchen.</p>",
+        "button_1_label": "",
+        "button_1_link": "",
+        "button_2_label": "",
+        "button_2_link": "",
+        "flip_order": true,
+        "background_color": "greylight"
+      }
+    },
+    "image_with_text_DfN3rp": {
+      "type": "ImageWithText",
+      "settings": {
+        "image": "shopify://shop_images/eco-value-label-page.png",
+        "title": "<p>Ökowert Kennzeichnung</p>",
+        "text": "<p>Wir Kommondos unterstützen unsere Kunden bei ihren Kaufentscheidungen so gut es geht. Unsere Ökowert-Kennzeichnung hilft dabei auch ökologische Aspekte bei der Kaufentscheidung mit einfließen zu lassen. Die Bewertung basiert auf drei zentralen Kriterien. Regionalität, Nachhaltigkeit und Recyclingfähigkeit. Bei vergleichbaren Produkten vergeben wir nach bestem Wissen und Gewissen für jede Kategorie einen Wert (0,1,2,3). Die drei Werte werden summiert. So einfach geht das! Der höchste Wert ist somit die 9. Liegt der Wert unter drei, so wird das Produkt nicht ausgezeichnet. Fragen sie gerne nach, wenn Sie mehr über unsere Einstufung für einen Produktvergleich wissen wollen.<br/><br/><strong>Regionalität: </strong>3 P = Produkt stammt größtenteils aus Deutschland, 2 P = aus einem deutschen Anreinerstaat, 1 P = aus der EU, 0 P = aus dem Rest der Welt <br/><strong>Nachhaltigkeit: </strong>3 P = herausragende Qualität, 2 P = sehr gute Qualität , 1 P = gute Qualität, 0 P = Produkte mit diesem Qualitätsniveau bekommen Sie bei Kommondo nicht <br/><strong>Recyclingfähigkeit: </strong>3 P = bedeute über 75 % einfache Rückführbarkeit oder Wiedergewinnung, 2 P = über 50 %, 1 P = über 25 %</p>",
+        "button_1_label": "",
+        "button_1_link": "",
+        "button_2_label": "",
+        "button_2_link": "",
+        "flip_order": false,
+        "background_color": "greylight"
+      }
+    },
+    "user-list": {
+      "type": "UserList",
+      "blocks": {
+        "user_VfPPpe": {
+          "type": "user",
+          "settings": {
+            "image": "shopify://shop_images/image_5.png",
+            "name": "Felix M. Schaumberg",
+            "occupation": "Gründer",
+            "email": "felix.schaumberg@kommondo.de",
+            "phone": "+49 1705798813",
+            "description": "<p>Wer hat‘s erfunden? Unser Felix. Er hatte nach 10 Jahren als Geschäftsführer im kommunalen Umfeld die zündende Idee. So sucht er immer den Mehrwert für den Kunden. Den Kunden durch Expertise und Einfachheit zu begeistern, macht ihm Freude und treibt alle Kommondos an.<br/><strong>„Machen ist wie wollen, nur krasser!“</strong></p>"
+          }
+        },
+        "user_dNF6ep": {
+          "type": "user",
+          "settings": {
+            "image": "shopify://shop_images/image_6_9106fbcb-e015-4b54-9c7e-6bf960d9f5f9.png",
+            "name": "Roman Merk",
+            "occupation": "Gründer & Geschäftsführer",
+            "email": "roman.merk@kommondo.de",
+            "phone": "+49 1705798812",
+            "description": "<p>Wer kümmert sich um die Geschäftsführung und Vertrieb? Der Roman. Er war von der Idee direkt begeistert und bringt 7 Jahre Erfahrung im Außendienst und 11 für den Vertrieb im kommunalen Umfeld mit. Er versteht die Bedürfnisse der Kunden in ihrer ganzen Vielseitigkeit und kennt sich bei den Produkten bestens aus. Individuelle Lösungen für die Bedürfnisse der Kunden sind seine Leidenschaft. Für ihn gibt es drei wesentliche Schlüssel zum Erfolg. </p><p><strong>Kunde – Kunde – Kunde</strong></p>"
+          }
+        },
+        "user_B6kMhJ": {
+          "type": "user",
+          "settings": {
+            "image": "shopify://shop_images/image_7.png",
+            "name": "Stephan Spiess",
+            "occupation": "Gründer & Verwaltungsleiter",
+            "email": "stephan.spiess@kommondo.de",
+            "phone": "+49 1705798811",
+            "description": "<p>Wer sorgt dafür ,dass alles richtig läuft? Der Stephan. Auch er ist von Anfang an dabei und hat eine supermoderne Verwaltung aufgebaut. Sein Ziel ist es, dass jeder Vorgang korrekt abgewickelt wird und der Kunde 100%-tige Transparenz hat. Er vernetzt auf eine sehr effiziente Art und Weise Kommondo mit seinen Lieferanten und den Kunden. Das alles natürlich voll digital.<br/><strong> „Sollte, hätte, könnte, würde…MACHEN“</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "user_VfPPpe",
+        "user_dNF6ep",
+        "user_B6kMhJ"
+      ],
+      "settings": {
+        "title": "Die Gründer"
+      }
+    },
+    "image_with_text_gc4YNt": {
+      "type": "ImageWithText",
+      "settings": {
+        "title": "",
+        "text": "<p><strong>Die Gesellschafter: </strong>Alle sieben Gesellschafter kommen aus dem Mittelstandsumfeld. So stehen sie auch für unserer Werte, Ziele und sichern langfristig die Unternehmensentwicklung ab. Sie unterstützen die Gründer bei praktischen und strategischen Fragestellungen.</p>",
+        "button_1_label": "",
+        "button_1_link": "",
+        "button_2_label": "",
+        "button_2_link": "",
+        "flip_order": false,
+        "background_color": "white"
+      }
+    },
+    "image_with_text_EghYeH": {
+      "type": "ImageWithText",
+      "settings": {
+        "image": "shopify://shop_images/unternehmen-was-uns-antreibt.jpg",
+        "title": "<p>Was uns antreibt</p>",
+        "text": "<p>Unsere Vision ist die kommunale Beschaffung zu vereinfachen, die Prozesse schneller und unkomplizierter zu gestalten. Wir bieten den Zugang zu einer Vielzahl von Produkten aus verschiedenen Branchen. Wir streben das Vollsortiment an und wollen erreichen, dass Sie als Gemeinde möglichst viele der benötigten Produkte an einem Ort bekommen: bei Kommondo. Natürlich berücksichtigen wir Aspekte der Nachhaltigkeit in der Herstellung, der Materialauswahl und der Qualität berücksichtigen. So unterstützen wir Sie als Städte und Gemeinden dabei, ökologische Aspekte bei Ihrer Kaufentscheidung miteinfließen zu lassen.</p>",
+        "button_1_label": "",
+        "button_1_link": "",
+        "button_2_label": "",
+        "button_2_link": "",
+        "flip_order": false,
+        "background_color": "white"
+      }
+    },
+    "image_with_text_HMfVfw": {
+      "type": "ImageWithText",
+      "settings": {
+        "image": "shopify://shop_images/Unsere-Kunden.jpg",
+        "title": "<p>Unsere Kunden</p>",
+        "text": "<p>Wir haben die besten Kunden der Welt. Es sind Menschen aus der Praxis, die ihre Aufgabe ideal bewältigen wollen. Mit viel Leidenschaft suchen sie die beste Lösung für jede Anwendung. Im Austausch mit unseren Kunden lernen wir extrem viel über Spitzenprodukte und schlaue Arbeitsweisen.</p><p>Wir freuen uns jeden Tag über den Austausch und sind stolz, wenn wir helfen können.</p>",
+        "button_1_label": "",
+        "button_1_link": "",
+        "button_2_label": "",
+        "button_2_link": "",
+        "flip_order": true,
+        "background_color": "white"
+      }
+    },
+    "hero_PJCyxP": {
+      "type": "Hero",
+      "blocks": {
+        "image_7wFBXC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DSC00623_1.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_7wFBXC"
+      ],
+      "settings": {}
+    },
+    "image_with_text_yaLpwQ": {
+      "type": "ImageWithText",
+      "settings": {
+        "title": "<p>Du möchtest Teil des Kommondo Teams werden?</p>",
+        "text": "<p>Wir suchen Menschen, die Lust haben, sich einzubringen und zu gestalten. Wir bieten abwechslungsreiche Aufgaben, ein super Betriebsklima und etliche Mitarbeitervorteile. Ob Mann, Frau oder divers – bei uns sind alle willkommen!  Egoismus und Pessimismus sind bei uns allerdings fehl am Platz.</p>",
+        "button_1_label": "Offene Stellen",
+        "button_1_link": "",
+        "button_2_label": "",
+        "button_2_link": "",
+        "flip_order": true,
+        "background_color": "greylight"
+      }
+    },
+    "image_with_text_fA99k9": {
+      "type": "ImageWithText",
+      "settings": {
+        "title": "<p></p>",
+        "text": "<h3><strong>So ticken wir:</strong></h3><p><strong><br/>Lösungsorientiert</strong></p><p>Wir zögern nicht lange. Wenn es was zu tun gibt, kümmern wir uns darum. Wir handeln – und wenn unsere Lösung nicht optimal war, machen wir es beim nächsten Mal einfach besser. Und dann noch besser.<br/><br/><strong>Leidenschaftlich</strong></p><p>Wir sind mit dem ganzen Herzen bei der Sache. Unseren Kunden bei der Beschaffung und Digitalisierung zu helfen, erfüllt uns. Jede Anfrage ist eine Ehre, denn der Kunde schenkt uns damit Vertrauen.<br/><br/></p><p><strong>Bodenständig</strong></p><p>Wir revolutionieren die Beschaffung. Dabei sind wir immer auf Augenhöhe mit unseren Kunden. So pflegen wir es auch im internen Miteinander.<br/><br/><strong>Fair</strong></p><p>Wir lieben es, mit unseren Kunden und Lieferanten zusammen zu arbeiten. Dabei übervorteilen wir niemanden. Das ist unsere Grundeinstellung auch im Teamwork.<br/><br/><strong>Authentisch</strong></p><p>Wir sind wie wir sind. Wir spielen keinem etwas vor. Am liebsten haben wir auch mit authentischen Menschen zu tun. So weiß jeder, woran er ist und kann sich auf die Aufgabe konzentrieren.<br/><br/><strong>Zuverlässig</strong></p><p>Bei uns zählt ein Wort und ein Handschlag. Wir werden konkret und geben Rückmeldung, wenn mal was nicht so läuft, wie es geplant war.</p>",
+        "button_1_label": "",
+        "button_1_link": "",
+        "button_2_label": "",
+        "button_2_link": "",
+        "flip_order": true,
+        "background_color": "greylight"
+      }
+    }
+  },
+  "order": [
+    "page-header",
+    "hero_Q3gTbM",
+    "image-with-text",
+    "image-with-text-2",
+    "image_with_text_zRRAYG",
+    "image_with_text_DfN3rp",
+    "user-list",
+    "image_with_text_gc4YNt",
+    "image_with_text_EghYeH",
+    "image_with_text_HMfVfw",
+    "hero_PJCyxP",
+    "image_with_text_yaLpwQ",
+    "image_with_text_fA99k9"
+  ]
+}

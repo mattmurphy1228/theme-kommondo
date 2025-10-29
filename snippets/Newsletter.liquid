@@ -1,0 +1,71 @@
+{% comment %}
+  This form snippet implements a newsletter subscription form with customizable text and button labels.
+  Variables used:
+  - `text`: Introductory text displayed above the email input field (e.g., 'Subscribe to our newsletter').
+  - `button_text`: Text displayed on the submit button (e.g., 'Subscribe').
+  - `note`: Privacy policy note displayed below the button (e.g., 'We respect your privacy').
+{% endcomment %}
+
+{% form 'customer', class: 'newsletter contact-form' %}
+  <input type='hidden' name='contact[tags]' value='newsletter'>
+  <span class='text text--regular newsletter__text'>
+    {{ text }}
+  </span>
+  <div class='newsletter__body'>
+    <div class='newsletter__input-wrapper'>
+      <div
+        class='input newsletter__input input--width-fluid{% if form.errors %} input--error{% endif %}{% if form.posted_successfully? %} input--success{% endif %}'
+      >
+        <input
+          class='input__field'
+          type='email'
+          value='{{ form.email }}'
+          placeholder='Email'
+          aria-label='Enter your email address'
+          name='contact[email]'
+          required=''
+          autocomplete='email'
+          {% if form.errors %}
+            aria-describedby='email-error'
+            aria-invalid='true'
+          {% elsif form.posted_successfully? %}
+            aria-describedby='success-feedback'
+          {% endif %}
+        >
+        {% if form.errors %}
+          <span class='input__icon'>
+            <svg class='icon js-icon' width='16' height='16' aria-hidden='true'>
+              <use xlink:href='#error-mark'></use>
+            </svg>
+          </span>
+        {% elsif form.posted_successfully? %}
+          <span class='input__icon'>
+            <svg class='icon js-icon' width='16' height='16' aria-hidden='true'>
+              <use xlink:href='#check-mark'></use>
+            </svg>
+          </span>
+        {% endif %}
+      </div>
+      {% if form.errors %}
+        <span class='text text--regular newsletter__error' id='email-error'>
+          {{- form.errors.translated_fields.email | capitalize }}
+          {{ form.errors.messages.email -}}
+        </span>
+      {% elsif form.posted_successfully? %}
+        <span class='visually-hidden' id='success-feedback'>
+          {{- 'newsletter.accessibility.success' | t }}
+        </span>
+      {% endif %}
+    </div>
+    <button
+      class='button button--solid newsletter__btn button--width-auto button--padding-md'
+      type='submit'
+      aria-describedby='privacy-policy-note'
+    >
+      <span class='button__text'>{{ button_text }}</span>
+    </button>
+  </div>
+  <span class='text text--small newsletter__note' id='privacy-policy-note'>
+    {{ note }}
+  </span>
+{% endform %}

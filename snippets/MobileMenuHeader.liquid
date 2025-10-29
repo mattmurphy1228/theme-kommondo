@@ -1,0 +1,58 @@
+{%- liquid
+  if class_name != blank
+    assign wrapper_class = class_name | append: ' mobile-menu-header'
+  else
+    assign wrapper_class = 'mobile-menu-header'
+  endif
+
+  if logo_image == blank and text != blank
+    assign wrapper_class = wrapper_class | append: ' mobile-menu-header--secondary'
+  endif
+-%}
+
+<div class='{{ wrapper_class }}'>
+  {%- if logo_image != blank -%}
+    {% assign alt = 'main_menu.menu_logo' | t | escape %}
+    {{
+      logo_image
+      | image_url: width: 131
+      | image_tag:
+        class: 'image mobile-menu-header__image',
+        loading: lazy,
+        alt: alt
+    }}
+  {%- endif -%}
+  {%- if logo_image == blank and text != blank -%}
+    <label
+      class='text text--regular mobile-menu-header__back'
+      for='{{ back_label_for }}'
+    >
+      <svg
+        class='icon js-icon'
+        width='16'
+        height='16'
+        aria-hidden='true'
+      >
+        <use xlink:href='#back-arrow'></use>
+      </svg>
+    </label>
+    <span
+      class='text text--regular mobile-menu-header__text'
+    >
+      {{ text }}
+    </span>
+  {%- endif -%}
+  <label
+    class='text text--regular mobile-menu-header__close'
+    for='{{ close_label_for }}'
+  >
+    <svg
+      class='icon js-icon'
+      width='16'
+      height='16'
+      aria-hidden='true'
+    >
+      <use xlink:href='#close'></use>
+    </svg>
+  </label>
+</div>

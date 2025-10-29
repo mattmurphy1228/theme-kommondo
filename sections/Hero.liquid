@@ -1,0 +1,162 @@
+<div class='hero'>
+  <div class='hero__container'>
+    <div class='hero__info'>
+      {% for block in section.blocks %}
+        {% if block.type == 'description' %}
+          <p class='text text--body text--regular hero__info-description'>
+            {{ block.settings.description }}
+          </p>
+        {% endif %}
+        {% if block.type == 'title' %}
+          <h1 class='text text--headline text--h1 hero__info-title'>
+            {{ block.settings.title }}
+          </h1>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class='hero__cta'>
+      {% for block in section.blocks %}
+        {% if block.type == 'cta' %}
+          <a
+            class='button {% if block.settings.is_primary %}button--solid{% else %}button--secondary hero__cta-button--white{% endif %} button--width-auto button--padding-md'
+            href='{{ block.settings.link }}'
+          >
+            <span class='button__text'>
+              {{ block.settings.text }}
+            </span>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class='hero__images'>
+      <custom-hero>
+        <div
+          class='hero__swiper swiper js-hero-swiper'
+        >
+          <div class='swiper-wrapper'>
+            {% assign first_image = true %}
+            {% for block in section.blocks %}
+              {% if block.type == 'image' %}
+                {% if block.settings.image != blank %}
+                  <div class='swiper-slide hero__swiper-slide'>
+                    {% if first_image %}
+                      <img
+                        src="{{ block.settings.image | image_url: width: 600 }}"
+                        fetchpriority="high"
+                        width="{{ block.settings.image.width }}"
+                        height="{{ block.settings.image.height }}"
+                      >
+                      {% assign first_image = false %}
+                    {% else %}
+                      {{
+                        block.settings.image
+                        | image_url: width: 1920
+                        | image_tag
+                      }}
+                    {% endif %}
+                  </div>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            <div class='hero__swiper-slide-overlay'></div>
+          </div>
+        </div>
+      </custom-hero>
+    </div>
+    <div
+      class='swiper-pagination js-hero-swiper-pagination'
+    ></div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero",
+  "blocks": [
+    {
+      "type": "title",
+      "name": "Title",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "name": "Call to Action",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_primary",
+          "label": "Is Primary Button",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Slide Image",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "blocks": [
+        {
+          "type": "title"
+        },
+        {
+          "type": "description"
+        },
+        {
+          "type": "cta"
+        },
+        {
+          "type": "cta",
+          "settings": {
+            "is_primary": false
+          }
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

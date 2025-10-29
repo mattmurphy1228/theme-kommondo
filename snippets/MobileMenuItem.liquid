@@ -1,0 +1,66 @@
+{%- liquid
+  if class_name != blank
+    assign wrapper_class = class_name | append: ' mobile-menu-item'
+  else
+    assign wrapper_class = 'mobile-menu-item'
+  endif
+
+  assign is_sale = false
+  if title == sale_menu_item_title
+    assign is_sale = true
+  endif
+-%}
+
+<div class='{{ wrapper_class }}'>
+  {%- if is_sale == false and image != blank -%}
+    {{
+      image
+      | image_url: width: 40
+      | image_tag: class: 'image mobile-menu-item__image', loading: 'lazy'
+    }}
+  {%- endif -%}
+  {%- if is_sale == true -%}
+    <span class='text text--regular mobile-menu-item__sale-sign'> % </span>
+  {%- endif -%}
+  {%- if link != blank and link != '#' -%}
+    <a
+      class='
+        anchor
+        mobile-menu-item__anchor
+        mobile-menu-item__text
+        {% if is_sale == true %}mobile-menu-item__text--sale{% endif %}
+        {% if has_sub_items == false %}mobile-menu-item__text--without-sub{% endif %}
+        {% if image == blank %}mobile-menu-item__text--without-image{% endif %}
+      '
+      href='{{ link }}'
+    >
+      <label
+        class='
+          text
+          text--regular
+          mobile-menu-item__text
+          {% if is_sale == true %}mobile-menu-item__text--sale{% endif %}
+          {% if has_sub_items == false %}mobile-menu-item__text--without-sub{% endif %}
+          {% if image == blank %}mobile-menu-item__text--without-image{% endif %}
+        '
+        for='{{ label_for }}'
+      >
+        {{ title }}
+      </label>
+    </a>
+  {%- else -%}
+    <label
+      class='
+        text
+        text--regular
+        mobile-menu-item__text
+        {% if is_sale == true %}mobile-menu-item__text--sale{% endif %}
+        {% if has_sub_items == false %}mobile-menu-item__text--without-sub{% endif %}
+        {% if image == blank %}mobile-menu-item__text--without-image{% endif %}
+      '
+      for='{{ label_for }}'
+    >
+      {{ title }}
+    </label>
+  {%- endif -%}
+</div>

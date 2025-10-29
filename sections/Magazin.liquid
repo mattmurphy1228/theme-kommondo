@@ -1,0 +1,65 @@
+{% assign all_blogs = "allgemeines,mobilitat,mensch" | split: "," %}
+
+<div class='magazin-background color-{{ section.settings.background_color_scheme }}'>
+  <div class='page-width magazin '>
+    {% render 'MagazinHeader',
+      title: section.settings.title,
+      button_text: section.settings.button_text,
+      button_link: section.settings.button_link
+    %}
+    <div class='magazin__articles'>
+      {%- for blog_handle in all_blogs limit:3 -%}
+        {%- assign blog = blogs[blog_handle] -%}
+        {%- assign latest_article = blog.articles.first -%}
+        {%- assign category = blog.title -%}
+
+        {%- if latest_article -%}
+          {% render 'ArticleCard',
+            image: latest_article.image,
+            created_at: latest_article.published_at,
+            category: category,
+            content: latest_article.content,
+            title: latest_article.title,
+            excerpt_or_content: latest_article.excerpt_or_content,
+            href: latest_article.url
+          %}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Magazin",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Magazin",
+      "settings": {
+        "title": "MAGAZIN",
+        "button_text": "Alle anzeigen",
+        "button_link": "#"
+      },
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

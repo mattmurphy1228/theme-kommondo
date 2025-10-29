@@ -1,0 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "Header Group",
+  "type": "header",
+  "sections": {
+    "secondary_nav_menu_8e84nh": {
+      "type": "SecondaryNavMenu",
+      "settings": {
+        "partner_text": "Unsere Partner",
+        "partner_link": "shopify://pages/partner",
+        "eco_text": "Ökowert-Kennzeichnung",
+        "eco_link": "shopify://pages/oekowert-kennzeichnung",
+        "about_text": "Über Uns",
+        "about_link": "shopify://pages/uber-uns",
+        "secondary_menu": "secondary-menu"
+      }
+    },
+    "header": {
+      "type": "Header",
+      "settings": {
+        "logo": "shopify://shop_images/logo.png"
+      }
+    },
+    "menu": {
+      "type": "Menu",
+      "settings": {
+        "menu": "main-menu",
+        "secondary_menu": "secondary-menu",
+        "sale_menu_item_title": "Aktion",
+        "logo": "shopify://shop_images/logo.png",
+        "footer_text": "Alle Produkte anzeigen",
+        "menu_item_placeholder_image": "shopify://shop_images/placeholder-image.png"
+      }
+    },
+    "175126803969b1125c": {
+      "type": "apps",
+      "blocks": {
+        "avada_order_limits_app_block_4yk7fB": {
+          "type": "shopify://apps/avada-order-limits/blocks/app-block/d3021427-4f7b-49c8-8963-29d1d52b8956",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "avada_order_limits_app_block_4yk7fB"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "secondary_nav_menu_8e84nh",
+    "header",
+    "menu",
+    "175126803969b1125c"
+  ]
+}

@@ -1,0 +1,18 @@
+<div class='order-detail__header'>
+  <div class='order-detail-header'>
+    {% render 'BackButton', back_to: 'orders' %}
+    <div class='order-detail-header__no'>
+      <span class='text text--headline text--h4 order-detail-header__no-label'>
+        {{ 'account.order' | t }}
+      </span>
+      <span class='text text--headline text--h4'>
+        {{ order.name }}
+      </span>
+    </div>
+    <div class='order-detail-header__status-badge'>
+      <span class='text text--regular order-status-badge order-status-badge--{{ order_status }}'>
+        {{ order.financial_status_label }}
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+{% assign height = image_height | default: 320  %}
+
+<article
+  class='sales-documents-block'
+>
+  {{
+    image
+    | image_url: height: height
+    | image_tag:
+      class: 'image sales-documents-block__image'
+  }}
+  <a
+    class='button button--solid button--width-fluid button--padding-md'
+    href='{{ button_link | default: "javascript:void(0)" }}'
+    target='_blank'
+    rel='noopener noreferrer'
+  >
+    <span class='button__text'>{{ button_label }}</span>
+  </a>
+  <span class='text text--regular'>
+    {{ text }}
+  </span>
+</article>

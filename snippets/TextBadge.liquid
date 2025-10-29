@@ -1,0 +1,18 @@
+{%- liquid
+  assign badge_variant = variant | default: 'outlined'
+  assign badge_color = color | default: 'blue'
+  assign badge_width = width | default: 'fit-content'
+  assign badge_padding = padding | default: 'sm'
+-%}
+
+<span
+  class='
+    text-badge
+    text-badge--{{ badge_variant }}
+    text-badge--color-{{ badge_color }}
+    text-badge--width-{{ badge_width }}
+    text-badge--padding-{{ badge_padding }}
+  '
+>
+  {{ text }}
+</span>

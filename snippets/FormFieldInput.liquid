@@ -1,0 +1,61 @@
+{%- liquid
+  if class_name != blank
+    assign wrapper_class = class_name | append: ' form-field-input'
+  else
+    assign wrapper_class = 'form-field-input'
+  endif
+
+  assign input_type = type | default: 'text'
+  assign input_width = width | default: 'auto'
+  assign input_class = 'input__field'
+
+  # Extract field name from the full input name (e.g., 'email' from 'customer[email]')
+  assign field_name = name | split: '[' | last | split: ']' | first
+
+  if error and error.messages[field_name] != blank
+    assign input_class = input_class | append: ' input__field--error'
+  endif
+-%}
+
+<div class='{{ wrapper_class }}'>
+  <div class='form-field'>
+    <label
+      class='text text--regular form-field__label'
+      for='{{ id }}'
+    >
+      {{ label | t }}
+      {%- if required -%}*{%- endif -%}
+    </label>
+    <div class='input input--width-{{ input_width }}'>
+      <input
+        class='{{ input_class }}'
+        type='{{ input_type }}'
+        id='{{ id }}'
+        name='{{ name }}'
+        {%- if placeholder != blank %}
+          placeholder='{{ placeholder | t }}'
+        {% endif %}
+        {%- if required %}
+          required
+          aria-required='true'
+        {% endif %}
+        {%- if autocomplete != blank %}
+          autocomplete='{{ autocomplete }}'
+        {% endif %}
+        {%- if value != blank %}
+          value='{{ value }}'
+        {% endif %}
+        {%- if error and error.messages[field_name] != blank %}
+          aria-invalid='true'
+          aria-describedby='{{ id }}-error'
+        {% endif %}
+      >
+      {%- if error and error.messages[field_name] != blank -%}
+        <div id='{{ id }}-error' class='form__error'>
+          {{ field_name | capitalize }}
+          {{ error.messages[field_name] }}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>

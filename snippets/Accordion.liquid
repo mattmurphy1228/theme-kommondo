@@ -1,0 +1,50 @@
+{%- comment -%}
+  Accepts:
+    - product: Product object (required)
+      The product object containing metafield options for traffic signs and QR codes
+    - block: object (required)
+      The section block containing Shopify attributes
+
+  Usage:
+    {% render 'Accordion', product: product, block: block %}
+{%- endcomment -%}
+
+<div class='accordion-group' role='group' {{ block.shopify_attributes }}>
+  <h4 class='text text--regular accordion-group__title'>
+    {{- 'product.options.title' | t }}
+  </h4>
+  <details class='accordion-item'>
+    <summary class='accordion-item__summary'>
+      {{- 'product.options.punching_of_traffic_signs' | t }}
+    </summary>
+    <div class='accordion-item__content'>
+      <div
+        class='option-group'
+        role='group'
+        aria-label='{{- 'product.options.choose_option' | t }}'
+      >
+        {%- render 'OptionGroup',
+          options: product.metafields.custom.traffic_sign_options.value,
+          group_name: 'traffic_option'
+        -%}
+      </div>
+    </div>
+  </details>
+  <details class='accordion-item'>
+    <summary class='accordion-item__summary'>
+      {{- 'product.options.qr_code_label' | t }}
+    </summary>
+    <div class='accordion-item__content'>
+      <div
+        class='option-group'
+        role='group'
+        aria-label='{{- 'product.options.choose_option' | t }}'
+      >
+        {%- render 'OptionGroup',
+          options: product.metafields.custom.qr_code_labels.value,
+          group_name: 'qr_code_label'
+        -%}
+      </div>
+    </div>
+  </details>
+</div>

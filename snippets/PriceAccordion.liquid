@@ -1,0 +1,16 @@
+{% capture summary %}
+  <span class='price-accordion__summary-title'>
+    {{ 'collection.filter_drawer.price_label' | t }}
+  </span>
+{% endcapture %}
+
+{% capture content %}
+  {% render 'PriceAccordionContent', filter: filter %}
+{% endcapture %}
+
+{% render 'AccordionItem',
+  summary: summary,
+  content: content,
+  className: 'price-accordion',
+  itemId: 'price-accordion-item'
+%}

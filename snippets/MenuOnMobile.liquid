@@ -1,0 +1,57 @@
+<div class='main-menu__mobile'>
+  <mobile-menu>
+    <div
+      class='mobile-menu'
+      role='navigation'
+      aria-label='{{ 'main_menu.mobile_menu' | t }}'
+    >
+      <form action='javascript:'>
+        {% render 'MobileMenuHamburger' %}
+        <nav
+          class='mobile-menu__nav-1 js-mobile-menu__nav-1 mobile-menu__nav js-mobile-menu__nav'
+        >
+          <main class='mobile-menu__nav-inner'>
+            {% render 'MobileMenuHeader',
+              logo_image: logo_image,
+              close_label_for: 'mobile-menu-close'
+            %}
+            {%- liquid
+              assign has_secondary_menus = false
+              if secondary_menu_links != blank and secondary_menu_links.size > 0
+                assign has_secondary_menus = true
+              endif
+            -%}
+            <ul class='mobile-menu__body {% if has_secondary_menus == false %}mobile-menu__body--without-footer{% endif %}'>
+              {%- if secondary_menu_links != blank
+                and secondary_menu_links.size > 0
+              -%}
+                {% render 'MobileMenuItemWrapper',
+                  menu_item: secondary_menu_links,
+                  index: forloop.index0,
+                  parent_index: forloop.index0,
+                  level: 1,
+                  has_footer: false,
+                  menu_item_class_name: ''
+                %}
+              {%- endif -%}
+              {%- if menu_links != blank and menu_links.size > 0 -%}
+                {%- for menu_item in menu_links -%}
+                  {% render 'MobileMenuItemWrapper',
+                    menu_item: menu_item,
+                    index: forloop.index0,
+                    parent_index: forloop.index0,
+                    level: 1,
+                    has_footer: true,
+                    menu_item_class_name: '',
+                    sale_menu_item_title: sale_menu_item_title,
+                    footer_text: footer_text
+                  %}
+                {%- endfor -%}
+              {%- endif -%}
+            </ul>
+          </main>
+        </nav>
+      </form>
+    </div>
+  </mobile-menu>
+</div>

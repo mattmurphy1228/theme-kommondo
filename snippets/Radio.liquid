@@ -1,0 +1,33 @@
+{%- comment -%}
+  Renders a radio button input with label
+  Accepts:
+  - id: string (required) - Unique identifier for the radio button
+  - name: string (required) - Name attribute for the radio group
+  - value: string (required) - Value for the radio button
+  - label: string (required) - Label text to display
+  - checked: boolean (optional) - Whether radio button is checked
+
+  Usage:
+  {% render 'Radio',
+    id: 'radio-1',
+    name: 'radio-group',
+    value: 'radio-1',
+    label: 'Radio 1',
+    checked: true
+  %}
+{%- endcomment -%}
+
+<div class='radio'>
+  <input
+    type='radio'
+    class='radio__input js-radio__input'
+    name='{{ name }}'
+    value='{{ value }}'
+    {% if checked %}
+      checked
+    {% endif %}
+  >
+  <label for='{{ id }}' class='radio__label'>
+    <span class='js-radio__text'>{{ label }}</span>
+  </label>
+</div>

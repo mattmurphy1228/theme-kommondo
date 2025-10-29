@@ -1,0 +1,48 @@
+<div class='banner'>
+  <div class='banner__inner'>
+    <div class='banner__content'>
+      <svg class='icon js-icon' width='36' height='36' aria-hidden='true'>
+        <use xlink:href="#icon-info"></use>
+      </svg>
+      <div class='text text--regular banner__content-text text--center'>
+        {{ section.settings.text }}
+      </div>
+    </div>
+    <a
+      class='button button--solid button--width-auto button--padding-md'
+      href='{{ section.settings.button_link | default: "javascript:void(0)" }}'
+    >
+      <span class='button__text'>{{ section.settings.button_text }}</span>
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Banner",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Liebe Kunden, wir haben unsere Website aktualisiert! Um Ihr Konto weiter nutzen zu können, müssen Sie sich erneut registrieren.</p><p>Vielen Dank für Ihr Verständnis!</p>"
+    },
+    {
+      "type": "text", 
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Jetzt ein Konto erstellen"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner"
+    }
+  ]
+}
+{% endschema %}

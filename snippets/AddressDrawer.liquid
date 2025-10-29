@@ -1,0 +1,31 @@
+{%- liquid
+  assign address_drawer_id = 'add-address-drawer'
+  if address
+    assign address_drawer_id = 'edit-address-drawer-' | concat: address.id
+  endif
+-%}
+
+<address-drawer
+  class='address-drawer address-drawer--closed'
+  role='dialog'
+  aria-labelledby='address-drawer-title-{{ address.id }}'
+  data-mode='{{ mode }}'
+  data-address-item-id='address-{{ address.id }}'
+  id='{{ address_drawer_id }}'
+>
+  <div class='address-drawer__inner'>
+    <div class='address-drawer__header'>
+      {% render 'AddressDrawerHeader',
+        mode: mode,
+        address_id: address.id
+      %}
+    </div>
+    <div class='address-drawer__body'>
+      {%- if mode == 'add' -%}
+        {% render 'AddressDrawerAddForm' %}
+      {%- elsif mode == 'edit' -%}
+        {% render 'AddressDrawerEditForm', address: address %}
+      {%- endif -%}
+    </div>
+  </div>
+</address-drawer>

@@ -1,0 +1,97 @@
+<div class='testimonials-background'>
+  <testimonials-carousel class='testimonials page-width'>
+    <h3 class='text text--headline text--h3 testimonials__title'>
+      {{ section.settings.section_title }}
+    </h3>
+    <div class='testimonials__swiper'>
+      {% if section.blocks.size == 0 %}
+        <div class='testimonials__empty'>
+          <span class='text text--regular'>No testimonials available</span>
+        </div>
+      {% else %}
+        <div class='swiper js-swiper'>
+          <div class='swiper-wrapper'>
+            {% for block in section.blocks %}
+              <div class='swiper-slide js-swiper-slide'>
+                {% render 'TestimonialCard',
+                  image: block.settings.image,
+                  title: block.settings.title,
+                  description: block.settings.description,
+                  author: block.settings.author,
+                  position: block.settings.position,
+                  company: block.settings.company
+                %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class='swiper-pagination'></div>
+      {% endif %}
+    </div>
+  </testimonials-carousel>
+</div>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section title"
+    }
+  ],
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "testimonial_card",
+      "name": "Testimonial card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author"
+        },
+        {
+          "type": "text",
+          "id": "position",
+          "label": "Position"
+        },
+        {
+          "type": "text",
+          "id": "company",
+          "label": "Company name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "settings": {
+        "section_title": "KUNDEN DIE GESCHICHTEN SCHREIBEN"
+      },
+      "blocks": [
+        {
+          "type": "testimonial_card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

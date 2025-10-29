@@ -1,0 +1,376 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "Hero",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title": "BESCHAFFUNG EINFACH GEMACHT   FÜR KOMMUNEN VON HEUTE"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "description": "Einfach  -  richtig   - gut"
+          }
+        },
+        "image_JXW6CC": {
+          "type": "image",
+          "settings": {}
+        },
+        "cta_1": {
+          "type": "cta",
+          "settings": {
+            "text": "Jetzt entdecken",
+            "link": "shopify://collections/bestsellers",
+            "is_primary": true
+          }
+        },
+        "slide_image_1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/hero-bg.png"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "description",
+        "image_JXW6CC",
+        "cta_1",
+        "slide_image_1"
+      ],
+      "settings": {}
+    },
+    "collections": {
+      "type": "Collections",
+      "blocks": {
+        "collection_item_1": {
+          "type": "collection_item",
+          "settings": {
+            "image": "shopify://shop_images/collections_1.png",
+            "title": "SCHILDER",
+            "link": "shopify://collections/schilder"
+          }
+        },
+        "collection_item_2": {
+          "type": "collection_item",
+          "settings": {
+            "image": "shopify://shop_images/collections_2.png",
+            "title": "BEFESTIGEN & MONTIEREN",
+            "link": "shopify://collections/befestigen-und-montieren"
+          }
+        },
+        "collection_item_3": {
+          "type": "collection_item",
+          "settings": {
+            "image": "shopify://shop_images/collections_3.png",
+            "title": "Arbeitsstellensicherung",
+            "link": "shopify://collections/baustellenabsicherung"
+          }
+        },
+        "collection_item_4": {
+          "type": "collection_item",
+          "settings": {
+            "image": "shopify://shop_images/collections_4.png",
+            "title": "STRAßENAUSSTATTUNG",
+            "link": "shopify://collections/strassenausstattung"
+          }
+        },
+        "collection_item_5": {
+          "type": "collection_item",
+          "settings": {
+            "image": "shopify://shop_images/abfallbehaelter-7092-10-stand-abfallbehaelter-abgeschraegte-haube-inkl-ascher-aufschrauben-ral7016-r_31914c07-3f53-48c5-8431-7fdcac75187b.webp",
+            "title": "STADTMOBILIAR",
+            "link": "shopify://collections/stadtmobiliar"
+          }
+        },
+        "collection_item_6": {
+          "type": "collection_item",
+          "settings": {
+            "image": "shopify://shop_images/Fairguard-2.webp",
+            "title": "Fahrzeugsperren",
+            "link": "shopify://collections/fahrzeugsperre"
+          }
+        },
+        "collection_item_7": {
+          "type": "collection_item",
+          "settings": {
+            "image": "shopify://shop_images/treebuddy-1-PE.webp",
+            "title": "Grünpflege",
+            "link": "shopify://collections/gruenpflege"
+          }
+        },
+        "collection_item_8": {
+          "type": "collection_item",
+          "settings": {
+            "image": "shopify://shop_images/128002-001_verkehrszeichen-hinweiszeichen-einschubschild-a4-128001-vorne_1920x1920_53ec3b32-4331-4aa5-90a2-900cf6741117.webp",
+            "title": "AKTION",
+            "link": "shopify://collections/aktion"
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_1",
+        "collection_item_2",
+        "collection_item_3",
+        "collection_item_4",
+        "collection_item_5",
+        "collection_item_6",
+        "collection_item_7",
+        "collection_item_8"
+      ],
+      "settings": {
+        "title": "UNSERE TOP KATEGORIEN"
+      }
+    },
+    "best_sellers": {
+      "type": "ProductSlider",
+      "blocks": {
+        "carousel": {
+          "type": "product_carousel",
+          "settings": {
+            "title": "BESTSELLER",
+            "id_collection": "bestsellers"
+          }
+        }
+      },
+      "block_order": [
+        "carousel"
+      ],
+      "settings": {
+        "page_template": "",
+        "products_to_show": 4,
+        "slides_per_group": 4
+      }
+    },
+    "benefits": {
+      "type": "Benefits",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit_card",
+          "settings": {
+            "icon": "rocket",
+            "title": "GEPRÜFTES SORTIMENT",
+            "description": "Zuverlässige und geprüfte Produkte! Das Sortiment überzeugt durch Qualität und Vielfalt. Schneller Versand und guter Kundenservice runden das Angebot ab. Zufriedene Kunden sind das Ergebnis!"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit_card",
+          "settings": {
+            "icon": "plant",
+            "title": "ENVIRONMENT, SOCIAL, GOVERNANCE (ESG)",
+            "description": "Im August 2022 wurde die Kommondo GmbH für ihre Nachhaltigkeitsmaßnahmen von Cubemos nach dem Standard AAl000AS ausgezeichnet. Der Fokus liegt auf Treibhausgasemissionen, Arbeitsbedingungen und Lieferketten."
+          }
+        },
+        "benefit_3": {
+          "type": "benefit_card",
+          "settings": {
+            "icon": "chat",
+            "title": "PERSÖNLICHE BERATUNG",
+            "description": "Wir beraten Sie persönlich vor Ort, am Telefon, per Mail oder im Livechat. Dabei stehen Ihre Bedürfnisse stets im Mittelpunkt. Vertrauen Sie auf unsere individuelle und kompetente Beratung."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3"
+      ],
+      "settings": {
+        "title": "WARUM KUNDEN BEI KOMMONDO KAUFEN?"
+      }
+    },
+    "testimonials": {
+      "type": "Testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial_card",
+          "settings": {
+            "image": "shopify://shop_images/testimonial_1.png",
+            "title": "VZ UND SCHILDER",
+            "description": "<p>Als technische Betriebe der Großen Kreisstadt Freising teilen wir unsere positive Erfahrung mit Kommondo. Die fachkundige Statikberatung durch Ralf Hannich war hochprofessionell und praxisnah. Besonders beeindruckend war seine Fähigkeit, Projektkosten zu reduzieren. Unsere speziellen Anforderungen wurden mit Engagement und Präzision umgesetzt. Wir sind dankbar für die Unterstützung und empfehlen Kommondo uneingeschränkt weiter.</p>",
+            "author": "Technische Betriebe",
+            "position": "",
+            "company": "Große Stadt Freising"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial_card",
+          "settings": {
+            "image": "shopify://shop_images/testimonial_2.png",
+            "title": "MARKIERUNGSARBEITEN",
+            "description": "<p>Die Gemeinde Übersee ist begeistert von den neuen „Zone 30“-Schildern und thermoplastischen Straßenmarkierungen im Wohngebiet am Forsthausweg/Hofanger. Diese Maßnahmen haben den Verkehr deutlich beruhigt und die Sicherheit erheblich erhöht. Besonders die sichtbaren Haifischzähne verdeutlichen die Rechts-vor-links-Regelung. Die Ausführung durch die Firma Kommondo verlief schnell und reibungslos.</p>",
+            "author": "Florian Gnadl",
+            "position": "Bauamt",
+            "company": "Übersee am Chiemsee,"
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial_card",
+          "settings": {
+            "image": "shopify://shop_images/testimonial_3.png",
+            "title": "EINDREHSOCKEL FÜR LP",
+            "description": "<p>Als Bauhofleiter der Gemeinde Eching möchte ich die hervorragende Arbeit Ihres Teams loben. Die Montage von Eindrehsockeln für Leitpfosten war professionell und qualitativ hochwertig. Ihre Mitarbeiter waren fachkundig, effizient und freundlich. Die schnelle Umsetzung und zuverlässige Lieferung haben unseren Alltag erleichtert und die Verkehrssicherheit verbessert. Vielen Dank für die hervorragende Zusammenarbeit!</p>",
+            "author": "Johann Bartl",
+            "position": "Bauhofleiter",
+            "company": "Gemeinde Eching"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ],
+      "settings": {
+        "section_title": "KUNDEN DIE GESCHICHTEN SCHREIBEN"
+      }
+    },
+    "new_products": {
+      "type": "ProductSlider",
+      "blocks": {
+        "carousel": {
+          "type": "product_carousel",
+          "settings": {
+            "title": "NEUE PRODUKTE",
+            "id_collection": "neue-produkte"
+          }
+        }
+      },
+      "block_order": [
+        "carousel"
+      ],
+      "settings": {
+        "page_template": "",
+        "products_to_show": 4,
+        "slides_per_group": 4
+      }
+    },
+    "image_with_text_2": {
+      "type": "ImageWithText",
+      "settings": {
+        "image": "shopify://shop_images/DSC00623_1.jpg",
+        "title": "<p>UNSER TEAM</p>",
+        "text": "<p>Mit großer Leidenschaft arbeitet unser Team daran, den Beschaffungsprozess einfacher, effizienter und digitaler zu gestalten. Ende 2022 haben wir Kommondo gegründet, denn wir sagen „Kommunale Beschaffung muss nicht kompliziert sein!“ Durch unsere langjährige Erfahrung kennen wir die Herausforderungen von Kommunen. Wir qualifizieren die Produkte vor, um sicherzustellen, dass nur geprüfte und zugelassene Artikel gelistet werden. Als herstellerunabhängiges Unternehmen bieten wir nur hochwertige Artikel im guten Preis-Leistungsverhältnis an. Einfache Bestellvorgänge und eine individuelle Beratung entlasten die Mitarbeiterinnen und Mitarbeiter in den Gemeinden.</p>",
+        "button_1_label": "Über Uns",
+        "button_1_link": "shopify://pages/uber-uns",
+        "button_2_label": "Kontakt",
+        "button_2_link": "shopify://pages/contact",
+        "flip_order": false,
+        "background_color": "white"
+      }
+    },
+    "magazin": {
+      "type": "Magazin",
+      "settings": {
+        "title": "NACHRICHT UND AKTUELLE THEMEN",
+        "button_text": "Zum Magazin",
+        "button_link": "shopify://blogs/allgemeines"
+      }
+    },
+    "content_accordion": {
+      "type": "ContentAccordion",
+      "blocks": {
+        "accordion_item_1": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "SCHILDER",
+            "description": "<p><a href=\"/collections/verkehrszeichen\" title=\"Verkehrszeichen\">Verkehrszeichens</a> sind essenziell für die Sicherheit und Ordnung im Straßenverkehr. Sie umfassen verschiedene Kategorien, die spezifische Anweisungen und Hinweise geben. <a href=\"/collections/gefahrenzeichen-100-199\" title=\"Gefahrenzeichen 100-199\">Gefahrenzeichen</a> warnen vor potenziellen Gefahren wie scharfen Kurven oder Baustellen. <a href=\"/collections/vorschriftzeichen-200-299\" title=\"Vorschriftzeichen 200-299\">Vorschriftzeichen</a> beinhalten Verbots- und Gebotszeichen, die bestimmte Verhaltensweisen vorschreiben oder verbieten. <a href=\"/collections/richtzeichen-300-499\" title=\"Richtzeichen 300-499\">Richtzeichen</a> dienen der Orientierung und informieren über Streckenführungen und Entfernungen. <a href=\"/collections/verkehrslenkungstafeln-500-599\" title=\"Verkehrslenkungstafeln 500-599\">Verkehrslenkungstafeln</a> regulieren den Verkehrsfluss und leiten den Verkehr gezielt. <a href=\"/collections/verkehrseinrichtungen-600-700\" title=\"Verkehrseinrichtungen 600-700\">Verkehrseinrichtungen</a> wie Schranken oder Lichtzeichenanlagen sorgen für zusätzliche Sicherheit. <a href=\"/collections/zusatzzeichen-1000-1099\" title=\"Zusatzzeichen 1000-1099\">Zusatzzeichen</a> liefern ergänzende Informationen zu den Hauptzeichen, beispielsweise Einschränkungen oder Ausnahmen. Darüber hinaus gibt es <a href=\"/collections/pfeilwegweiser\" title=\"Pfeilwegweiser\">Pfeilwegweiser</a>, die die Richtung zu Zielen angeben, <a href=\"/collections/strassennamen\" title=\"Straßennamen\">Straßennamen</a> zur Orientierung, sowie Maßnahmen zum <a href=\"/collections/auskreuzen-abdecken\" title=\"Auskreuzen, Abdecken\">Auskreuzen und Abdecken</a>, um vorübergehend geltende Regelungen anzuzeigen. <a href=\"/collections/warnen-und-hinweisen\" title=\"Warnen und hinweisen\">Warn- und Hinweisschilder</a> informieren über <a href=\"/collections/gefahrstoffe\" title=\"Gefahrstoffe\">Gefahrstoffe</a>, markieren <a href=\"/collections/fluchtweg\" title=\"Fluchtweg\">Fluchtwege</a> und kennzeichnen Spielplätze. Sie tragen zur Erhöhung der Sicherheit und Ordnung im öffentlichen Raum bei.</p>"
+          }
+        },
+        "accordion_item_2": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "BEFESTIGEN UND MONTIEREN",
+            "description": "<p>Wir bieten eine umfassende Auswahl an Produkten und Dienstleistungen für Ihre Projekte. Dazu gehören <a href=\"/collections/aufstellvorrichtungen\" title=\"Aufstellvorrichtungen\">Aufstellvorrichtungen</a>, Fundamente, Bodenhülsen, Rohrpfosten und Rohrrahmen. Wir bieten auch eine breite Palette an Befestigungsmaterialien an. Unsere Dienstleistungen umfassen Markierungsarbeiten, die Schildermontage sowie die <a href=\"/collections/mastenmontage\" title=\"Mastenmontage\">Mastenmontage</a>. Zudem führen wir <a href=\"/collections/fundamentarbeiten\" title=\"Fundamentarbeiten\">Fundamentarbeiten</a> und <a href=\"/collections/verkehrssicherungsmassnahmen\" title=\"Verkehrssicherungsmaßnahmen\">Verkehrssicherungsmaßnahmen</a> durch. In den Bereichen Infrastruktur und <a href=\"/collections/verkehrsmanagementsysteme\" title=\"Verkehrsmanagementsysteme\">Verkehrsmanagementsysteme</a> bieten wir ebenfalls professionelle Lösungen an. Darüber hinaus übernehmen wir die <a href=\"/collections/leitpfostenmontage\" title=\"Leitpfostenmontage\">Leitpfostenmontage</a>, um die Verkehrssicherheit zu gewährleisten. Unsere Experten stehen Ihnen für individuelle Beratungen zur Verfügung und sorgen für eine fachgerechte Ausführung Ihrer Aufträge. Durch unsere langjährige Erfahrung und unser qualifiziertes Team gewährleisten wir höchste Qualität und Zuverlässigkeit bei allen Befestigungs- und Montagearbeiten. So stellen wir sicher, dass Ihre Projekte termingerecht und effizient umgesetzt werden. Lassen Sie sich von unserer Kompetenz und unserem umfassenden Serviceangebot überzeugen.</p>"
+          }
+        },
+        "accordion_item_3": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "BAUSTELLENSICHERUNG",
+            "description": "<p>In der <a href=\"/collections/baustellenabsicherung\" title=\"Baustellenabsicherung\">Baustellensicherung</a> bieten wir eine umfangreiche Auswahl an Produkten, die zur sicheren Absicherung von Baustellen unerlässlich sind. Dazu gehören Baken und Kegel, die eine klare Markierung und Abgrenzung ermöglichen. Fußplatten sorgen für die notwendige Stabilität der Absperrungen. <a href=\"/collections/leitbaken\" title=\"Leitbaken\">Leitbaken</a> und <a href=\"/collections/leitkegel\" title=\"Leitkegel\">Leitkegel</a> dienen der Verkehrssicherheit und leiten den Verkehr sicher um die Baustelle herum. Unser Angebot an mobilem <a href=\"/collections/aufstellmaterial-mobil\" title=\"Aufstellmaterial mobil\">Aufstellmaterial</a> gewährleistet eine flexible und schnelle Absicherung. Batterien für die Stromversorgung sowie <a href=\"/collections/faltsignale\" title=\"Faltsignale\">Faltsignale</a> zur kurzfristigen Kennzeichnung sind ebenfalls verfügbar. Absperrschranken bieten eine zuverlässige Absperrung und <a href=\"/collections/transportgestelle\" title=\"Transportgestelle\">Transportgestelle</a> erleichtern den sicheren Transport der Materialien. <a href=\"/collections/lichtsignalanlagen\" title=\"Lichtsignalanlagen\">Lichtsignalanlagen</a> und <a href=\"/collections/warnleuchten\" title=\"Warnleuchten\">Warnleuchten</a> runden das Sortiment ab und sorgen für eine erhöhte Sichtbarkeit und Sicherheit, insbesondere bei Nacht. In der Rubrik „sonstiges“ finden Sie weiteres Zubehör und Ergänzungsprodukte für die Baustellensicherung.</p>"
+          }
+        },
+        "accordion_item_4": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "STRAßENAUSSTATTUNG",
+            "description": "<p>Die Straßenausstattung umfasst ein vielfältiges Sortiment an Produkten, die zur Sicherung und Instandhaltung von Verkehrswegen beitragen. Hierzu zählen <a href=\"/collections/verkehrsspiegel\" title=\"Verkehrsspiegel\">Verkehrsspiegel</a>, die die Sichtverhältnisse an unübersichtlichen Stellen verbessern, sowie Geräte für den <a href=\"/collections/winterdienst\" title=\"Winterdienst\">Winterdienst</a>, um Straßen schnee- und eisfrei zu halten. Im Bereich <a href=\"/collections/strassenbau\" title=\"Straßenbau\">Straßenbau</a> sind <a href=\"/collections/schranken\" title=\"Schranken\">Schranken</a>, <a href=\"/collections/schutzbuegel-poller-pfosten-schwellen\" title=\"Schutzbügel, Poller, Pfosten, Schwellen\">Schutzbügel und Poller</a> wichtige Elemente, um Verkehrsströme zu lenken und Bereiche abzusichern. Verschiedene Pfostenarten, wie <a href=\"/collections/umleg-herausnehm-versenkbare-pfosten\" title=\"Umleg-, Herausnehm-, Versenkbare Pfosten\">feste, stilvolle, umlegbare, herausnehmbare, versenkbare und flexible Pfoste</a>n, bieten vielseitige Anwendungsmöglichkeiten. <a href=\"/collections/verkehrsinseln-schwellen\" title=\"Verkehrsinseln, Schwellen\">Verkehrsinseln und Schwellen</a> dienen der Verkehrsberuhigung, während Schutzgeländer und Wegesperren zusätzlichen Schutz bieten. Leitpfosten und das Vario System sorgen für klare Abgrenzungen und Orientierung. Im Bereich Zubehör finden sich <a href=\"/collections/dynamische-anzeigesysteme\" title=\"Dynamische Anzeigesysteme\">dynamische Anzeigesysteme, Geschwindigkeitsanzeigen, Prismenwender und Verkehrszählungssysteme,</a> die zur Überwachung und Regelung des Verkehrs beitragen. Straßenmarkierungen, darunter <a href=\"/collections/thermoplastische-markierung\" title=\"Thermoplastische Markierung\">thermoplastische Markierungen, Spielplatzmarkierungen, Markierungsfarben, Markierungsfolien, Markiergeräte und Schablonen,</a> sowie <a href=\"#\">Warnmarkierungen</a> runden das Angebot ab.</p>"
+          }
+        },
+        "accordion_item_5": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "STADTMOBILIAR",
+            "description": "<p>Unser Stadtmobiliar bietet eine umfassende Auswahl an Produkten, um öffentliche Räume funktional und ästhetisch ansprechend zu gestalten. Wir führen Abfallbehälter aus verschiedenen Materialien wie <a href=\"/collections/metall\" title=\"Metall\">Metall</a>, <a href=\"/collections/kunststoff\" title=\"Kunststoff\">Kunststoff</a>, <a href=\"/collections/holz-mischmaterialien\" title=\"Holz, Mischmaterialien\">Holz und Mischmaterialien</a>, die sowohl drinnen als auch draußen eingesetzt werden können. <a href=\"/collections/wertstoffsammler\" title=\"Wertstoffsammler\">Wertstoffsammler</a> und <a href=\"/collections/ascher\" title=\"Ascher\">Ascher</a> ergänzen unser Angebot, ebenso wie Sonderlösungen und Großbehälter für spezifische Bedürfnisse. Zusätzlich bieten wir Zubehör wie Müllsäcke und <a href=\"/collections/muellsackstaender\" title=\"Müllsackständer\">Müllsackständer</a> an. Für die Fahrradfreundlichkeit Ihrer Kommune haben wir <a href=\"/collections/fahrradparksysteme\" title=\"Fahrradparksysteme\">Fahrradparksysteme</a>, <a href=\"/collections/fahrradstaender\" title=\"Fahrradständer\">Fahrradständer</a>, <a href=\"/collections/fahrradanlehnbuegel\" title=\"Fahrradanlehnbügel\">Fahrradanlehnbügel</a>, <a href=\"/collections/fahrradgaragen-ueberdachungen\" title=\"Fahrradgaragen/-Überdachungen\">Fahrradgaragen und -überdachungen </a>sowie umfassende Fahrradservices im Sortiment. <a href=\"/collections/baenke\" title=\"Bänke\">Bänke</a> und <a href=\"/collections/hundetoiletten\" title=\"Hundetoiletten\">Hundetoiletten</a> runden unser Angebot ab und tragen zur Sauberkeit und Bequemlichkeit im öffentlichen Raum bei. Mit unseren hochwertigen Produkten unterstützen wir Sie bei der Gestaltung eines ordentlichen und nutzerfreundlichen Stadtbildes.</p>"
+          }
+        },
+        "accordion_item_6": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "GRÜNPFLEGE",
+            "description": "<p>In der <a href=\"/collections/gruenpflege\" title=\"Grünpflege\">Grünpflege</a> bieten wir ein umfassendes Sortiment an, das alles abdeckt, was Sie für die Pflege und Erhaltung Ihrer Grünflächen benötigen. Unser Angebot umfasst <a href=\"/collections/baum-rasenschutz\" title=\"Baum- Rasenschutz\">Baum- und Rasenschutz</a>, der Ihre Pflanzen vor äußeren Einflüssen schützt und ihre Gesundheit fördert. Zudem führen wir eine breite Auswahl an hochwertigen <a href=\"/collections/arbeitsgeraete\" title=\"Arbeitsgeräte\">Arbeitsgeräten</a>, die Ihnen die Pflege Ihrer Grünanlagen erleichtern und effizienter gestalten. Ergänzend dazu finden Sie bei uns auch diverses Zubehör unter der Rubrik \"<a href=\"/collections/sonstiges\" title=\"sonstiges\">Sonstiges</a>\", welches Ihnen bei speziellen Anforderungen und Herausforderungen hilfreich zur Seite steht. Um Ihre Grünflächen in vollem Glanz erstrahlen zu lassen, bieten wir zudem eine Vielzahl an hochwertigem <a href=\"/collections/saatgut\" title=\"Saatgut\">Saatgut</a> an, das für einen dichten und gesunden Wuchs sorgt. Entdecken Sie unsere Kategorie Grünpflege und finden Sie die perfekten Produkte für Ihre individuellen Bedürfnisse.</p>"
+          }
+        },
+        "accordion_item_7": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "BETRIEBSBEDARF",
+            "description": "<p>Im <a href=\"/collections/betriebsbedarf\" title=\"Betriebsbedarf\">Betriebsbedarf</a> bieten wir Ihnen ein umfassendes Sortiment, das alle notwendigen Bereiche für einen reibungslosen Betrieb abdeckt. Unsere Auswahl an <a href=\"/collections/werkzeug\" title=\"Werkzeug\">Werkzeugen</a> umfasst hochwertige Produkte für jede Anwendung, während unsere <a href=\"/collections/befestigungstechnik\" title=\"Befestigungstechnik\">Befestigungstechnik</a> Lösungen für stabile und zuverlässige <a href=\"/collections/verbindungselemente\" title=\"Verbindungselemente\">Verbindungen</a> bietet. Arbeitssicherheit steht bei uns an erster Stelle, weshalb wir eine breite Palette an <a href=\"/collections/bekleidung\" title=\"Bekleidung\">Schutzkleidung</a> und -ausrüstung bereitstellen. Im Elektrobereich finden Sie alles von Kabeln bis zu Maschinen, um Ihre elektrischen Anforderungen zu erfüllen. Unser <a href=\"/collections/lager\" title=\"Lager\">Lager</a> -und <a href=\"/collections/betriebsmittel\" title=\"Betriebsmittel\">Betriebsmittelangebot</a> stellt sicher, dass Sie stets optimal ausgestattet sind. Für Sauberkeit und Gesundheit sorgen unsere <a href=\"/collections/hygiene\" title=\"Hygiene\">Hygieneprodukte</a>. <a href=\"/collections/buerobedarf\" title=\"Bürobedarf\">Bürobedarf</a> und <a href=\"/collections/genuss\" title=\"Genuss\">Genussartikel</a> komplettieren unser Sortiment, um Ihre Arbeitsumgebung angenehm zu gestalten. Ergänzend dazu bieten wir spezialisierte <a href=\"/collections/software\" title=\"Software\">Softwarelösungen</a> sowie <a href=\"/collections/transport\" title=\"Transport\">Transportmittel</a>, um den innerbetrieblichen Ablauf zu optimieren.</p>"
+          }
+        },
+        "accordion_item_PFCLW4": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "SCHULUNGEN",
+            "description": "<p>Unsere Schulungsakademie bietet umfassende Schulungen zur Arbeitsstellensicherung an öffentlichen Straßen, sowohl innerorts als auch außerorts sowie auf Landstraßen. Dabei erhalten Sie wichtige Hinweise zum Anbringen von Verkehrszeichen und -einrichtungen. Zusätzlich bieten wir Arbeitssicherheitsunterweisungen im Bauhof an. Ein weiterer Schwerpunkt liegt auf der fachgerechten Entsorgung und dem Umgang mit Abfällen und Bodenaushub im Straßenbereich. Unsere Winterdienstschulungen befassen sich mit der sachgerechten Organisation und Durchführung des Winterdienstes. Darüber hinaus bieten wir Schulungen zur <a href=\"/products/schulung-oelspurbeseitigung-und-andere-umweltschaeden-219700-001\" title=\"Schulung Ölspurbeseitigung und andere Umweltschäden\">Ölspurbeseitigung</a> und zum Umgang mit anderen Umweltschäden an. Eine Einweisung in die korrekte Applikation vorgefertigter thermoplastischer Markierungen ist ebenfalls Teil unseres Angebots. Wir schulen befähigte Personen zur Prüfung von Leitern und Tritten auf dem neuesten Stand der rechtlichen Grundlagen. Schließlich bieten wir Motorsägenkurse an, die die Ausbildung für Arbeiten mit der <a href=\"/products/motorsaegenkurs-modul-a-ausbildung-fuer-arbeiten-mit-der-motorsaege-grundlagen-219601-001\" title=\"Motorsägenkurs Modul A - Ausbildung für Arbeiten mit der Motorsäge - Grundlagen\">Motorsäge</a> in den Modulen A-D umfassen.</p>"
+          }
+        },
+        "accordion_item_8": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "AKTIONEN",
+            "description": "<p>Unsere Aktionen bietet Ihnen eine Vielzahl spannender Neuheiten und Angebote. Im Bereich der <a href=\"/collections/gelenksysteme\" title=\"Gelenksysteme\">Gelenksysteme</a> präsentieren wir innovative Lösungen, die ab Frühjahr 2024 erhältlich sind. Diese Systeme bieten erhöhte Flexibilität und Haltbarkeit für verschiedenste Anwendungen. Unsere <a href=\"/collections/rsa21\" title=\"RSA21\">RSA21-Aktion</a> ist ebenfalls ein Highlight, das besonders für den Einsatz in sicherheitsrelevanten Bereichen konzipiert wurde. Für den <a href=\"/collections/herbst-winter-2024\" title=\"Herbst-/Winter 2024\">Herbst-/Winter</a> haben wir spezielle Angebote, die auf die saisonalen Anforderungen abgestimmt sind. Mit dem Konzept \"<a href=\"/collections/new-work\" title=\"New Work\">New Work\" </a>unterstützen wir moderne Arbeitsplatzgestaltung und flexibles Arbeiten. Zudem erweitern wir unser Sortiment um Lösungen für die <a href=\"/collections/fahrradstrasse\" title=\"Fahrradstraße\">Fahrradstraße</a>, die Sicherheit und Komfort im urbanen Radverkehr erhöhen. Abschließend bieten wir hochwertige <a href=\"/collections/defibrillatoren\" title=\"Defibrillatoren\">Defibrillatoren</a> an, die in Notfällen lebensrettend sein können. Entdecken Sie unsere aktuellen Aktionen und profitieren Sie von hochwertigen Produkten und attraktiven Konditionen.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_item_1",
+        "accordion_item_2",
+        "accordion_item_3",
+        "accordion_item_4",
+        "accordion_item_5",
+        "accordion_item_6",
+        "accordion_item_7",
+        "accordion_item_PFCLW4",
+        "accordion_item_8"
+      ],
+      "settings": {
+        "title": "Der Onlineshop für Kommunen und deren Partner"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "collections",
+    "best_sellers",
+    "benefits",
+    "testimonials",
+    "new_products",
+    "image_with_text_2",
+    "magazin",
+    "content_accordion"
+  ]
+}

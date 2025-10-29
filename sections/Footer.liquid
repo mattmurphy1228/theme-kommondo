@@ -1,0 +1,161 @@
+<footer class='footer page-width page-width--no-padding'>
+  <div class='footer__body'>
+    {% if section.settings.logo != blank %}
+      {{
+        section.settings.logo
+        | image_url: width: 480
+        | image_tag:
+          class: 'image footer__logo',
+          loading: lazy
+      }}
+    {% endif %}
+    {%
+      render 'ContactInfo',
+      contact_title: section.settings.contact_title,
+      tel: section.settings.tel,
+      tel_text: section.settings.tel_text,
+      email: section.settings.email,
+      email_text: section.settings.email_text,
+      whatsapp_title: section.settings.whatsapp_title,
+      whatsapp: section.settings.whatsapp,
+      whatsapp_text: section.settings.whatsapp_text
+    %}
+    {% render 'Certifications',
+      title: section.settings.certifications_title,
+      certifications: section.blocks,
+      class_name: 'footer__certifications footer__certifications--on-mobile'
+    %}
+    {%
+      render 'Newsletter',
+      text: section.settings.newsletter_text,
+      button_text: section.settings.button_text,
+      note: section.settings.note
+    %}
+    <div>
+      {% render 'PaymentShipping' %}
+      {% render 'Certifications',
+        title: section.settings.certifications_title,
+        certifications: section.blocks,
+        class_name: 'footer__certifications footer__certifications--on-desktop'
+      %}
+    </div>
+  </div>
+  {%
+    render 'Copyright',
+    text: section.settings.copyright_text,
+    footer_text: section.settings.footer_text
+  %}
+</footer>
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "header",
+      "content": "Contact Information"
+    },
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Contact Title"
+    },
+    {
+      "type": "text",
+      "id": "tel",
+      "label": "Phone Number"
+    },
+    {
+      "type": "text",
+      "id": "tel_text",
+      "label": "Phone Number Text"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email Address"
+    },
+    {
+      "type": "text",
+      "id": "email_text",
+      "label": "Email Text"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_title",
+      "label": "WhatsApp Title"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp",
+      "label": "WhatsApp Number"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_text",
+      "label": "WhatsApp Text"
+    },
+    {
+      "type": "header",
+      "content": "Newsletter"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "note",
+      "label": "Note"
+    },
+    {
+      "type": "header",
+      "content": "Copyright"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "copyright_text",
+      "label": "Copyright Text"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer Text"
+    },
+    {
+      "type": "text",
+      "id": "certifications_title",
+      "label": "Certifications title"
+    }
+  ],
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "certification_image",
+      "name": "Certification image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "certification",
+          "label": "Certification"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
+{% endschema %}

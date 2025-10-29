@@ -1,0 +1,62 @@
+<div class='kpi-stats'>
+  <div class='kpi-stats__list'>
+    {% for block in section.blocks %}
+      <div class='kpi-stats__item' {{ block.shopify_attributes }}>
+        <span
+          class='text text--headline text--h1 kpi-stats__item-value'
+        >
+          {{ block.settings.value }}
+        </span>
+        <span class='text text--headline text--h4'>
+          {{ block.settings.title }}
+        </span>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "KPI Stats",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "kpi_stat",
+      "name": "KPI Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "KPI Stats",
+      "blocks": [
+        {
+          "type": "kpi_stat",
+          "settings": {
+            "title": "Lieferanten und Hersteller",
+            "value": "164"
+          }
+        },
+        {
+          "type": "kpi_stat",
+          "settings": {
+            "title": "Artikel und Varianten",
+            "value": "79832"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

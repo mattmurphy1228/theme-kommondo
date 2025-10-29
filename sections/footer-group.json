@@ -1,0 +1,77 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "Footer Group",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "Footer",
+      "blocks": {
+        "certification_image_4x6RDg": {
+          "type": "certification_image",
+          "settings": {
+            "certification": "shopify://shop_images/Screenshot_2025-02-12_at_14.28.04.png"
+          }
+        },
+        "certification_1": {
+          "type": "certification_image",
+          "settings": {
+            "certification": "shopify://shop_images/certification_2.jpg"
+          }
+        },
+        "certification_2": {
+          "type": "certification_image",
+          "settings": {
+            "certification": "shopify://shop_images/certification_3.jpg"
+          }
+        },
+        "certification_3": {
+          "type": "certification_image",
+          "settings": {
+            "certification": "shopify://shop_images/certification_4.jpg"
+          }
+        },
+        "certification_image_CDMHmn": {
+          "type": "certification_image",
+          "settings": {
+            "certification": "shopify://shop_images/Ausbildung.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "certification_image_4x6RDg",
+        "certification_1",
+        "certification_2",
+        "certification_3",
+        "certification_image_CDMHmn"
+      ],
+      "settings": {
+        "logo": "shopify://shop_images/logo.png",
+        "contact_title": "Kontakt:",
+        "tel": "0881-9258600",
+        "tel_text": "0881-9258600",
+        "email": "info@kommondo.de",
+        "email_text": "info@kommondo.de",
+        "whatsapp_title": "Oder per Whatsapp:",
+        "whatsapp": "01705798830",
+        "whatsapp_text": "01705798830",
+        "newsletter_text": "Für Fachinformationen anmelden: exklusive, kostenlose Informationen für Mitglieder erhalten. Attraktive Sonderkonditionen. Innovative Aktionen.",
+        "button_text": "Abonnieren",
+        "note": "Ich habe die <a href=\"#\">Datenschutzbestimmungen</a> zur Kenntnis genommen.",
+        "copyright_text": "Onlineshop für B2B und B2G Kunden. * Ausnahme bei Artikel im Warenkorb mit Sperrgut-, Paletten- oder Speditionszuschlag. * Alle Preise rein netto zzgl. der aktuell gesetzlich gültiger Mehrwertsteuer. <a href=\"#\">Fracht zzgl. 9 % vom Netto-Auftragswert</a> und ggf. Nachnahmegebühren, wenn nicht anders angegeben. Bitte beachten Sie den Mindestbestellwert von 100€.",
+        "footer_text": "© Kommondo GmbH. All rights reserved.",
+        "certifications_title": "Zertifiziert durch:"
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

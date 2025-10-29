@@ -1,0 +1,79 @@
+<div class='collection-page page-width'>
+  {% render 'FilterDrawer' %}
+  {% if collection.featured_image %}
+    <div class='collection-page__menu__image--mobile'>
+      {{
+        collection.featured_image
+        | image_url: width: 600
+        | image_tag
+      }}
+    </div>
+  {% endif %}
+  <div class='collection-page__container'>
+    <div class='collection-page__menu'>
+      {% if collection.featured_image %}
+        <div class='collection-page__menu__image'>
+          {{
+            collection.featured_image
+            | image_url: width: 1200
+            | image_tag
+          }}
+        </div>
+      {% endif %}
+      <div class='collection-page__menu__collection__menu'>
+        {% render 'CollectionMenu' %}
+      </div>
+    </div>
+    <div class='collection-page__content'>
+      {% render 'CollectionHeader',
+        template: 'herbst-winter',
+        introduction_text: section.settings.introduction_text,
+        description: collection.description
+      %}
+      {% paginate collection.products by section.settings.products_per_page %}
+        {% render 'ProductGrid', products: collection.products %}
+
+        {%- if paginate.pages > 1 -%}
+          {% render 'Pagination', paginate: paginate %}
+        {%- endif -%}
+      {% endpaginate %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "CollectionPage",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Collection image"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_mobile",
+      "label": "Collection image mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_desktop",
+      "label": "Collection image desktop"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 48,
+      "step": 8,
+      "default": 24,
+      "label": "Products per page"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "introduction_text",
+      "label": "Introduction text"
+    }
+  ],
+  "blocks": []
+}
+{% endschema %}

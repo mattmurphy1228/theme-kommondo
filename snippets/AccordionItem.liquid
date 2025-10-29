@@ -1,0 +1,35 @@
+{%- comment -%}
+  Accordion Item - Renders a collapsible accordion item with a summary and content. 
+  The accordion item can be opened or closed based on the `isOpened` parameter. 
+  The summary serves as the clickable heading, and the content is displayed when the item is expanded.
+
+  Accepts:
+    - name: The name of the accordion item (used as the `name` attribute in the details element).
+    - summary: The title or heading displayed in the accordion item.
+    - isOpened: A boolean indicating whether the accordion item is open by default (if true, the item will be open).
+    - content: The content to be shown inside the accordion item.
+    - itemId: A unique identifier for the accordion item, used for aria-controls and linking the content.
+
+  Usage:
+    {% render 'AccordionItem', name: 'item-1', summary: 'Accordion Title', isOpened: false, content: 'Accordion content here', itemId: 'item-1' %}
+{%- endcomment -%}
+
+
+<details
+  class='accordion-item collection-menu-accordion'
+  name='{{ name }}'
+  {% if isOpened %}
+    open
+  {% endif %}
+>
+  <summary
+    class='accordion-item__summary'
+    aria-expanded='{%- if isOpened -%}true{%- else -%}false{%- endif -%}'
+    aria-controls='{{ itemId }}-content'
+  >
+    {{ summary }}
+  </summary>
+  <div class='accordion-item__content' id='{{ itemId }}-content'>
+    {{ content }}
+  </div>
+</details>

@@ -1,0 +1,49 @@
+{% assign sort_by = collection.sort_by | default: 'manual' %}
+{% assign translation_id = 'collection.sort_by.' | append: sort_by %}
+{% assign sort_by_text = translation_id | t %}
+
+<sort-dropdown class='sort-dropdown'>
+  <div class='sort-dropdown__inner'>
+    <button
+      class='button button--outlined sort-dropdown__button js-sort-dropdown__button button--width-auto button--padding-md'
+      type='button'
+      aria-label='[object HTMLSpanElement]'
+      aria-expanded='false'
+      aria-controls='_menu'
+    >
+      <span class='button__text'>
+        <span
+          class='text text--regular sort-dropdown__button-label js-sort-dropdown__button-label'
+        >
+          {{ sort_by_text }}
+        </span>
+      </span>
+      <svg
+        class='icon js-icon'
+        width='16'
+        height='16'
+        aria-hidden='true'
+      >
+        <use xlink:href='#dropdown-arrow'></use>
+      </svg>
+    </button>
+    <ul
+      id='_menu'
+      class='js-sort-dropdown__menu sort-dropdown__menu sort-dropdown__menu--hidden'
+      aria-labelledby=''
+    >
+      {%- for option in collection.sort_options -%}
+        {%- unless option.value == 'best-selling' -%}
+          <li class='sort-dropdown__list'>
+            <a
+              class='text text--regular sort-dropdown__label js-sort-dropdown__label'
+              href='{{ collection.url | sort_by: option.value }}'
+            >
+              {{ option.name }}
+            </a>
+          </li>
+        {%- endunless -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</sort-dropdown>

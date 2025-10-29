@@ -1,0 +1,36 @@
+{%- comment -%}
+  Renders the main collection menu using accordion items
+
+  Accepts:
+  - No direct parameters, uses the 'main-menu' linklist from the theme settings
+
+  Usage:
+  {% render 'CollectionMenu' %}
+
+  Requirements:
+  - Requires the AccordionItem snippet to be present
+  - Requires a 'main-menu' linklist to be configured in theme settings
+{%- endcomment -%}
+
+{% assign menu = linklists['main-menu'] %}
+
+<collection-menu class='collection-menu' aria-label='Collection menu'>
+  {% for link in menu.links %}
+    {% capture content %}
+      {% render 'CollectionMenuSubcategory',
+        menuTitle: link.title,
+        menuItems: link.links
+      %} 
+    {% endcapture %}
+    {% assign isOpened = false %}
+    {% if link.child_active or link.active %}
+      {% assign isOpened = true %}
+    {% endif %}
+    {% render 'AccordionItem',
+      summary: link.title,
+      isOpened: isOpened,
+      content: content,
+      itemId: 'collection-menu-item-{{ forloop.index }}'
+    %}
+  {% endfor %}
+</collection-menu>

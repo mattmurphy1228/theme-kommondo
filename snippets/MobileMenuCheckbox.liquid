@@ -1,0 +1,20 @@
+<custom-checkbox>
+  <div
+    class='checkbox mobile-menu__toggle-{{ level | plus: 1 }} js-mobile-menu__toggle-{{ level | plus: 1 }} js-mobile-menu__toggle'
+  >
+    <input
+      type='checkbox'
+      class='checkbox__input js-checkbox__input'
+      id='{{ id }}'
+    />
+    <label
+      for='{{ id }}'
+      class='checkbox__label'
+    >
+      <span
+        class='text text--regular checkbox__text js-checkbox__text'
+        aria-label='{{ 'main_menu.toggle_menu' | t }}'
+      ></span>
+    </label>
+  </div>
+</custom-checkbox>

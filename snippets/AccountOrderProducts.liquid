@@ -1,0 +1,69 @@
+<div class='order-detail-products'>
+  {%- if line_items.size > 0 -%}
+    {%- for line_item in line_items -%}
+      <a
+        class='anchor order-detail-product js-order-detail-product'
+        href='{{ line_item.product.url }}'
+      >
+        <input type="hidden" class="order-detail-product__id js-order-detail-product__id" value='{{ line_item.product.selected_or_first_available_variant.id }}' />
+        <input type="hidden" class="order-detail-product__quantity js-order-detail-product__quantity" value={{ line_item.quantity }} />
+        {%- if selectable -%}
+          <div class='order-detail-product__select'>
+            <custom-checkbox>
+              <div class='checkbox order-detail-product__checkbox js-order-detail-product__checkbox'>
+                <input
+                  type='checkbox'
+                  class='checkbox__input js-checkbox__input'
+                  id='product-{{ forloop.index }}'
+                  name='contact[products]'
+                />
+                <label for='product-{{ forloop.index }}' class='checkbox__label'>
+                  <span class='text text--regular checkbox__text js-checkbox__text'></span>
+                </label>
+              </div>
+            </custom-checkbox>
+          </div>
+        {%- endif -%}
+        <div class='order-detail-product__image-title'>
+          {%- if line_item.product.featured_image != null -%}
+            {{
+              line_item.product.featured_image
+              | image_url: width: 40
+              | image_tag:
+                class: 'image order-detail-product__image',
+                loading: lazy,
+                alt: line_item.product.featured_image.alt | default: line_item.title
+            }}
+          {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag }}
+          {%- endif -%}
+          <div class="order-detail-product__title-properties">
+            <span class='text text--regular order-detail-product__title'>
+              {{- line_item.title | escape -}}
+            </span>
+            {% if line_item.properties != blank %}
+              <ul class="order-detail-product__properties">
+                {% for prop in line_item.properties %}
+                  {% if prop.last != blank %}
+                    <li class="order-detail-product__property-row"><strong>{{ prop.first }}:</strong> {{ prop.last }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+        <div class='order-detail-product__info'>
+          <span
+            class='price price--regular order-detail-product__price'
+            aria-label='{{ 'account.price' | t }}'
+          >
+            {{- line_item.final_line_price | money -}}
+          </span>
+          <span class='text text--regular order-detail-product__count'>
+            x{{- line_item.quantity -}}
+          </span>
+        </div>
+      </a>
+    {%- endfor -%}
+  {%- endif -%}
+</div>

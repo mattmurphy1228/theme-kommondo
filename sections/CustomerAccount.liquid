@@ -1,0 +1,45 @@
+<customer-account>
+  <section
+    class='customer-account-section'
+    aria-label='{{ 'account.account_section' | t }}'
+  >
+    <div class='customer-account-section__background customer-account-section__background--hidden js-customer-account-section__background'></div>
+
+    {% render 'AddressDrawer', mode: 'add' %}
+    
+    {%- for address in customer.addresses -%}
+      {% render 'AddressDrawer',
+        mode: 'edit',
+        address: address
+      %}
+      {% render 'AddressDeleteModal', address: address %}
+    {%- endfor -%}
+
+    <div class='customer-account-section__inner customer-account-section__inner--mobile'>
+      {% render 'AccountMobile', orders_per_page: section.settings.orders_per_page %}
+    </div>
+    <div class='customer-account-section__inner customer-account-section__inner--desktop'>
+      {% render 'AccountDesktop', orders_per_page: section.settings.orders_per_page %}
+    </div>
+  </section>
+</customer-account>
+
+{% schema %}
+{
+  "name": "Customer account",
+  "settings": [
+    {
+      "type": "range",
+      "id": "orders_per_page",
+      "min": 5,
+      "max": 50,
+      "step": 5,
+      "default": 5,
+      "label": "Orders per page"
+    }
+  ],
+  "presets": [
+    { "name": "Customer account" }
+  ]
+}
+{% endschema %}

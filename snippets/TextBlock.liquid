@@ -1,0 +1,25 @@
+{%- comment -%}
+  Text Block - Renders a single text block with a title and description. 
+  The title is rendered as a headline (h3), and the description is displayed as 
+  regular text. Both the title and description are passed as parameters.
+
+  Accepts:
+    - title: The title of the text block (e.g., a heading).
+    - description: The description or content to be displayed in the text block.
+  
+  Usage:
+    {% render 'TextBlock', title: 'Your Title Here', description: 'Your Description Here' %}
+{%- endcomment -%}
+
+{%- if title != blank or description != blank -%}
+  <div class="text-block page-width">
+    {%- if title != blank -%}
+      <h3 class="text text--headline text--h3">{{ title }}</h3>
+    {%- endif -%}
+    {%- if description != blank -%}
+      <div class="text text--regular text-block__text">
+        {{ description }}
+      </div>
+    {%- endif -%}
+  </div>
+{%- endif -%}

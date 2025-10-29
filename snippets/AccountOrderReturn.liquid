@@ -1,0 +1,121 @@
+<order-return
+  data-order-id='{{ order.id }}'
+  data-order-no='{{ order.name }}'
+  data-success-message='{{ 'account.request_return_success_message' | t }}'
+  data-error-message='{{ 'account.request_return_error_message' | t }}'
+  data-enter-return-reason-message='{{ 'account.please_enter_return_reason' | t }}'
+  class='js-order-return-form'
+>
+  <section class='order-return'>
+    {% assign form_id = 'OrderReturnForm--' | append: section.id %}
+
+    {% form 'contact',
+      id: form_id,
+      class: 'order-return__form js-order-return__form'
+    %}
+      <div class='order-return__header'>
+        <div class='order-return-header'>
+          {% render 'BackButton', back_to: 'order-detail' %}
+          <h4 class='text text--headline text--h4 order-return-header__title'>
+            {{ 'account.request_return_title' | t }}
+          </h4>
+        </div>
+      </div>
+      <div class='order-return__body'>
+        <div class='order-return__products'>
+          <span class='text text--semibold'>
+            {{ 'account.select_items_for_return' | t }}
+          </span>
+          {% render 'AccountOrderProducts',
+            line_items: order.line_items,
+            selectable: true
+          %}
+        </div>
+        <div class='order-return__submit'>
+          <div
+            class='input order-return__email order-return__email--hidden input--width-auto'
+          >
+            {%- liquid
+              assign customer_email = ''
+              if customer
+                assign customer_email = customer.email
+              endif
+            -%}
+            <input
+              class='input__field js-input__field'
+              type='email'
+              value='{{ customer_email }}'
+              placeholder='Email'
+              name='contact[email]'
+              required='true'
+              aria-required='true'
+            />
+          </div>
+          <div
+            class='input order-return__order-number order-return__order-number--hidden input--width-auto'
+          >
+            <input
+              class='input__field js-input__field'
+              type='text'
+              value='{{ order.id }}'
+              placeholder='Order Number'
+              name='contact[order_number]'
+              required='true'
+              aria-required='true'
+            />
+          </div>
+          <div class='order-return__reason'>
+            <span
+              class='text text--semibold'
+            >
+              {{ 'account.reason_for_return' | t }}*
+            </span>
+            <div
+              class='textarea textarea--width-auto'
+            >
+              <textarea
+                class='textarea__field order-return-reason__text js-order-return-reason__text'
+                value=''
+                id='return_reason'
+                name='contact[body]'
+                placeholder='{{ 'account.reason_for_return' | t }}'
+                aria-label='{{ 'account.reason_for_return' | t }}'
+              ></textarea>
+            </div>
+          </div>
+          <custom-checkbox>
+            <div class='checkbox order-return__policy-checkbox js-order-return__policy-checkbox'>
+              <input
+                type='checkbox'
+                class='checkbox__input js-checkbox__input order-return__policy-checkbox js-order-return__policy-checkbox'
+                id='agree_policy'
+                name='agree_policy'
+              />
+              <label for='agree_policy' class='checkbox__label'>
+                <span class='text text--regular checkbox__text js-checkbox__text'>
+                  {{ 'account.read_privacy_policy' | t }}
+                </span>
+              </label>
+            </div>
+          </custom-checkbox>
+            <span class='text text--regular order-return-form__error js-order-return-form__error {% unless form.errors %}visually-hidden{% endunless %}'>
+              {{- 'account.request_return_error_message' | t }}
+            </span>
+            <span class='text text--regular order-return-form__success js-order-return-form__success {% unless form.posted_successfully? %}visually-hidden{% endunless %}'>
+              {{- 'account.request_return_success_message' | t }}
+            </span>
+          <button
+            class='button button--solid button--width-auto button--padding-md order-return-form_submit js-order-return-form_submit'
+            type='submit'
+            aria-disabled='true'
+            disabled
+          >
+            <span class='button__text'>
+              {{ 'account.submit' | t }}
+            </span>
+          </button>
+        </div>
+      </div>
+    {% endform %}
+  </section>
+</order-return>

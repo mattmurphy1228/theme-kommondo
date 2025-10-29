@@ -1,0 +1,22 @@
+{%- liquid
+  if class_name != blank
+    assign wrapper_class = class_name | append: ' certifications'
+  else
+    assign wrapper_class = 'certifications'
+  endif
+-%}
+
+<div class='{{ wrapper_class }}'>
+  <h4 class='text text--headline text--h4 text--left'>{{ title }}</h4>
+  <div class='certifications__cards'>
+    {%- for certification in certifications -%}
+      {{
+        certification.settings.certification
+        | image_url: height: 60
+        | image_tag:
+          class: 'image certifications__image',
+          loading: lazy
+      }}
+    {%- endfor -%}
+  </div>
+</div>

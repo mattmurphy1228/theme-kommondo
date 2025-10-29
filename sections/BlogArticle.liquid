@@ -1,0 +1,63 @@
+<div class='blog-article'>
+  <div class='blog-article__header'>
+    <div class='blog-article__header-wrapper'>
+      <div class='blog-article__meta'>
+        <div class='blog-article__meta-info'>
+          <p class='text text--regular'>
+            {{ article.published_at | date: '%d.%m.%Y' }}
+          </p>
+          <span class='blog-article__meta-separator'>|</span>
+          <reading-time data-words='{{ article.content | strip_html | split: ' ' | size }}'>
+            <p class='text text--regular text--small js-reading-time'></p>
+          </reading-time>
+        </div>
+        {% assign blog_handle = article.url | split: '/' | slice: 2 | first %}
+        {% assign blog = blogs[blog_handle] %}
+        {% assign category = blog.title %}
+        <div class='blog-article__category'>
+          <a class='text text--regular' href='{{ blog_handle }}'>
+            {{ category }}
+          </a>
+        </div>
+      </div>
+      <span class='text text--headline text--h3 text--bold'>
+        {{ article.title }}
+      </span>
+      <p class='text text--regular blog-article__excerpt'>
+        {{ article.excerpt_or_content | strip_html }}
+      </p>
+    </div>
+  </div>
+  <div class='blog-article__content'>
+    <div class='blog-article__content-wrapper'>
+      <div class='blog-article__image'>
+        {{
+          article.image
+          | image_url: width: 1000
+          | image_tag: alt: article.title
+        }}
+      </div>
+      <p class='text text--regular'>
+        {{ article.content }}
+      </p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Blog Article",
+  "settings": [
+    {
+      "type": "article",
+      "id": "article",
+      "label": "Article"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Article"
+    }
+  ]
+}
+{% endschema %}

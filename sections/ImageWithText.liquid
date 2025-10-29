@@ -1,0 +1,113 @@
+<div class='image-with-text-background image-with-text--bg-{{ section.settings.background_color }}'>
+  <div
+    class='
+      page-width
+      image-with-text
+      {% if section.settings.flip_order %}image-with-text--flip{% endif %}
+    '
+  >
+    {% if section.settings.image != blank %}
+      <div class='image-with-text__image'>
+        {{ section.settings.image | image_url: width: 1200 | image_tag }}
+      </div>
+    {% endif %}
+    <div class='image-with-text__text'>
+      <span class='text text--headline text--h3'>
+        {{- section.settings.title -}}
+      </span>
+      <span class='text text--regular'>{{ section.settings.text }}</span>
+      <div class='image-with-text__buttons'>
+        {% if section.settings.button_1_label != blank %}
+          <a
+            class='button button--solid button--width-auto button--padding-md'
+            href='{{ section.settings.button_1_link }}'
+          >
+            <span class='button__text'>
+              {{- section.settings.button_1_label -}}
+            </span>
+          </a>
+        {% endif %}
+        {% if section.settings.button_2_label != blank %}
+          <a
+            class='button button--outlined button--width-auto button--padding-md'
+            href='{{ section.settings.button_2_link }}'
+          >
+            <span class='button__text'>
+              {{- section.settings.button_2_label -}}
+            </span>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image with text",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "button_1_label",
+      "label": "Button 1 Label"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "button_2_label",
+      "label": "Button 2 Label"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Button 2 Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "flip_order",
+      "default": false,
+      "label": "Flip the positions of image and text"
+    },
+    {
+      "type": "select",
+      "id": "background_color",
+      "options": [
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "greylight",
+          "label": "Grey light"
+        }
+      ],
+      "default": "white",
+      "label": "Background color"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,267 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sales-documents-page": {
+      "type": "SalesDocumentsPage",
+      "blocks": {
+        "sales_documents_block_YbaTMG": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/Fairguard-hoehenausgleich-8_9c2cf4c5-5593-49bd-8bc5-bec5cd204065.webp",
+            "button_label": "Aufbauanleitung FairGuard",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo_Fairguard_Aufbauanleitung.pdf?v=1747203336",
+            "text": "<strong>Aufbauanleitung FairGuard</strong>    So einfach geht Sicherheit heute."
+          }
+        },
+        "sales_documents_block_8d4t8G": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/Fairguard-1.jpg",
+            "button_label": "FairGuard - Kommondo Lösung",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Fahrzeugsperren_compressed_87.pdf?v=1747225197",
+            "text": ""
+          }
+        },
+        "sales_documents_block_m6PPa6": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/IMG_3305.heic",
+            "button_label": "Montageanleitung FundaFix Modular",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Montageanleitung_FundaFix_Einschlag-Fundament_compressed.pdf?v=1745508015",
+            "text": "<strong>Montageanleitung FundaFix Modular.</strong>      So einfach geht Bodenbefestigung heute."
+          }
+        },
+        "sales_documents_block_1": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/Foto_Deckblatt_Fruehjahrsaktion2025.png",
+            "button_label": "Frühjahr / Sommer Aktion 2025",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Aktionsangebote-Fruehjahrsaktion2025_V3.pdf?v=1746447581",
+            "text": "Herstellerunabhängig wurden die besten Produkte für Ihre anstehenden Aufgaben für Frühjahr- und Sommerzeit zusammengestellt."
+          }
+        },
+        "sales_documents_block_2": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/document-2.png",
+            "button_label": "easyToilet",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Flyer-easyToilet_DE01.pdf?v=1739545844",
+            "text": "Mobile Toilette: Hygiene und Privatsphäre am Einsatzort. Autarke Lösung, leicht (17 kg), in 2 Min. einsatzbereit, wetterfest, blickdicht. Flexibel aufstellbar, mit Belüftungssystem und praktischen Stauräumen."
+          }
+        },
+        "sales_documents_block_3": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/document-3.png",
+            "button_label": "Montagen und Dienstleistungen",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Montage-Dienstleistungen.pdf?v=1739545844",
+            "text": "Bei Kommondo steht eines im Mittelpunkt: Ihre Zufriedenheit. Unsere Leidenschaft für Perfektion und Effizienz zeigt sich in jedem Auftrag, den wir für Sie durchführen. Gemeinsam mit Ihnen packen wir Projekte an und führen sie erfolgreich zum Abschluss - immer effizient, sicher und termingerecht."
+          }
+        },
+        "sales_documents_block_4": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/document-4.png",
+            "button_label": "Checkliste RSA21",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Checkliste-RSA21.pdf?v=1739545882",
+            "text": "Die einfache 'RSA21 Checkliste' von Kommondo."
+          }
+        },
+        "sales_documents_block_5": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/Flexibles-Verkehrsschild.webp",
+            "button_label": "Gelenksystem Augustaflex & Robinson",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Augustaflex-Robinson.pdf?v=1739545960",
+            "text": "Schilderpfosten mit AUGUSTAFLEX® und Poller mit dem ROBINSON®-System überstehen schadlos fehlerhafte Fahrmanöver oder Verkehrsunfälle. Bei einem Aufprall neigt sich der Pfosten mit dem Schild und kehrt anschließend wieder in seine Ausgangsposition zurück."
+          }
+        },
+        "sales_documents_block_6": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/kategorie-Fahrradservice_800x800_c842abcd-10d2-42a6-8ae9-29a475923c0e.jpg",
+            "button_label": "Fahrrad-Reperaturstationen",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Farradreparaturstation.pdf?v=1739545994",
+            "text": "Die Fahrradreparaturstation bietet Werkzeuge für alle wesentlichen Reparatur- und Servicetätigkeiten. Zur Förderung des Radverkehrs sollte eine Servicestation an allen wichtigen Standorten Radverkehrsknotenpunkten, wie Bahnhöfe, Kultur-/ Freizeitstätten, Stadtzentren, Park & Ride Plätze, etc.) zur Verfügung stehen."
+          }
+        },
+        "sales_documents_block_9": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/whitepaper-fahrradstrassen_1920x1920_14e4c686-bd85-41f6-8eed-6b67ccd160ad.jpg",
+            "button_label": "Aktionsprodukte Fahrradstraße",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Aktionsangebote-Fahrrad.pdf?v=1739546112",
+            "text": "Radfahrer brauchen ihren eigenen Platz, und dazu müssen Radwege geschaffen werden. Meist müssen sich die Radfahrer die Straße mit den Autofahrern teilen. Kommondo liefert die richtigen Produkte und Informationen."
+          }
+        },
+        "sales_documents_block_10": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/blog-veranstaltungsplanung_1280x720_1.jpg",
+            "button_label": "Aktionsprodukte Veranstaltung",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Aktionsangebote-Veranstaltung.pdf?v=1739546196",
+            "text": "Wir von Kommondo unterstützen Städte und Gemeinden maximal durch eine kostenlose Checkliste und ein qualifiziertes Produktangebot von über 1.000 Artikeln."
+          }
+        },
+        "sales_documents_block_11": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/Richtig-Beschildern.jpg",
+            "button_label": "E-Lade-Parkplätze",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-parkplaetze-e-autos.pdf?v=1739546644",
+            "text": "Der Schlüssel zu normkonformen E-Lade-Plätzen liegt in der Planung und Umsetzung: Kommondo liefert hierzu Antworten und Lösungsvorschläge!"
+          }
+        },
+        "sales_documents_block_12": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/Wahlen_1920x1920_80c60cf6-02b2-446f-9076-a8e09cf3fca3.jpg",
+            "button_label": "Aktionsprodukte Wahlen",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Aktionsangebote-Wahlen.pdf?v=1739546645",
+            "text": "Damit die Organisation und Durchführung gelingt, haben wir von Kommondo notwendige Produkte auf Herz und Nieren gecheckt und bieten diese zu top Aktionspreisen innerhalb der Kommondo Community an. Ergänzt werden unsere Angebote durch zahlreiche nutzwertigen Downloads und Links zu Checklisten."
+          }
+        },
+        "sales_documents_block_J8jKBV": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/eindrehsockel-montage_1920x1920_a7ec93b3-49b0-4ec3-aedf-aaff76457f5d.jpg",
+            "button_label": "Eindrehsockel",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Flyer-Eindrehsockel_DE01.pdf?v=1739547189",
+            "text": "Leitpfosten spielen für die Sicherheit auf unseren Straßen eine entscheidende Rolle, indem sie die Sichtbarkeit und Orientierung für alle Verkehrsteilnehmer verbessern."
+          }
+        },
+        "sales_documents_block_WMUxzY": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/Easyphalt_1920x1920_3f33bcb0-2cd2-46fe-a1fa-0361393edb67.jpg",
+            "button_label": "Easyphalt",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Flyer-Easyphalt_DE01.pdf?v=1739547191",
+            "text": "EASYPHALT® PRO ist ein reaktiver, hochwertiger Reparaturasphalt. Dieser ist eine professionelle und langfristige Lösung, um Schlaglöcher und Risse effektiv zu verschließen."
+          }
+        },
+        "sales_documents_block_p7bDXh": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/Kommondo-hauptkatalog_1920x1920_5ef62cb9-3fa0-4099-918f-79210bbcf4c1.jpg",
+            "button_label": "Hauptkatalog 2024",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Gesamtkatalog-2024_compressed.pdf?v=1739547433",
+            "text": "Bei der kommunalen Beschaffung von Produkten für Verkehrszeichen, Befestigungstechnik, Schildersysteme und Zubehör ist es wichtig, die nationalen und lokalen Vorschriften und Standards für die Verkehrssicherheit und Beschilderung zu beachten."
+          }
+        },
+        "sales_documents_block_inXrT9": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/download-verkaufsunterlagen-verkehrszeichenkatalog_1920x1920_526774cb-6ae0-43ce-8a3e-0e8098d1330a.jpg",
+            "button_label": "... einfach Schilder",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Produktkatalog-A5-2023.pdf?v=1739547194",
+            "text": "Die neue Broschüre beinhaltet alle wichtigen Informationen und schafft eine schnelle Übersicht über alle relevanten, in Deutschland zugelassenen Verkehrszeichen nach StVO."
+          }
+        },
+        "sales_documents_block_LjTXTR": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/Titelseite-schulungsakademie_1920x1920_daf65ebc-f648-4c2b-b5d1-80fa81e2d376.jpg",
+            "button_label": "Schulungsakademie",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Schulungsakademie-2024.pdf?v=1739547192",
+            "text": "Die Kommondo-Akademie befindet sich direkt am schönen Ammersee und steht für die kompetente und praxisnahe Vermittlung von Fachwissen. Wir veranstalten Seminare aus den Fachgebieten HAV, RSA21, Entsorgung, Winterdienst und Motorsägenkurse A-D."
+          }
+        },
+        "sales_documents_block_N6t8Kj": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/Homepage-Kundenlogin-600x450_1280x720_1.jpg",
+            "button_label": "B2B Suite",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Flyer-B2G-Suite_DE01.pdf?v=1739547191",
+            "text": "Zahlreiche Vorteile durch Ihre persönliche Professional-Suite"
+          }
+        },
+        "sales_documents_block_aekTgC": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/Software-Bauhofverwaltung_1920x1920_38df36d6-2398-4aba-8fd7-bffcf76dc1f1.jpg",
+            "button_label": "Digitale Bauhofverwaltung",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Flyer-osapiens-HUB_DE01.pdf?v=1739547192",
+            "text": "Planen Sie ihre Aufgaben einfach und übersichtlich. Ihre Mitarbeiter bearbeiten Aufträge am PC oder mit einem Mobilgerät und Geben darüber direkt Rückmeldung."
+          }
+        },
+        "sales_documents_block_YbLPKq": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/geschwindigkeitswarnung-dsd.jpg",
+            "button_label": "DSD - SDR",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-geschwindigkeitswarnanlagen-dsd.pdf?v=1739547190",
+            "text": "Das DSD Geschwindigkeitsanzeigesystem ist das ultimative Mittel zur erwiesenen Geschwindigkeitsreduktion."
+          }
+        },
+        "sales_documents_block_bandXW": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/Dibond-traffic_1920x1920_3b5c1b37-c04c-4a83-af6e-649516131bd6.jpg",
+            "button_label": "Dibond Traffic",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Flyer-Alu-Dibond_DE01.pdf?v=1739547191",
+            "text": "Die neue Generation Bildträger in Flach-/ Alform für Verkehrszeichen"
+          }
+        },
+        "sales_documents_block_ezNtpE": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/AED-Defibrillator_web_1920x1920_4d4dcd78-6a5c-4a93-a550-7cead88526ab.jpg",
+            "button_label": "Defibrillatoren",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Katalog-Defibrillatoren.pdf?v=1739547193",
+            "text": "Erhöhen Sie die Überlebenschance Ihrer Mitmenschen."
+          }
+        },
+        "sales_documents_block_BJKrbY": {
+          "type": "SalesDocumentsBlock",
+          "settings": {
+            "image": "shopify://shop_images/New-work_1920x1920_bb840264-0251-4c32-8543-0c8da91c1f0f.jpg",
+            "button_label": "New Work",
+            "button_link": "https://cdn.shopify.com/s/files/1/0872/5794/0311/files/Kommondo-Aktionsangebote-New-Work.pdf?v=1739547191",
+            "text": "Wir blicken in unserem Content Papier „New Work“ darauf, was der Wandel für Kommunen, Firmen sowie Angestellte bedeutet und welche Maßnahmen jetzt einfach richtig sind. Viel Spaß beim Durchblättern."
+          }
+        }
+      },
+      "block_order": [
+        "sales_documents_block_YbaTMG",
+        "sales_documents_block_8d4t8G",
+        "sales_documents_block_m6PPa6",
+        "sales_documents_block_1",
+        "sales_documents_block_2",
+        "sales_documents_block_3",
+        "sales_documents_block_4",
+        "sales_documents_block_5",
+        "sales_documents_block_6",
+        "sales_documents_block_9",
+        "sales_documents_block_10",
+        "sales_documents_block_11",
+        "sales_documents_block_12",
+        "sales_documents_block_J8jKBV",
+        "sales_documents_block_WMUxzY",
+        "sales_documents_block_p7bDXh",
+        "sales_documents_block_inXrT9",
+        "sales_documents_block_LjTXTR",
+        "sales_documents_block_N6t8Kj",
+        "sales_documents_block_aekTgC",
+        "sales_documents_block_YbLPKq",
+        "sales_documents_block_bandXW",
+        "sales_documents_block_ezNtpE",
+        "sales_documents_block_BJKrbY"
+      ],
+      "settings": {
+        "title": "Verkaufsunterlagen",
+        "description": "Wir unterstützen Sie mit aussagekräftigen Verkaufsunterlagen. Wir legen viel Wert auf Individualität im Service, daher profitieren Sie von Marketingkonzepten, die vertriebsorientiert sind und zu Ihrer Beschaffung passen. So gestalten und produzieren wir heute mit hohem Anspruch Vermarktungs- und Werbematerialien wie Kataloge, Prospekte und Flyer."
+      }
+    }
+  },
+  "order": [
+    "sales-documents-page"
+  ]
+}

@@ -1,0 +1,22 @@
+<cart-header class="cart-header">
+  <div class="cart-header__body js-cart-header__body">
+    <span class="text text--headline text--h3 cart-header__title">
+      {{ 'cart.shopping_cart' | t }}
+    </span>
+    <span
+      class="text text--headline text--h3 cart-header__count"
+      aria-live="polite"
+    >
+      ({{ cart.item_count }})
+    </span>
+  </div>
+  <button
+    class="button button--outlined cart-header__close-btn js-cart-header__close-btn button--width-auto button--padding-md"
+    type="button"
+    aria-label="{{ 'cart.close_button_label' | t }}"
+  >
+    <svg class='icon' width='24' height='24' aria-hidden='true'>
+      <use xlink:href='#close'></use>
+    </svg>
+  </button>
+</cart-header>

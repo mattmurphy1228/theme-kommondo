@@ -1,0 +1,26 @@
+{%- comment -%}
+  Filter drawer header component that displays a title and close button
+
+  Usage:
+  {% render 'FilterHeader' %}
+{%- endcomment -%}
+
+<filter-header class='filter-header'>
+  <div class='filter-header__body'>
+    <span
+      class='text text--headline text--h3 filter-header__title'
+      id='filter-drawer-title'
+    >
+      {{ 'collection.filter_drawer.title' | t }}
+    </span>
+  </div>
+  <button
+    class='button button--outlined filter-header__close-btn js-filter-header__close-btn button--width-auto button--padding-md'
+    type='button'
+    aria-label='{{ 'collection.filter_drawer.close_button' | t }}'
+  >
+    <svg class='icon js-icon' width='22' height='22' aria-hidden='true'>
+      <use xlink:href='#close'></use>
+    </svg>
+  </button>
+</filter-header>

@@ -1,0 +1,35 @@
+<product-recently-views
+  class="product-slider js-product-slider product-recently-views"
+  data-id="{{ product.id }}"
+  data-handle="{{ product.handle }}"
+  data-title="{{ product.title }}"
+  data-url="{{ product.url }}"
+  data-image="{{ product.featured_image | image_url: width: 240 }}"
+  data-rating="{{ product.metafields.reviews.rating.value }}"
+  data-reviews="{{ product.metafields.reviews.rating_count }}"
+  data-price="{{ product.selected_or_first_available_variant.price | money }}"
+  data-compare-price="{{ product.selected_or_first_available_variant.compare_at_price | money }}"
+  data-products-to-show="{{ products_to_show }}"
+>
+  {% assign placeholder_name = settings.product_placeholder_name | default: 'product-1' %}
+  <div class="product-placeholder-image product-placeholder-image--hidden js-product-placeholder-image">
+    {{ placeholder_name | placeholder_svg_tag: 'image image--product-placeholder' }}
+  </div>
+
+  <div class="product-slider__swiper js-product-slider__swiper">
+    <div class="product-slider__empty product-slider__empty--hidden js-product-slider__empty">
+      <span class="text text--regular">{{ 'product.carousels.no_products_available' | t }}</span>
+    </div>
+    <div class="swiper swiper--hidden js-swiper">
+      <div class="swiper-wrapper js-swiper-wrapper"></div>
+    </div>
+    <div
+      class="swiper-button-prev js-swiper-button-prev swiper-button js-swiper-button"
+      aria-label="Previous slide"
+    ></div>
+    <div
+      class="swiper-button-next js-swiper-button-next swiper-button js-swiper-button"
+      aria-label="Next slide"
+    ></div>
+  </div>
+</product-recently-views>

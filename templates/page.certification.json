@@ -1,0 +1,82 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "certification-page": {
+      "type": "CertificationPage",
+      "blocks": {
+        "certification_1": {
+          "type": "CertificationBlock",
+          "settings": {
+            "image": "shopify://shop_images/certification_1.jpg",
+            "title": "DIGITALES VERTRAUEN",
+            "description": "<p>Mit der Kombination aus Gütesiegel, Käuferschutz und authentischem Feedback sorgen wir für echte Sicherheit in der digitalen Welt und für mehr Erfolg für Unternehmen. Und mit unserer eTrusted Experience Feedback Plattform ermöglichen wir wertvolle Insights für Unternehmen und Organisationen jeder Größe.</p>"
+          }
+        },
+        "certification_2": {
+          "type": "CertificationBlock",
+          "settings": {
+            "image": "shopify://shop_images/certification_2.jpg",
+            "title": "GRUNDLAGEN UNSERES ZUSAMMENLEBENS",
+            "description": "<p>Der Verband kommunaler Unternehmen (VKU) ist die Interessenvertretung der kommunalen Versorgungs- und Entsorgungswirtschaft in Deutschland. Die im VKU organisierten über 1.550 Mitgliedsunternehmen sind vor allem in der Energieversorgung, der Wasser- und Abwasserwirtschaft, der Abfallwirtschaft und Stadtsauberkeit sowie im Bereich Telekommunikation tätig.</p>"
+          }
+        },
+        "certification_3": {
+          "type": "CertificationBlock",
+          "settings": {
+            "image": "shopify://shop_images/certification_5.png",
+            "title": "UNTERNEHMERVERBAND LANDKREIS STARNBERG",
+            "description": "<p>Der UWS ist ein verlässlicher und starker Partner, er wirkt aktiv mit, die zukunftsorientierte Entwicklung der Region zu fördern. Als Mitglieder haben wir nicht alleine das eigene Unternehmensziel im Auge, sondern handeln fair und engagiert im Sinne des Standorts, der Region und der hier lebenden Menschen.</p>"
+          }
+        },
+        "certification_4": {
+          "type": "CertificationBlock",
+          "settings": {
+            "image": "shopify://shop_images/certification_3.jpg",
+            "title": "DATENSCHUTZ UND COMPLIANCE",
+            "description": "<p>Nach zahlreichen öffentlich gewordenen Datenpannen und Hackerangriffen gewinnt Datenschutz für uns allen an Bedeutung. Informationssicherheit ist gerade dann wichtig, wenn personenbezogenen Daten verarbeitet werden. Viele Verbraucher sind unsicher und meist nicht in der Lage, Unternehmen mit denen sie vielleicht schon jahrelang zusammenarbeiten nach aktuellen Datenschutzrichtlinien zu beurteilen. Auch die hier verpflichtenden öffentlich einsehbaren Datenschutzerklärungen schaffen keine Klarheit und Transparenz. Die Lösung für diese Problem schafft nur eine Datenschutz-Zertifizierung durch eine externe Zertifizierungsstelle.<br/><br/>Gerade in der kommunalen Beschaffung wo zwei oder mehrere Unternehmen, möglichst automatisiert und digital interagieren, ist es von hoher Bedeutung dass jeder ganz genau weiß, welche Daten an welcher Stelle erhoben und verarbeitet werden. Die Prozesse werden detailliert niedergeschrieben, die Einwilligung aktiv eingeholt und durch ein umfangreiches Audit zertifiziert. Zugrunde liegen hier die Anforderungen des Bundesdatenschutzgesetzes (BDSG) oder die Kriterien nach ISO, EU-DSGVO.<br/><br/>Kommondo als noch junges Unternehmen mit ihrer Handelsplattform zur kommunalen Beschaffung, legte bereits bei der Grundsteinlegung im Juli 2022 besonderen Wert auf die Anlage und Erfassung der Kunden und Lieferantendaten. Mit der Auszeichnung durch heyData durch das Datenschutz. Qualitätssiegel wollen wir unseren Kunden und Partnern ein sicheres Gefühl geben und aufzeigen welchen Stellenwert das Thema im Unternehmen besitzt - so Felix Schaumberg, Geschäftsführer bei Kommondo. Das Siegel soll uns als Unternehmen für bestehende und Neukunden attraktiv machen, unsere Innovationskraft zeigen und einen Mehrwert für alle beteiligten schaffen, indem wir der aktuellen Rechtsentwicklung folgen.</p>"
+          }
+        },
+        "certification_5": {
+          "type": "CertificationBlock",
+          "settings": {
+            "image": "shopify://shop_images/certification_4.jpg",
+            "title": "ENVIRONMENT, SOCIAL, GOVERNANCE (ESG)",
+            "description": "<p>Die Kommondo GmbH wurde für ihre umfassenden Aktivitäten und Maßnahmen sowie die Ziele und Pläne im Bereich Nachhaltigkeit bereits im August 2022 durch Cubemos, nach international anerkanntem Nachhaltigkeitsstandard AAl000AS ausgezeichnet. Die Abkürzung ESG hat sich mittlerweile in der Unternehmens- und Kommunalwelt etabliert, wenn über das Thema Nachhaltigkeit gesprochen wird. Verantwortungsvolles Handeln gegenüber Umwelt und Menschen wird zunehmend zu einem Qualitätsmerkmal für Unternehmen.<br/><br/>ESG steht für „Environment, Social, Governance', ins Deutsche übersetzt „Umwelt, Soziales und Unternehmensführung'. Die Bewertung durch Cubemos sieht bei Kommondo eine gute Nachhaltigkeitsperformance. ,,Nachhaltigkeit ist ein wesentlicher Bestandteil unserer Geschäftsstrategie sowie unserer Unternehmenskultur', bekräftigt Felix M. Schaumberg, Geschäftsführer der Kommondo GmbH. ,,Die gewählten Fokusthemen und Ziele haben wir dabei im Hinblick auf die Bereiche ausgewählt, in denen Kommando den größten Beitrag zu einer nachhaltigen Zukunft leisten kann.'<br/><br/>In den ESG-Kriterien wird der Beitrag der Wirtschaft zu einer nachhaltigen Entwicklung gemäß den gesetzlichen Anforderungen - und darüber hinaus -gemessen und bewertet. Im Bereich Environment: geht es z.B. um Treibhausgasemissionen, Energieverbrauch, Wasser und Abwasser. Social: betrachtet die Arbeitsbedingungen, Kompetenzentwicklung, Gleichbehandlung, wie auch die Vielfalt im Management. Governance: beurteilt die strategische Relevanz, vorhandene lnstrumente und bewertet die Lieferketten (Stichwort „Lieferkettensorgfaltspflichtengesetz' und „Whistlblower-Richtlinie'. Kommondo sind diese Themen enorm wichtig, so Roman Merk -Vertriebsleiter bei Kommondo. Auch bemühen wir uns darum, unseren Kunden entsprechende unterstützende Softwarelösungen anzubieten und sie bei der Umsetzung zu beraten. Europa hat sich ein großes Ziel gesetzt: Bis zum Jahr 2050 der erste klimaneutrale Kontinent zu sein. Jedes Unternehmen muss daher in Zukunft seiner nachhaltigen und sozialen Verantwortung gerecht werden. Das transparent zu machen, ist eines der wesentlichen Ziele der Klimapolitik der EU und der Regulatoren. Nachhaltiges unternehmerisches Denken und Handeln ist nicht nur gut für den eigenen Fußabdruck, sondern auch für den langfristigen Erfolg. Unternehmen mit einer Nachhaltigkeitsstrategie können dabei vielseitig profitieren: Sie sind innovationsstärker, für Mitarbeitende und Bewerber attraktiver oder für Investoren interessanter.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "certification_1",
+        "certification_2",
+        "certification_3",
+        "certification_4",
+        "certification_5"
+      ],
+      "settings": {
+        "title": "ZERTIFIZIERUNGEN"
+      }
+    },
+    "image_with_text_6H4TN3": {
+      "type": "ImageWithText",
+      "settings": {
+        "title": "<p>Qualitätsgarantie für unsere Dienstleistungen</p>",
+        "text": "<h3>Unsere Verpflichtung zur Exzellenz<br/><br/></h3><p><strong>Höchste Kundenzufriedenheit: </strong>Wir stellen sicher, dass unsere Kunden stets zufrieden sind.<br/><br/><strong>Zuverlässiger Service: </strong>Unsere Dienstleistungen sind zuverlässig und professionell.<strong><br/><br/>Erfahrene Fachleute: </strong>Unser Team besteht aus qualifizierten und erfahrenen Experten.I<strong><br/><br/>Innovative Lösungen: </strong>Wir bieten moderne und effektive Lösungen an.<br/><br/><strong>Nachhaltigkeit: </strong>Unsere Praktiken sind umweltfreundlich und nachhaltig.<br/><br/>Zertifizierungen wie Trusted Shops, Verband kommunaler Unternehmen, Unternehmerverband Landkreis Starnberg, Datenschutz und Compliance, Environment, Social, Governance (ESG)</p>",
+        "button_1_label": "",
+        "button_1_link": "",
+        "button_2_label": "",
+        "button_2_link": "",
+        "flip_order": false,
+        "background_color": "white"
+      }
+    }
+  },
+  "order": ["certification-page", "image_with_text_6H4TN3"]
+}

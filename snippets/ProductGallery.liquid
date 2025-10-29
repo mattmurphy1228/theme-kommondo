@@ -1,0 +1,123 @@
+{%- comment -%}
+  This section of the code renders the product image gallery with two swiper components:
+  1. **Main Gallery (Swiper)**
+     - Displays the main product images in a swiper slider, allowing users to swipe through product images.
+     - The images are dynamically loaded from the product's media, filtered by the media type 'image'.
+     - The images are rendered with a width of 560px for the main display.
+     - Lazy loading is applied to the images to improve page load performance.
+
+  2. **Thumbnail Gallery (Swiper)**
+     - Displays smaller thumbnail images of the product media below the main gallery.
+     - Allows users to click on thumbnails to navigate through the main product images.
+     - Each thumbnail image has a width of 78px and a height of 84px.
+     - The first thumbnail is initially marked as active, which corresponds to the first main image.
+
+  Both galleries utilize the Swiper JS library to create a responsive and interactive experience for users to browse product images.
+{%- endcomment -%}
+
+<product-gallery class='product-gallery product-header__gallery'>
+  <div class='product-gallery__swiper product-gallery__swiper--main'>
+    <div
+      class='swiper swiper--main js-swiper--main swiper-initialized swiper-horizontal'
+    >
+      <div
+        class='swiper-wrapper'
+        id='swiper-wrapper-10c69e108fd10929eb'
+        aria-live='polite'
+        style='transition-duration: 0ms; transition-delay: 0ms;'
+      >
+        {%- if product.media.size == 0 -%}
+          <div class='swiper-slide'>
+            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {%- endif -%}
+
+        {%- for media in product.media -%}
+          {%- case media.media_type -%}
+            {%- when 'image' -%}
+              <div class='swiper-slide'>
+                {{
+                  media.preview_image
+                  | image_url: width: 560
+                  | image_tag:
+                    class: 'image',
+                    loading: lazy
+                }}
+              </div>
+            {%- when 'video' -%}
+              <div class='swiper-slide'>
+                {{ media | video_tag: controls: true, autoplay: false, loop: true }}
+              </div>
+            {% when 'external_video' %}
+              <div class='swiper-slide'>
+                {{ media | external_video_tag }}
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+      <span
+        class='swiper-notification'
+        aria-live='assertive'
+        aria-atomic='true'
+      ></span>
+    </div>
+    <div
+      class='swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal'
+    ></div>
+  </div>
+  <div class='product-gallery__swiper product-gallery__swiper--thumb'>
+    <div
+      thumbsslider=''
+      class='swiper swiper--thumb js-swiper--thumb swiper-initialized swiper-vertical swiper-free-mode swiper-watch-progress swiper-backface-hidden swiper-thumbs'
+    >
+      <div
+        class='swiper-wrapper'
+        id='swiper-wrapper-31f9663ab69cf82a'
+        aria-live='polite'
+        style='transform: translate3d(0px, 0px, 0px); transition-duration: 0ms; transition-delay: 0ms;'
+      >
+        {%- if product.media.size == 0 -%}
+          <div class='swiper-slide'>
+            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {%- endif -%}
+
+        {%- for media in product.media -%}
+          <div
+            class='swiper-slide swiper-slide-visible swiper-slide-fully-visible {% if forloop.index == 1 %}swiper-slide-active swiper-slide-thumb-active{% endif %}'
+            role='group'
+            aria-label='{{ forloop.index }} / {{ forloop.length }}'
+            data-swiper-slide-index='{{ forloop.index0 }}'
+            style='height: 84px; margin-bottom: 16px;'
+          >
+            {%- case media.media_type -%}
+              {%- when 'image' -%}
+                {{
+                  media.preview_image
+                  | image_url: width: 78
+                  | image_tag:
+                    class: 'image',
+                    loading: lazy
+                }}
+              {%- when 'video' -%}
+                {{ media | video_tag: controls: true, autoplay: false, loop: true }}
+                <svg class='icon icon--media-play js-icon' width='34' height='34' aria-hidden='true'>
+                  <use xlink:href='#media-play'></use>
+                </svg>
+              {% when 'external_video' %}
+                {{ media | external_video_tag }}
+                <svg class='icon icon--media-play js-icon' width='34' height='34' aria-hidden='true'>
+                  <use xlink:href='#media-play'></use>
+                </svg>
+            {%- endcase -%}
+          </div>
+        {%- endfor -%}
+      </div>
+      <span
+        class='swiper-notification'
+        aria-live='assertive'
+        aria-atomic='true'
+      ></span>
+    </div>
+  </div>
+</product-gallery>

@@ -1,0 +1,59 @@
+<section class='certification-page'>
+  <div class='certification-page__header'>
+    <div class='certification-page-header__inner page-width page-width--no-padding'>
+      <h2 class='text text--headline text--h2 certification-page-header__title text--center'>
+        {{ section.settings.title }}
+      </h2>
+    </div>
+  </div>
+  <div class='certification-page__body page-width page-width--no-padding'>
+    {%- for block in section.blocks -%}
+      {% render 'CertificationBlock',
+        image: block.settings.image,
+        title: block.settings.title,
+        description: block.settings.description
+      %}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CertificationPage",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "CertificationBlock",
+      "name": "CertificationBlock",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Certification image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Certification title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Certification description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "CertificationPage"
+    }
+  ]
+}
+{% endschema %}

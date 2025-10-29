@@ -1,0 +1,71 @@
+<div class='blog'>
+  <div class='blog__header'>
+    <h1
+      class='text text--headline text--h2 text--center'
+    >
+      {{ section.settings.title }}
+    </h1>
+    <div class='blog__actions'>
+      {% for block in section.blocks %}
+        {% if block.type == 'blog' %}
+          <a
+            class='button {% if blog.handle == block.settings.blog.handle %}button--solid{% else %}button--outlined{% endif %} button--width-auto button--padding-md'
+            aria-label='{{ block.settings.blog.title }} category'
+            aria-disabled='false'
+            href='{{ block.settings.blog.url }}'
+          >
+            <span class='button__text'>{{ block.settings.blog.title }}</span>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class='blog__articles page-width'>
+    {% for article in blog.articles %}
+      {% assign blog_handle = article.url | split: '/' | slice: 2 | first %}
+      {% assign blog = blogs[blog_handle] %}
+      {% assign category = blog.title %}
+      {% render 'ArticleCard',
+        href: article.url,
+        image: article.image,
+        created_at: article.published_at,
+        content: article.content,
+        title: article.title,
+        excerpt_or_content: article.excerpt_or_content,
+        category: category
+      %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Blog",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Kommondo Magazin"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "blog",
+      "name": "Blog",
+      "settings": [
+        {
+          "type": "blog",
+          "id": "blog",
+          "label": "Blog"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog"
+    }
+  ]
+}
+{% endschema %}

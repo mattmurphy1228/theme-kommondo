@@ -1,0 +1,30 @@
+{% assign standard_address = 'account.standard_address' | t %}
+
+<customer-address
+  class='customer-address'
+  data-address-item-id='address-{{ address.id }}'
+  aria-label='{{ 'account.address_item_aria_label' | t: address_id: address.id }}'
+>
+  <article class='customer-address__inner'>
+    <div class='customer-address__header'>
+      <span class='text text--bold'>{{ customer.name }}</span>
+      <div class='customer-address__icons'>
+        {% render 'AccountAddressEditButton', address_id: address.id %}
+        {% render 'AccountAddressDeleteButton', address_id: address.id %}            
+      </div>
+    </div>
+    <div class='customer-address__body'>
+      <div class='customer-address__info'>
+        <span class='text text--regular'>
+          {{ address | format_address }}
+        </span>
+      </div>
+      {%- if address == customer.default_address -%}
+        {% render 'TextBadge',
+          text: standard_address,
+          padding: 'sm'
+        %}
+      {%- endif -%}
+    </div>
+  </article>
+</customer-address>

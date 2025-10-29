@@ -1,0 +1,42 @@
+{%- comment -%}
+  Accepts:
+    - products: Array of products to render inside a slider
+    - page_template: Template identifier used for data-page-template attribute
+
+  Usage:
+    {% render 'ProductSlider', products: products %}
+{%- endcomment -%}
+
+<product-slider
+  class='product-slider js-product-slider'
+  data-page-template='{{ page_template }}'
+  data-slides-per-group='{{ slides_per_group }}'
+>
+  <div class='product-slider__swiper'>
+    {% if products.size == 0 %}
+      <div class='product-slider__empty'>
+        <span class='text text--regular'>{{ 'product.carousels.no_products_available' | t }}</span>
+      </div>
+    {% else %}
+      <div class='swiper js-swiper'>
+        <div class='swiper-wrapper'>
+          {% for product in products %}
+            <div class='swiper-slide'>
+              {% render 'ProductCard',
+                product: product
+              %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div
+        class='swiper-button-prev js-swiper-button-prev swiper-button js-swiper-button'
+        aria-label='{{ 'general.prev_slide' | t }}'
+      ></div>
+      <div
+        class='swiper-button-next js-swiper-button-next swiper-button js-swiper-button'
+        aria-label='{{ 'general.next_slide' | t }}'
+      ></div>
+    {% endif %}
+  </div>
+</product-slider>

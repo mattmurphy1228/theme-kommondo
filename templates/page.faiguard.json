@@ -1,0 +1,36 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page-header": {
+      "type": "PageHeader",
+      "name": "page Header",
+      "settings": {}
+    },
+    "page-content": {
+      "type": "PageContent",
+      "name": "asd",
+      "settings": {}
+    },
+    "text_block_q8AFgF": {
+      "type": "TextBlock",
+      "name": "TextBlock",
+      "settings": {
+        "title": "ösdbvsdövsdkvö",
+        "text": ""
+      }
+    }
+  },
+  "order": [
+    "page-header",
+    "page-content",
+    "text_block_q8AFgF"
+  ]
+}

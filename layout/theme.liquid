@@ -1,0 +1,232 @@
+<!doctype html>
+<html class='js' lang='{{ request.locale.iso_code }}'>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <meta name='theme-color' content=''>
+    <link rel='canonical' href='{{ canonical_url }}'>
+
+    {%- if settings.favicon != blank -%}
+      <link
+        rel='icon'
+        type='image/png'
+        href='{{ settings.favicon | image_url: width: 32, height: 32 }}'
+      >
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %}
+        &ndash; tagged "{{ current_tags | join: ', ' }}"
+      {%- endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %}
+        &ndash; {{ shop.name -}}
+      {%- endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name='description' content='{{ page_description | escape }}'>
+    {% endif %}
+
+    {% render 'meta-tags' %}
+
+    {{ content_for_header }}
+
+    {% style %}
+      :root {
+        --page-width: {{ settings.page_width }}px;
+      }
+    {% endstyle %}
+
+    {{ 'Inter.ttf' | file_url | preload_tag: as: 'font', type: 'font/ttf' }}
+    {% style %}
+      @font-face {
+        font-family: 'Inter';
+        src: url("{{ 'Inter.ttf' | asset_url }}") format('truetype');
+        font-weight: 100 900;
+        font-display: swap;
+      }
+    {% endstyle %}
+
+    {{ 'swiper.css' | asset_url | stylesheet_tag }}
+
+    {{ 'cart-drawer.css' | asset_url | stylesheet_tag }}
+    {{ 'text-block.css' | asset_url | stylesheet_tag }}
+    {{ 'secondary-nav-menu.css' | asset_url | stylesheet_tag }}
+
+    {% assign template_suffix = template.suffix | strip %}
+
+    {% if template.name == 'index' %}
+      {{ 'index.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'collection' and template_suffix == empty %}
+      {{ 'collection.css' | asset_url | stylesheet_tag }}
+      {{ 'custom-collection.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'collection' and template_suffix == 'aktion' %}
+      {{ 'collection.css' | asset_url | stylesheet_tag }}
+      {{ 'custom-collection.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'collection'
+      and template_suffix == 'herbst-winter'
+    %}
+      {{ 'collection.css' | asset_url | stylesheet_tag }}
+      {{ 'custom-collection.css' | asset_url | stylesheet_tag }}
+      {{ 'page.sales-documents.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'product' %}
+      {{ 'product.css' | asset_url | stylesheet_tag }}
+      {{ 'custom-product.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'search' %}
+      {{ 'search.css' | asset_url | stylesheet_tag }}
+      {{ 'custom-collection.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'login' %}
+      {{ 'login.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'register' %}
+      {{ 'register.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'activate_account' %}
+      {{ 'activate_account.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'reset_password' %}
+      {{ 'reset_password.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'account' %}
+      {{ 'account.css' | asset_url | stylesheet_tag }}
+      {{ 'custom-collection.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'cart' %}
+      {{ 'cart-page.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'page' and template_suffix == empty %}
+      {{ 'page.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'page' and template_suffix == 'ueber-uns' %}
+      {{ 'page.ueber-uns.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'page' and template_suffix == 'eco-value-label' %}
+      {{ 'page.eco-value-label.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'page' and template_suffix == 'contact' %}
+      {{ 'page.contact.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'page' and template_suffix == 'certification' %}
+      {{ 'page.certification.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'page' and template_suffix == 'sales-documents' %}
+      {{ 'page.sales-documents.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'page'
+      and template_suffix == 'bestellformulare'
+    %}
+      {{ 'page.sales-documents.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'page' and template_suffix == 'karriere' %}
+      {{ 'page.karriere.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'page' and template_suffix == 'partner' %}
+      {{ 'index.css' | asset_url | stylesheet_tag }}
+      {{ 'page.partner.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'article' %}
+      {{ 'article.css' | asset_url | stylesheet_tag }}
+    {% elsif template.name == 'blog' %}
+      {{ 'blog.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+
+    {% render 'icons' %}
+    {% render 'sprites' %}
+
+    <script src='{{ "swiper.js" |asset_url }}' defer></script>
+    <script src='{{ "body-scroll-lock.min.js" |asset_url }}' defer></script>
+
+    <script src='{{ "cart-drawer.js" | asset_url }}' defer></script>
+    <script
+      src='{{ "storefront-api-client.min.js" | asset_url }}'
+      defer
+    ></script>
+
+    {% if template.name == 'index' %}
+      <script src='{{ "index.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'collection' and template_suffix == empty %}
+      <script src='{{ "collection.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'collection' and template_suffix == 'aktion' %}
+      <script src='{{ "collection.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'collection'
+      and template_suffix == 'herbst-winter'
+    %}
+      <script src='{{ "collection.js" | asset_url }}' defer></script>
+      <script src='{{ "page.sales-documents.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'product' %}
+      <script src='{{ "customProduct.js" | asset_url }}' defer></script>
+      <script src='{{ "product.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'search' %}
+      <script src='{{ "search.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'login' %}
+      <script src='{{ "login.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'register' %}
+      <script src='{{ "register.js" | asset_url }}' defer></script>
+      <script src='{{ "custom-register.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'activate_account' %}
+      <script src='{{ "activate_account.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'reset_password' %}
+      <script src='{{ "reset_password.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'account' %}
+      <script src='{{ "account.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'cart' %}
+      <script src='{{ "cart-page.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'page' and template_suffix == empty %}
+      <script src='{{ "page.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'page' and template_suffix == 'ueber-uns' %}
+      <script src='{{ "page.ueber-uns.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'page' and template_suffix == 'eco-value-label' %}
+      <script src='{{ "page.eco-value-label.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'page' and template_suffix == 'contact' %}
+      <script src='{{ "page.contact.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'page' and template_suffix == 'certification' %}
+      <script src='{{ "page.certification.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'page' and template_suffix == 'sales-documents' %}
+      <script src='{{ "page.sales-documents.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'page'
+      and template_suffix == 'bestellformulare'
+    %}
+      <script src='{{ "page.sales-documents.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'page' and template_suffix == 'karriere' %}
+      <script src='{{ "page.karriere.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'page' and template_suffix == 'partner' %}
+      <script src='{{ "page.partner.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'article' %}
+      <script src='{{ "index.js" | asset_url }}' defer></script>
+      <script src='{{ "article.js" | asset_url }}' defer></script>
+    {% elsif template.name == 'blog' %}
+      <script src='{{ "blog.js" | asset_url }}' defer></script>
+    {% endif %}
+    {% include 'pagefly-app-header' %}
+  </head>
+
+  <body>
+    {% sections 'header-group' %}
+    {% section 'cart-drawer' %}
+    <main
+      id='MainContent'
+      class='content-for-layout focus-none'
+      role='main'
+      tabindex='-1'
+    >
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+
+    <script>
+      window.routes = {
+        cart_add_url: '{{ routes.cart_add_url }}',
+        cart_change_url: '{{ routes.cart_change_url }}',
+        cart_update_url: '{{ routes.cart_update_url }}',
+        cart_url: '{{ routes.cart_url }}',
+        predictiveSearchUrl: '{{ routes.predictive_search_url }}',
+      };
+
+      window.cartStrings = {
+        error: `{{ 'cart.cart_error' | t }}`,
+        quantityError: `{{ 'cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
+      };
+
+      window.theme = {
+        settings: {
+          suggestArticles: {{ settings.suggest_articles | json }},
+          suggestCollections: {{ settings.suggest_collections | json }},
+          suggestProducts: {{ settings.suggest_products | json }},
+          suggestPages: {{ settings.suggest_pages | json }},
+          suggestionsResultsLimit: {{ settings.suggestions_results_limit | json }},
+        },
+        moneyFormat: {{ shop.money_format | json }},
+        moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
+      }
+    </script>
+  </body>
+</html>

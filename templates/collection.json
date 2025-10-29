@@ -1,0 +1,21 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection_page": {
+      "type": "CollectionPage",
+      "settings": {
+        "collection_image_mobile": "shopify://shop_images/image_6.png",
+        "collection_image_desktop": "shopify://shop_images/3fae41983b66be8cff895466a8518305.png"
+      }
+    }
+  },
+  "order": ["collection_page"]
+}

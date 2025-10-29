@@ -1,0 +1,64 @@
+<div class='user-list page-width'>
+  <span class='text text--headline text--h3'>{{ section.settings.title }}</span>
+  <div class='user-list__grid'>
+    {% for block in section.blocks %}
+      {% render 'UserCard', block: block %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "UserList",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "user",
+      "name": "User",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "occupation",
+          "label": "Occupation"
+        },
+        {
+          "type": "text",
+          "id": "email",
+          "label": "Email"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Phone"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "UserList"
+    }
+  ]
+}
+{% endschema %}

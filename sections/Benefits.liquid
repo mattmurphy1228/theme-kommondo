@@ -1,0 +1,98 @@
+<div class='page-width benefits'>
+  <h3 class="text text--headline text--h3 text--center">
+    {{ section.settings.title }}
+  </h3>
+  <div class='benefits__cards'>
+    {% for block in section.blocks %}
+      {% if block.type == 'benefit_card' %}
+        <div class='benefits__card' {{ block.shopify_attributes }}>
+          {% if block.settings.icon != blank %}
+            <svg
+              class='benefits__card-icon'
+              aria-hidden='true'
+            >
+              <use xlink:href="#{{ block.settings.icon }}"></use>
+            </svg>
+          {% endif %}
+          {% if block.settings.title != blank %}
+            <h4 class='text text--headline text--h4 text--center'>
+              {{ block.settings.title }}
+            </h4>
+          {% endif %}
+          {% if block.settings.description != blank %}
+            <p class='text text--regular text--center'>
+              {{ block.settings.description }}
+            </p>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Benefits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit_card",
+      "name": "Benefit Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon name"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits",
+      "blocks": [
+        {
+          "type": "benefit_card",
+          "settings": {
+            "icon": "rocket",
+            "title": "GEPRÜFTES SORTIMENT",
+            "description": "Zuverlässige und geprüfte Produkte! Das Sortiment überzeugt durch Qualität und Vielfalt. Schneller Versand und guter Kundenservice runden das Angebot ab. Zufriedene Kunden sind das Ergebnis!"
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "icon": "plant",
+            "title": "ENVIRONMENT, SOCIAL, GOVERNANCE (ESG)",
+            "description": "Im August 2022 wurde die Kommondo GmbH für ihre Nachhaltigkeitsmaßnahmen von Cubemos nach dem Standard AAl000AS ausgezeichnet. Der Fokus liegt auf Treibhausgasemissionen, Arbeitsbedingungen und Lieferketten."
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "icon": "chat",
+            "title": "PERSÖNLICHE BERATUNG",
+            "description": "Wir beraten Sie persönlich vor Ort, am Telefon, per Mail oder im Livechat. Dabei stehen Ihre Bedürfnisse stets im Mittelpunkt. Vertrauen Sie auf unsere individuelle und kompetente Beratung."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

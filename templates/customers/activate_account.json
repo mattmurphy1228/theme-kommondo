@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "ActivateAccount",
+      "settings": {
+        "title": "KONTO AKTIVIEREN",
+        "subTitle": "Wir haben unsere Website aktualisiert!",
+        "note": "Um Ihr Konto weiter zu nutzen, müssen Sie ein <strong>neues Passwort erstellen und Ihr Konto aktivieren.</strong>"
+      }
+    }
+  },
+  "order": ["main"]
+}

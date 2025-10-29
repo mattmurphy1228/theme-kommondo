@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "SearchPage",
+      "settings": {
+        "no_results_image": "shopify://shop_images/no_search_results_image.png",
+        "no_results_text": "<p>Versuchen Sie es mit:<ul><li>einer anderen Schreibweise</li><li>einem alternativen Suchbegriff</li><li>einer weniger detaillierten Anfrage</li></ul></p>",
+        "products_per_page": 24
+      }
+    }
+  },
+  "order": ["main"]
+}

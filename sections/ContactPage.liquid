@@ -1,0 +1,213 @@
+{% assign form_id = 'ContactForm--' | append: section.id %}
+
+<section class='contact-page'>
+  <div class='contact-page__form'>
+    <div class='contact-page__header contact-page__header--mobile'>
+      <h2 class='text text--headline text--h2'>{{ 'contact.title' | t }}</h2>
+    </div>
+    {%- form 'contact',
+      id: form_id,
+      class: 'contact-page-form js-contact-page-form'
+    -%}
+      {% if form.errors %}
+        <div class='contact-page-form__error' role='alert' aria-live='polite'>
+          <span class='text text--regular contact-page-form-error__text'>
+            {{ 'contact.form_error' | t }}
+          </span>
+        </div>
+      {% endif %}
+      <div class='contact-page-form__body'>
+        <div class='contact-page-form__row'>
+          {%
+            render 'FormFieldSelect',
+            label: 'contact.salutation' | t,
+            id: 'salutation',
+            name: 'salutation',
+            placeholder: 'contact.salutation_placeholder' | t,
+            selectOptions: shop.metaobjects['salutation_list']['salutation-list-9zyrhdyj'].items.value,
+            required: true,
+            width: 'fixed'
+          %}
+          {%
+            render 'FormFieldInput',
+            label: 'contact.first_name' | t,
+            id: 'first_name',
+            name: 'first_name',
+            type: 'text',
+            placeholder: 'contact.first_name_placeholder' | t,
+            required: true,
+            width: 'fluid',
+            error: form.errors
+          %}
+        </div>
+        {%
+          render 'FormFieldInput',
+          label: 'contact.last_name' | t,
+          id: 'last_name',
+          name: 'last_name',
+          type: 'text',
+          placeholder: 'contact.last_name_placeholder' | t,
+          required: true,
+          error: form.errors
+        %}
+        <div class='contact-page-form__row contact-page-form__row--column-on-mobile'>
+          {%
+            render 'FormFieldInput',
+            label: 'contact.email' | t,
+            id: 'email',
+            name: 'email',
+            type: 'email',
+            placeholder: 'contact.email_placeholder' | t,
+            required: true,
+            error: form.errors
+          %}
+          {%
+            render 'FormFieldInput',
+            label: 'contact.telephone' | t,
+            id: 'telephone',
+            name: 'telephone',
+            type: 'tel',
+            placeholder: 'contact.telephone_placeholder' | t,
+            required: true,
+            error: form.errors
+          %}
+          {%
+            render 'FormFieldTextArea',
+            label: 'contact.comment' | t,
+            id: 'comment',
+            name: 'comment',
+            type: 'textarea',
+            placeholder: 'contact.comment_placeholder' | t,
+            required: true,
+            error: form.errors
+          %}
+        </div>
+      </div>
+      <div class='contact-page-form__footer'>
+        <custom-checkbox>
+          <div class='checkbox contact-page-form__privacy-policy'>
+            <input
+              type='checkbox'
+              class='checkbox__input js-checkbox__input'
+              id='read_privacy_policy'
+              name='read_privacy_policy'
+              required='true'
+              aria-required='true'
+              {% if form.errors contains 'read_privacy_policy' %}
+                aria-invalid='true'
+                aria-describedby='read_privacy_policy_error'
+              {% endif %}
+            >
+            <label for='read_privacy_policy' class='checkbox__label'>
+              <span class='text text--regular checkbox__text js-checkbox__text'>
+                {{ 'account.read_privacy_policy' | t }}
+              </span>
+            </label>
+            {% if form.errors contains 'read_privacy_policy' %}
+              <div
+                class='contact-page-form-privacy-policy__error'
+                role='alert'
+                aria-live='polite'
+              >
+                <span class='text text--regular contact-page-form-privacy-policy-error__text'>
+                  {{ 'contact.read_privacy_policy_error' | t }}
+                </span>
+              </div>
+            {% endif %}
+          </div>
+        </custom-checkbox>
+        <button
+          class='button button--solid button--width-fluid button--padding-md'
+          type='submit'
+          aria-disabled='false'
+        >
+          <span class='button__text'>{{ 'contact.send' | t }}</span>
+        </button>
+      </div>
+    {%- endform -%}
+  </div>
+  <div class='contact-page__info'>
+    <div class='contact-page__header contact-page__header--desktop'>
+      <h2 class='text text--headline text--h2'>{{ 'contact.title' | t }}</h2>
+    </div>
+    <div class='contact-page-info__body'>
+      <div class='contact-page-info-body__row'>
+        <span class='text text--regular'>
+          {{- 'contact.contact_us_directly' | t }}:</span
+        >
+        <a
+          class='anchor anchor--regular contact-page-info-body__text'
+          href='mailto:{{ section.settings.email }}'
+        >
+          <h3 class='text text--headline text--h3 contact-page-info-body__text'>
+            {{ section.settings.email_text }}
+          </h3>
+        </a>
+        <a
+          class='anchor anchor--regular contact-page-info-body__text'
+          href='tel:{{ section.settings.tel }}'
+        >
+          <h3 class='text text--headline text--h3 contact-page-info-body__text'>
+            {{ section.settings.tel_text }}
+          </h3>
+        </a>
+      </div>
+      <div class='contact-page-info-body__row'>
+        <span class='text text--regular'>
+          {{- 'contact.contact_via_whatsapp' | t }}:</span
+        >
+        <a
+          class='anchor anchor--regular'
+          href='https://wa.me/{{ section.settings.whatsapp }}'
+        >
+          <h3 class='text text--headline text--h3 contact-page-info-body__text'>
+            {{ section.settings.whatsapp_text }}
+          </h3>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tel",
+      "label": "Phone Number"
+    },
+    {
+      "type": "text",
+      "id": "tel_text",
+      "label": "Phone Number Text"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email Address"
+    },
+    {
+      "type": "text",
+      "id": "email_text",
+      "label": "Email Text"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp",
+      "label": "WhatsApp Number"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_text",
+      "label": "WhatsApp Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact page"
+    }
+  ]
+}
+{% endschema %}

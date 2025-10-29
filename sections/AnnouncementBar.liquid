@@ -1,0 +1,19 @@
+<div class='announcement-bar'>
+  <div class='text text--regular announcement-bar__text text--center'>
+    {{ section.settings.text }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "presets": [{ "name": "Announcement Bar" }]
+}
+{% endschema %}

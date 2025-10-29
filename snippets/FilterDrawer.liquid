@@ -1,0 +1,31 @@
+<filter-drawer
+  class='filter-drawer filter-drawer--closed'
+  role='dialog'
+  aria-labelledby='filter-drawer-title'
+>
+  <div class='filter-drawer__background'></div>
+  <form
+    class='filter-drawer__inner'
+    action='{{ collection.url }}'
+    method='get'
+  >
+    {% render 'FilterHeader' %}
+
+    <div class='filter-drawer__body'>
+      {% render 'SortAccordion', collection: collection %}
+
+      {%- for filter in collection.filters -%}
+        {%- unless filter.type == 'price_range' -%}
+          {% render 'FilterAccordion', filter: filter %}
+        {%- endunless -%}
+      {%- endfor -%}
+
+      {%- for filter in collection.filters -%}
+        {%- if filter.type == 'price_range' -%}
+          {% render 'PriceAccordion', filter: filter %}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {% render 'FilterActions' %}
+  </form>
+</filter-drawer>

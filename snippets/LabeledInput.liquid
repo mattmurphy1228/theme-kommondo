@@ -1,0 +1,47 @@
+{%- comment -%}
+  Usage:
+  {% render 'LabeledInput',
+    id: 'InputId',                    # Required - Input ID
+    name: 'input[name]',              # Required - Input name
+    type: 'text',                     # Optional - Input type (default: text)
+    label: 'Label Text',              # Optional - Label text
+    placeholder: 'Placeholder text',  # Optional - Input placeholder
+    required: true,                   # Optional - Makes field required
+    autocomplete: 'value',           # Optional - Autocomplete value
+    value: 'Default value',          # Optional - Input default value
+    error: form.errors               # Optional - Form errors object
+  %}
+{%- endcomment -%}
+
+<div class='labeled-input'>
+  {%- if label != blank -%}
+    <label class='text text--regular text--semibold' for='{{ id }}'>
+      {{- label | t -}}
+      {%- if required -%}*{%- endif -%}
+    </label>
+  {%- endif -%}
+
+  <div class='input input--width-auto'>
+    <input
+      class='{{ input_class }}'
+      type='{{ input_type }}'
+      name='{{ name }}'
+      id='{{ id }}'
+      {%- if placeholder != blank %}
+        placeholder='{{ placeholder | t }}'
+      {% endif %}
+      {%- if required %}
+        required
+      {% endif %}
+      {%- if autocomplete != blank %}
+        autocomplete='{{ autocomplete }}'
+      {% endif %}
+      {%- if value != blank %}
+        value='{{ value }}'
+      {% endif %}
+      {%- if error contains name %}
+        aria-invalid='true'
+      {% endif %}
+    >
+  </div>
+</div>

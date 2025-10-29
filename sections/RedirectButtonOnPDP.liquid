@@ -1,0 +1,37 @@
+{%- unless section.settings.button_text == empty -%}
+  <div class="page-width page-width--no-padding">
+    <div class='redirect-button'>
+      <a
+        class='button button--solid button--width-auto button--padding-md'
+        href='{{ section.settings.button_link | default: "javascript:void(0)" }}'
+      >
+        <span class='button__text'>{{ section.settings.button_text }}</span>
+      </a>
+    </div>
+  </div>
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "Redirect button",
+  "settings": [
+    {
+      "type": "text", 
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Go to Landing Page"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Redirect button"
+    }
+  ]
+}
+{% endschema %}

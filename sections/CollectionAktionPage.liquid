@@ -1,0 +1,126 @@
+<div class='collection-page page-width'>
+  {% render 'FilterDrawer' %}
+  {% if collection.featured_image %}
+    <div class='collection-page__menu__image--mobile'>
+      {{
+        collection.featured_image
+        | image_url: width: 600
+        | image_tag
+      }}
+    </div>
+  {% endif %}
+  <div class='collection-page__container'>
+    <div class='collection-page__menu'>
+      {% if collection.featured_image %}
+        <div class='collection-page__menu__image'>
+          {{
+            collection.featured_image
+            | image_url: width: 1200
+            | image_tag
+          }}
+        </div>
+      {% endif %}
+      <div class='collection-page__menu__collection__menu'>
+        {% render 'CollectionMenu' %}
+      </div>
+    </div>
+    <div class='collection-page__content'>
+      {% render 'CollectionHeader',
+        template: 'aktion',
+        introduction_text: section.settings.introduction_text,
+        description: collection.description
+      %}
+      <div class='page-width page-width--no-padding page-width--left-aligned'>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'AktionCollection' -%}
+            {%- if block.settings.collection -%}
+              {% assign current_collection = block.settings.collection %}
+              <article class='product-card'>
+                <a class='anchor product-card__link' href='{{ current_collection.url }}'>
+                  <div class='product-card__image js-product-card-image__img'>
+                    {%- if current_collection.featured_image != blank -%}
+                      {{
+                        current_collection.featured_image
+                        | image_url: width: 240
+                        | image_tag:
+                          class: 'image',
+                          loading: lazy
+                      }}
+                    {%- endif -%}
+                  </div>
+                  <section class='product-card__body js-product-card__body'>
+                    <span class='text text--regular product-card__title product-card__title--auto-height js-product-card__title'>
+                      {{ current_collection.title }}
+                    </span>
+                  </section>
+                </a>
+                <div class='product-card__footer'>
+                  {%- if block.settings.pdf_link -%}
+                    <a
+                      class='button button--solid button--width-fluid button--padding-md'
+                      href='{{ block.settings.pdf_link }}'
+                      target='_blank'
+                    >
+                      <span class='button__text'>{{ 'page.aktion.view_pdf' | t }}</span>
+                    </a>
+                  {%- endif -%}
+                  <a
+                    class='button button--solid button--width-fluid button--padding-md'
+                    href='{{ current_collection.url }}'
+                  >
+                    <span class='button__text'>{{ 'page.aktion.view_details' | t }}</span>
+                  </a>
+                </div>
+              </article>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "CollectionAktionPage",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Collection image"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_mobile",
+      "label": "Collection image mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_desktop",
+      "label": "Collection image desktop"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "introduction_text",
+      "label": "Introduction text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "AktionCollection",
+      "name": "AktionCollection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Aktion sub collection"
+        },
+        {
+          "type": "text",
+          "id": "pdf_link",
+          "label": "Link to pdf file"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

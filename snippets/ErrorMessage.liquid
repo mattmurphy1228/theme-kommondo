@@ -1,0 +1,20 @@
+{%- liquid
+  if class_name != blank
+    assign wrapper_class = class_name | append: ' error-message js-error-message'
+  else
+    assign wrapper_class = 'error-message js-error-message'
+  endif
+
+  if err_msg == blank
+    assign wrapper_class = wrapper_class | append: ' error-message--hidden'
+  endif
+-%}
+
+<div class='{{ wrapper_class }}'>
+  <svg class='icon js-icon' width='16' height='16' aria-hidden='true'>
+    <use xlink:href='#warning'></use>
+  </svg>
+  <span class='text text--regular text--left error-message__text js-error-message__text'>
+    {{ err_msg }}
+  </span>
+</div>

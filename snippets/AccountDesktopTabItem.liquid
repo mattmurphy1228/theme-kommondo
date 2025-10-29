@@ -1,0 +1,19 @@
+<div
+  class='tab-item js-tab-item tab-item--{%- if active -%}active{%- endif -%}'
+  role='tab'
+  aria-selected='{%- if active -%}true{%- else -%}false{%- endif -%}'
+  aria-controls='panel-{{ index }}'
+  id='tab-{{ index }}'
+>
+  <svg class='icon js-icon {% if active == true %}icon--hidden{% endif %}' width='24' height='24' aria-hidden='true'>
+    <use xlink:href='{{ icon }}'></use>
+  </svg>
+  <svg class='icon js-icon icon--active {% if active == false %}icon--hidden{% endif %}' width='24' height='24' aria-hidden='true'>
+    <use xlink:href='{{ icon }}-active'></use>
+  </svg>
+  {%- if index == 2 -%}
+    <a class='anchor text text--headline text--h3' href='{{ routes.account_logout_url }}'>{{ title }}</a>
+  {%- else -%}
+    <h3 class='text text--headline text--h3'>{{ title }}</h3>
+  {%- endif -%}
+</div>

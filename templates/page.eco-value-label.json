@@ -1,0 +1,43 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "eco-value-label": {
+      "type": "EcoValueLabelPage",
+      "blocks": {
+        "bullet-1": {
+          "type": "bullet",
+          "settings": {
+            "text": "<span>Regionalität:</span> 3 P = Produkt stammt größtenteils aus Deutschland, 2 P = aus einem deutschen Anreinerstaat, 1 P = aus der EU, O P = aus dem Rest der Welt"
+          }
+        },
+        "bullet-2": {
+          "type": "bullet",
+          "settings": {
+            "text": "<span>Nachhaltigkeit:</span> 3 P = herausragende Qualität, 2 P = sehr gute Qualität, 1 P = gute Qualität, 0 P = Produkte mit diesem Qualitätsniveau bekommen Sie bei Kommondo nicht"
+          }
+        },
+        "bullet-3": {
+          "type": "bullet",
+          "settings": {
+            "text": "<span>Recyclingfähigkeit:</span> 3 P = bedeute über 75% einfache Rückführbarkeit oder Wiedergewinnung, 2 P = über 50 %, 1 P = über 25 %"
+          }
+        }
+      },
+      "block_order": ["bullet-1", "bullet-2", "bullet-3"],
+      "settings": {
+        "title": "ÖKOWERT-KENNZEICHNUNG",
+        "image": "shopify://shop_images/eco-value-label-page.png",
+        "content": "Wir Kommondos unterstützen unsere Kunden bei ihren Kaufentscheidungen so gut es geht. Unsere Ökowert-Kennzeichnung hilft dabei auch ökologische Aspekte bei der Kaufentscheidung mit einfließen zu lassen. Die Bewertung basiert auf drei zentralen Kriterien. Regionalität, Nachhaltigkeit und Recyclingfähigkeit. Bei vergleichbaren Produkten vergeben wir nach bestem Wissen und Gewissen für jede Kategorie einen Wert (0,1,2,3). Die drei Werte werden summiert. So einfach geht das! Der höchste Wert ist somit die 9. Liegt der Wert unter drei, so wird das Produkt nicht ausgezeichnet. Fragen sie gerne nach, wenn Sie mehr über unsere Einstufung für einen Produktvergleich wissen wollen."
+      }
+    }
+  },
+  "order": ["eco-value-label"]
+}

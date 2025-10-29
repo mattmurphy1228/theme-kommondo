@@ -1,0 +1,58 @@
+<nav class='pagination'>
+  <ol class='pagination__list'>
+    {%- if paginate.previous -%}
+      <li>
+        <a
+          href='{{ paginate.previous.url }}'
+          class='pagination-button'
+        >
+          <span aria-hidden='true'>
+            <svg>
+              <use xlink:href='#back-arrow' />
+            </svg>
+          </span>
+          <span class='visually-hidden'>vorherige Seite</span>
+        </a>
+      </li>
+    {%- endif -%}
+
+    {%- for part in paginate.parts -%}
+      {%- if part.is_link -%}
+        <li>
+          <a href='{{ part.url }}' class='pagination-button'>
+            <span class='visually-hidden'>Seite</span>
+            {{ part.title }}
+          </a>
+        </li>
+      {%- else -%}
+        {%- if part.title == paginate.current_page -%}
+          <li
+            class='pagination-button pagination-button--active'
+            aria-current='page'
+          >
+            <span class='visually-hidden'>Seite</span>
+            {{ part.title }}
+          </li>
+        {%- else -%}
+          <li class='pagination-button'>
+            <span class='visually-hidden'>Seite</span>
+            {{ part.title }}
+          </li>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if paginate.next -%}
+      <li>
+        <a href='{{ paginate.next.url }}' class='pagination-button'>
+          <span class='visually-hidden'>Nächste Seite</span>
+          <span aria-hidden='true'>
+            <svg>
+              <use xlink:href='#next-arrow' />
+            </svg>
+          </span>
+        </a>
+      </li>
+    {%- endif -%}
+  </ol>
+</nav>

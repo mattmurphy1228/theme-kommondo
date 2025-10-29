@@ -1,0 +1,25 @@
+{%- liquid
+  assign salutation = ''
+  assign last_name = ''
+  if customer
+    assign last_name = customer.last_name
+
+    if customer.tags contains 'Frau'
+      assign salutation = 'register.female' | t
+    elsif customer.tags contains 'Herr'
+      assign salutation = 'register.male' | t
+    else
+      assign last_name = customer.name
+    endif
+  endif
+-%}
+
+<div class='customer-account-section-header js-customer-account-section-header'>
+  <span class='text text--headline text--h2 customer-account-section-header__text customer-account-section-header__text--hello'>
+    {{ 'account.hello' | t }} {{ salutation }}
+  </span>
+  <span class='text text--headline text--h2 customer-account-section-header__text customer-account-section-header__text--username'>
+    {{ last_name }}
+  </span>
+  <span class='text text--headline text--h2 customer-account-section-header__text customer-account-section-header__text--mark'>!</span>
+</div>

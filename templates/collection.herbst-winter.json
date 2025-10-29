@@ -1,0 +1,24 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection_page": {
+      "type": "CollectionHerbstWinterPage",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "collection_image_mobile": "shopify://shop_images/image_6.png",
+        "collection_image_desktop": "shopify://shop_images/3fae41983b66be8cff895466a8518305.png",
+        "introduction_text": "Wir unterstützen Sie mit aussagekräftigen Verkaufsunterlagen. Wir legen viel Wert auf Individualität im Service, daher profitieren Sie von Marketingkonzepten, die vertriebsorientiert sind und zu Ihrer Beschaffung passen. So gestalten und produzieren wir heute mit hohem Anspruch Vermarktungs- und Werbematerialien wie Kataloge, Prospekte und Flyer."
+      }
+    }
+  },
+  "order": ["collection_page"]
+}

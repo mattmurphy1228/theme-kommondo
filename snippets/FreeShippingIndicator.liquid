@@ -1,0 +1,33 @@
+{%- liquid
+  if class_name != blank
+    assign wrapper_class = class_name | append: ' free-shipping-indicator'
+  else
+    assign wrapper_class = 'free-shipping-indicator'
+  endif
+
+  assign free_shipping_text = 'cart.amount_for_free_shipping' | t: free_shipping_threshold: remaining_price
+  if remaining_price == '' or remaining_price == blank
+    assign free_shipping_text = 'cart.congrats_on_free_shipping_reached' | t
+  endif
+-%}
+
+<div class="{{ wrapper_class }}">
+  <span class="text text--regular js-free-shipping-indicator__text">
+    {{ free_shipping_text }}
+  </span>
+  <div
+    class="progress-bar"
+    role="progressbar"
+    aria-valuenow="{{ percent }}"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    aria-live="polite"
+    aria-label="{{ 'cart.free_shipping.progress' | t }}"
+    aria-valuetext="{{ 'cart.free_shipping.percent' | t: percent: percent }}"
+  >
+    <div
+      class='progress-bar__inner js-progress-bar__inner'
+      style='width: {{ percent }}%'
+    ></div>
+  </div>
+</div>

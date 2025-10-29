@@ -1,0 +1,115 @@
+<header class='header page-width page-width--no-padding'>
+  <div class="header__body">
+    {% if section.settings.logo != blank %}
+      <a class='anchor' href='{{ routes.root_url }}'>
+        {{
+          section.settings.logo
+          | image_url: width: 280
+          | image_tag: class: 'image header__logo',
+            loading: lazy
+        }}
+      </a>
+    {% endif %}
+    {%- if settings.show_header_search -%}
+      <div class='header__search-box'>
+        <search-box>
+          <form class='search-box js-search-box' role='search' action='{{ routes.search_url }}' method='get'>
+            <div class='input search-box__input js-search-box__input input--width-fluid'>
+              <input
+                class='input__field js-input__field'
+                type='search'
+                name='q'
+                value=''
+                placeholder='{{ 'header.input_search_keyword' | t }}'
+                aria-label='{{ 'header.search_input' | t }}'
+              />
+            </div>
+            <button
+              class='button button--solid search-box__icon-btn button--width-auto button--padding-sm'
+              type='submit'
+              aria-label='{{ 'header.search' | t }}'
+            >
+              <svg class='icon js-icon' width='16' height='16'>
+                <use xlink:href='#search'></use>
+              </svg>
+            </button>
+          </form>
+        </search-box>
+      </div>
+    {%- endif -%}
+    <div class="header__icons">
+      <header-icon-list
+        data-cart-icon-button-aria-label="{{ 'header.cart_with_count' | t }}"
+        data-empty-cart-icon-button-aria-label="{{ 'header.cart_empty' | t }}"
+      >
+        <div class="header-icons">
+          {%- liquid
+            assign account_link = routes.account_login_url
+            if customer
+              assign account_link = routes.account_url
+            endif
+          -%}
+          <a
+            class='header-icons__icon js-header-icons__icon header-icons__icon--avatar js-header-icons__icon--avatar'
+            href='{{ account_link }}'
+            aria-label='{{ 'header.go_to_user_account' | t }}'
+          >
+            <svg class='icon js-icon' width='26' height='26' aria-hidden='true'>
+              <use xlink:href='#avatar'></use>
+            </svg>
+          </a>
+          {%- liquid
+            assign cart_icon_aria_label = 'header.cart_empty' | t
+            if cart != empty
+              assign cart_icon_aria_label = 'header.cart_with_count' | t: count: cart.item_count
+            endif
+          -%}
+          <button
+            class='cart-icon js-cart-icon'
+            aria-label='{{ cart_icon_aria_label }}'
+            aria-expanded='false'
+            aria-controls='cart-drawer'
+          >
+            <svg class='icon js-icon' width='26' height='26' aria-hidden='true'>
+              <use xlink:href='#cart'></use>
+            </svg>
+            <span class='text text--small cart-icon__count-badge js-cart-icon__count-badge {% if cart == empty %}cart-icon__count-badge--hidden{% endif %}' aria-live='polite'>
+              {{ cart.item_count }}
+            </span>
+          </button>
+          <button
+            class='header-icons__icon js-header-icons__icon header-icons__icon--hamburger js-header-icons__icon--hamburger'
+            aria-label='{{ 'header.open_mobile_menu' | t }}'
+            aria-expanded='false'
+            aria-controls='hamburger'
+          >
+            <svg class='icon js-icon' width='24' height='24' aria-hidden='true'>
+              <use xlink:href='#hamburger'></use>
+            </svg>
+          </button>
+        </div>
+      </header-icon-list>
+    </div>
+  </div>
+  {%- if settings.enable_predictive_search -%}
+    <div class="header__predictive-search">
+      <div class="header-predictive-search__inner">
+        {% render 'PredictiveSearch' %}
+      </div>
+    </div>
+  {%- endif -%}
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    }
+  ],
+  "presets": [{ "name": "Header" }]
+}
+{% endschema %}

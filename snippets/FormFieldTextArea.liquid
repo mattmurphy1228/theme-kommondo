@@ -1,0 +1,48 @@
+{%- liquid
+  if class_name != blank
+    assign wrapper_class = class_name | append: ' form-field-textarea'
+  else
+    assign wrapper_class = 'form-field-textarea'
+  endif
+
+  assign textarea_width = width | default: 'auto'
+  assign textarea_class = 'textarea__field'
+  if error contains name
+    assign textarea_class = textarea_class | append: ' textarea__field--error'
+  endif
+-%}
+
+<div class='{{ wrapper_class }}'>
+  <div class='form-field'>
+    <label
+      class='text text--regular form-field__label'
+      for='{{ id }}'
+    >
+      {{ label | t }}
+      {%- if required -%}*{%- endif -%}
+    </label>
+    <div class='textarea textarea--width-{{ textarea_width }}'>
+      <textarea
+        class='{{ textarea_class }}'
+        id='{{ id }}'
+        name='{{ name }}'
+        {%- if placeholder != blank %}
+          placeholder='{{ placeholder | t }}'
+        {% endif %}
+        {%- if required %}
+          required
+          aria-required='true'
+        {% endif %}
+        {%- if autocomplete != blank %}
+          autocomplete='{{ autocomplete }}'
+        {% endif %}
+        {%- if value != blank %}
+          {{ value }}
+        {% endif %}
+        {%- if error contains name %}
+          aria-invalid='true'
+        {% endif %}
+      ></textarea>
+    </div>
+  </div>
+</div>

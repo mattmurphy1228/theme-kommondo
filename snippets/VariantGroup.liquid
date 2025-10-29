@@ -1,0 +1,125 @@
+{%- comment -%}
+  Accepts:
+    - product: Product object (required)
+      The product object containing variant information
+    - block: object (required)
+      The section block containing Shopify attributes
+
+  Usage:
+    {% render 'VariantGroup', product: product, block: block %}
+
+  Renders a group of variant selection buttons for a product's options (like size, color etc).
+  Each option group shows the option name and buttons for each value.
+  The buttons are rendered dynamically via JavaScript based on variant data from the variants-grouper app.
+  Selected options are highlighted and trigger product title updates.
+{%- endcomment -%}
+
+<template id='variant-row-template'>
+  <div
+    class='variant-row'
+    role='group'
+    aria-label='{{ option.name | escape }}'
+  >
+    <span class='text text--regular variant-row__title'>
+      {{- option.name | escape -}}
+    </span>
+    <button-group>
+      <div class='button-group' id='group_{{ forloop.index }}'></div>
+    </button-group>
+  </div>
+</template>
+
+<template id='button-group-template'>
+  <div class='button-group'></div>
+</template>
+
+<template id='option-variant-button-template'>
+  <option-variant-button>
+    <button
+      class='button button--outlined button--option-variant button--width-auto button--padding-sm'
+      type='button'
+    >
+      <span class='button__text'></span>
+    </button>
+  </option-variant-button>
+</template>
+
+<template id='price-display-template'>
+  <div class='price-display'>
+    <div class='price-display__main'></div>
+  </div>
+</template>
+
+<template id='price-template'>
+  <span
+    class='price price--regular'
+    aria-label='{{- 'product.price.price' | t }}'
+  ></span>
+</template>
+
+<template id='compare-price-template'>
+  <span
+    class='price price--compare'
+    aria-label='{{- 'product.price.original_price' | t }}'
+  ></span>
+</template>
+
+<template id='discount-badge-template'>
+  <span
+    class='badge price-display__badge js-price-display__badge'
+    aria-label='{{- 'product.price.discount' | t }}'
+  ></span>
+</template>
+
+<template id='price-description-template'>
+  <span class='text text--small'>{{- 'product.price.description' | t }}</span>
+</template>
+
+<template id='product-gallery-template'>
+  <product-gallery class='product-gallery product-header__gallery'>
+    <div class='product-gallery__swiper product-gallery__swiper--main'>
+      <div class='swiper swiper--main js-swiper--main swiper-initialized swiper-horizontal'>
+        <div class='swiper-wrapper'></div>
+        <span class='swiper-notification' aria-live='assertive' aria-atomic='true'></span>
+      </div>
+      <div class='swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal'></div>
+    </div>
+    <div class='product-gallery__swiper product-gallery__swiper--thumb'>
+      <div class='swiper swiper--thumb js-swiper--thumb swiper-initialized swiper-vertical swiper-free-mode swiper-watch-progress swiper-backface-hidden swiper-thumbs'>
+        <div class='swiper-wrapper'></div>
+        <span class='swiper-notification' aria-live='assertive' aria-atomic='true'></span>
+      </div>
+    </div>
+  </product-gallery>
+</template>
+
+<template id='gallery-main-slide-template'>
+  <div class='swiper-slide'>
+    <img class='image'>
+  </div>
+</template>
+
+<template id='gallery-thumb-slide-template'>
+  <div class='swiper-slide swiper-slide-visible swiper-slide-fully-visible'
+       role='group'
+       style='height: 84px; margin-bottom: 16px;'>
+    <img class='image'>
+  </div>
+</template>
+
+<template id='gallery-placeholder-template'>
+  <div class='swiper-slide'>
+    {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+  </div>
+</template>
+
+<variant-group
+  data-sku='{{ product.selected_or_first_available_variant.sku }}'
+  data-price-from-text='{{ 'product.price.from' | t }}'
+>
+  <div
+    class='variant-group js-variant-group'
+    role='group'
+    {{ block.shopify_attributes }}
+  ></div>
+</variant-group>

@@ -1,0 +1,102 @@
+{%- comment -%}
+  Accepts:
+    - price: number (required)
+      The current product price
+    - block: object (required)
+      The section block containing Shopify attributes
+
+  Usage:
+    {% render 'Summary', price: product.selected_or_first_available_variant.price, block: block %}
+{%- endcomment -%}
+
+<div
+  class='summary {% if price == 0 %}hidden{% endif %}'
+  role='group'
+  {{ block.shopify_attributes }}
+>
+  <span class='text text--regular text--semibold summary__title'>
+    {{- 'product.summary.title' | t }}
+  </span>
+  <div class='summary__groups'>
+    <div class='summary-group'>
+      <div class='summary-group__rows'>
+        <dl class='summary-row'>
+          <dt class='text text--regular text--center'>
+            {{- 'product.summary.product_price' | t }}
+          </dt>
+          <dd
+            class='text text--regular js-summary-product-price js-cart-subtotal text--center'
+            aria-live='polite'
+          >
+            {{- price | money -}}
+          </dd>
+        </dl>
+        {%- liquid
+          assign qr_code_categories = 'qr-code-beschriftungstext,qr-code,bohrbild-ohne-ivz-i-ivz-ii-ivz-iii-qr-code,bohrbild-ohne-ivz-i-ivz-ii-ivz-iii-qr-code-beschriftungstext' | split: ','
+          assign show_qr = false
+          for collection in product.collections
+            for handle in qr_code_categories
+              if collection.handle contains handle
+                assign show_qr = true
+                break
+              endif
+            endfor
+            if show_qr
+              break
+            endif
+          endfor
+        -%}
+        {% if show_qr %}
+          <dl class='summary-row'>
+            <dt class='text text--regular text--center'>
+              {{- 'product.summary.qr_code' | t }}
+            </dt>
+            <dd
+              class='text text--regular js-summary-product-qr-code js-cart-subtotal text--center'
+              aria-live='polite'
+            >
+              {{- 0 | plus: qrCodePrice | money }}
+            </dd>
+          </dl>
+        {% endif %}
+        <dl class='summary-row'>
+          <dt class='text text--regular text--center'>
+            {{- 'product.summary.quantity' | t }}
+          </dt>
+          <dd
+            class='text text--regular js-summary-product-quantity js-cart-subtotal text--center'
+            aria-live='polite'
+          >
+            x1
+          </dd>
+        </dl>
+      </div>
+      <div class='divider-line'></div>
+      <dl class='summary-row'>
+        <dt class='text text--regular text--bold text--center'>
+          {{- 'product.summary.subtotal' | t }}
+        </dt>
+        <dd
+          class='text text--regular js-summary-product-subtotal js-cart-subtotal text--center'
+          aria-live='polite'
+        >
+          {{- price | money -}}
+        </dd>
+      </dl>
+    </div>
+    <div class='summary-group'>
+      <div class='divider-line'></div>
+      <dl class='summary-row'>
+        <dt class='text text--regular text--bold text--center'>
+          {{- 'product.summary.total_price' | t }}
+        </dt>
+        <dd
+          class='text text--regular js-summary-product-total js-cart-subtotal text--center'
+          aria-live='polite'
+        >
+          {{- price | money -}}
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>

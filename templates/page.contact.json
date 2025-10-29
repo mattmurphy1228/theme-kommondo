@@ -1,0 +1,27 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "contact": {
+      "type": "ContactPage",
+      "settings": {
+        "tel": "08819258600",
+        "tel_text": "0881 - 925860 -0",
+        "email": "info@kommondo.de",
+        "email_text": "info@kommondo.de",
+        "whatsapp": "01705798830",
+        "whatsapp_text": "0170 5798830"
+      }
+    }
+  },
+  "order": [
+    "contact"
+  ]
+}

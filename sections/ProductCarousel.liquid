@@ -1,0 +1,103 @@
+
+<section
+  class='product-carousel-section'
+  aria-label='Product carousel section'
+>
+  <custom-tabs>
+    <div class='tabs'>
+      <div
+        role='tablist'
+        class='tab__list tab__list--hidden-on-mobile'
+        aria-label='Tab items'
+      >
+        <div
+          class='tab-item tab-item--active'
+          role='tab'
+          aria-selected='true'
+          aria-controls='panel-0'
+          id='tab-0'
+        >
+          <h3 class='text text--headline text--h3'>{{- 'product.carousels.accessories' | t }}</h3>
+        </div>
+        <div
+          class='tab-item'
+          role='tab'
+          aria-selected='false'
+          aria-controls='panel-1'
+          id='tab-1'
+        >
+          <h3 class='text text--headline text--h3'>
+            {{- 'product.carousels.accessories_spare_parts' | t }}
+          </h3>
+        </div>
+      </div>
+      <div class='tab__content tab__content--hidden-on-mobile'>
+        <div
+          class='tab-content-item tab-content-item--active'
+          role='tabpanel'
+          id='panel-0'
+          aria-hidden='false'
+          aria-labelledby='tab-0'
+        >
+          {% render 'ProductCarousel',
+            carousel_products: product.metafields.custom.accessories.value,
+            is_mobile: false,
+            wrapper_id: '{{ section.id }}-swiper-wrapper-1'
+          %}
+        </div>
+        <div
+          class='tab-content-item'
+          role='tabpanel'
+          id='panel-1'
+          aria-hidden='true'
+          aria-labelledby='tab-1'
+        >
+          {% render 'ProductCarousel',
+            carousel_products: product.metafields.custom.accessories_spare_parts.value,
+            is_mobile: false,
+            wrapper_id: '{{ section.id }}-swiper-wrapper-2'
+          %}
+        </div>
+      </div>
+      <div class='tab__list-on-mobile'>
+        <div class='tab-item-on-mobile'>
+          <h3 class='text text--headline text--h3 tab-item-on-mobile__title'>
+            {{- 'product.carousels.accessories' | t }}
+          </h3>
+          <div class='tab-content-item-on-mobile'>
+            {% render 'ProductCarousel',
+              carousel_products: product.metafields.custom.accessories.value,
+              is_mobile: true,
+              wrapper_id: '{{ section.id }}-swiper-wrapper-3'
+            %}
+          </div>
+        </div>
+        <div class='tab-item-on-mobile'>
+          <h3 class='text text--headline text--h3 tab-item-on-mobile__title'>
+            {{- 'product.carousels.accessories_spare_parts' | t }}
+          </h3>
+          <div class='tab-content-item-on-mobile'>
+            {% render 'ProductCarousel',
+              carousel_products: product.metafields.custom.accessories_spare_parts.value,
+              is_mobile: true,
+              wrapper_id: '{{ section.id }}-swiper-wrapper-4'
+            %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </custom-tabs>
+</section>
+
+{% schema %}
+{
+  "name": "Product Carousel",
+  "blocks": [],
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Carousel"
+    }
+  ]
+}
+{% endschema %}

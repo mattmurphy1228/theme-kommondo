@@ -1,0 +1,45 @@
+{%- comment -%}
+  UserCard Component
+  
+  A card component that displays user information including:
+  - Image
+  - Name
+  - Occupation
+  - Contact details (email and phone)
+  - Description
+
+  Expected block.settings:
+  - image: User's profile image
+  - name: User's full name
+  - occupation: User's job title/role
+  - email: User's email address
+  - phone: User's phone number
+  - description: Text description/bio of the user
+
+  Usage:
+  Include this snippet within a section's blocks of type 'user'
+  See sections/UserList.liquid for implementation example
+{%- endcomment -%}
+
+<div class='user-card'>
+  <div class='user-card__image'>
+    {{ block.settings.image | image_url: width: 320 | image_tag }}
+  </div>
+  <div class='user-card__header'>
+    <span class='text text--regular text--bold'>{{ block.settings.name }}</span>
+    <span class='text text--regular'>{{ block.settings.occupation }}</span>
+  </div>
+  <div class='user-card__contact'>
+    <a class='anchor' href='mailto:{{ block.settings.email }}'>
+      {{ block.settings.email }}
+    </a>
+    <a class='anchor' href='tel:{{ block.settings.phone }}'>
+      {{ block.settings.phone }}
+    </a>
+  </div>
+  <div class='user-card__description'>
+    <span class='text text--small'>
+      {{ block.settings.description }}
+    </span>
+  </div>
+</div>

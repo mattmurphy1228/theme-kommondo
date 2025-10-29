@@ -1,0 +1,51 @@
+<div class='image-list page-width'>
+  {% for block in section.blocks %}
+    <div class='image-list__item' {{ block.shopify_attributes }}>
+      {% if block.settings.link %}
+        <a href='{{ block.settings.link }}'>
+          {{ block.settings.image | image_url: width: 500 | image_tag }}
+        </a>
+      {% else %}
+        {{ block.settings.image | image_url: width: 500 | image_tag }}
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Image List",
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "Optional: Falls man beim Bild Klick auf eine andere Seite weiterleiten möchte"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image List",
+      "blocks": [
+        {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/partnerPage2.png"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,68 @@
+<section class='eco-value-label-page'>
+  <div class='eco-value-label-page__header'>
+    <h2 class='text text--headline text--h2 text--center'>
+      {{ section.settings.title }}
+    </h2>
+  </div>
+  <div class='eco-value-label-page__body'>
+    {{
+      section.settings.image
+      | image_url: width: 1920
+      | image_tag: class: 'eco-value-label-page__image'
+    }}
+    <div class='eco-value-label-page__text'>
+      <span class='text text--regular'>
+        {{- section.settings.content -}}
+      </span>
+      <ul class='eco-value-label-page__bullets'>
+        {%- for block in section.blocks -%}
+          <li class='text text--regular eco-value-label-page__bullet'>
+            {{- block.settings.text -}}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "EcoValueLabelPage",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "content",
+      "label": "Content"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bullet",
+      "name": "Bullet",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "EcoValueLabelPage"
+    }
+  ]
+}
+{% endschema %}

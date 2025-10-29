@@ -1,0 +1,36 @@
+{%- comment -%}
+  Renders a group of radio options with optional prices
+  
+  Parameters:
+  - options: Array of option objects from metafields
+  - group_name: String identifier for the radio group
+{%- endcomment -%}
+
+{%- if options != blank -%}
+  {%- for option in options -%}
+    <div class='option-row'>
+      <custom-radio>
+        <div class='radio'>
+          <input
+            type='radio'
+            class='radio__input js-radio__input'
+            id='{{ group_name }}_{{ forloop.index }}'
+            name='{{ group_name }}_group'
+            value='{%- if option.value.value != blank and option.value.value != 0 -%} {{ option.value.value }} {%- endif -%}'
+            {%- if forloop.index == 1 -%}checked=''{%- endif -%}
+          />
+          <label for='{{ group_name }}_{{ forloop.index }}' class='radio__label'>
+            <span class='text text--regular js-radio__text'>
+              {{ option.name.value }}
+            </span>
+          </label>
+        </div>
+      </custom-radio>
+      {%- if option.value.value != blank and option.value.value != 0 -%}
+        <span class='text text--regular text--center'>
+          +{{- option.value.value | money -}}
+        </span>
+      {%- endif -%}
+    </div>
+  {%- endfor -%}
+{%- endif -%}

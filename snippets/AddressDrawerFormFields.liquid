@@ -1,0 +1,117 @@
+{%- liquid
+  assign err_msg = ''
+  if form.errors
+    assign err_msg = 'account.failed_to_save_address' | t
+  endif
+-%}
+<address-drawer-form-fields>
+  <div class='address-form__fields'>
+    {% render 'ErrorMessage',
+      err_msg: err_msg,
+      class_name: 'js-address-form-field-error'
+    %}
+    {% render 'FormFieldInput',
+      label: 'account.first_name' | t,
+      id: 'first_name',
+      name: 'address[first_name]',
+      type: 'text',
+      placeholder: 'account.first_name_placeholder' | t,
+      required: true,
+      width: 'fluid',
+      class_name: 'js-address-form-field-firstname',
+      value: form.first_name,
+      error: form.errors
+    %}
+    {% render 'FormFieldInput',
+      label: 'account.last_name' | t,
+      id: 'last_name',
+      name: 'address[last_name]',
+      type: 'text',
+      placeholder: 'account.last_name_placeholder' | t,
+      required: true,
+      class_name: 'js-address-form-field-lastname',
+      value: form.last_name,
+      error: form.errors
+    %}
+    {% render 'FormFieldInput',
+      label: 'account.company' | t,
+      id: 'company',
+      name: 'address[company]',
+      type: 'text',
+      placeholder: 'account.company_placeholder' | t,
+      required: true,
+      class_name: 'js-address-form-field-company',
+      value: form.company,
+      error: form.errors
+    %}
+    {% render 'FormFieldInput',
+      label: 'account.street_house_number' | t,
+      id: 'street_house_number',
+      name: 'address[address1]',
+      type: 'text',
+      placeholder: 'account.street_house_number_placeholder' | t,
+      required: true,
+      width: 'auto',
+      class_name: 'js-address-form-field-address1',
+      value: form.address1,
+      error: form.errors
+    %}
+    {% render 'FormFieldInput',
+      label: 'account.address_extension' | t,
+      id: 'address_extension',
+      name: 'address[address2]',
+      type: 'text',
+      placeholder: 'account.address_extension_placeholder' | t,
+      required: false,
+      width: 'auto',
+      class_name: 'js-address-form-field-address2',
+      value: form.address2,
+      error: form.errors
+    %}
+    <div class='address-form__row'>
+      {% render 'FormFieldInput',
+        label: 'account.zip_code' | t,
+        id: 'zip_code',
+        name: 'address[zip]',
+        type: 'text',
+        placeholder: 'account.zip_code_placeholder' | t,
+        required: true,
+        width: 'fixed',
+        class_name: 'js-address-form-field-zip form-field-input--fixed',
+        value: form.zip,
+        error: form.errors
+      %}
+      {% render 'FormFieldInput',
+        label: 'account.city' | t,
+        id: 'city',
+        name: 'address[city]',
+        type: 'text',
+        placeholder: 'account.city_placeholder' | t,
+        required: true,
+        width: 'auto',
+        class_name: 'js-address-form-field-city',
+        value: form.city,
+        error: form.errors
+      %}
+    </div>
+    {% render 'FormFieldSelect',
+      label: 'account.country' | t,
+      id: 'country',
+      name: 'address[country]',
+      placeholder: 'account.country_placeholder' | t,
+      selectOptions: 'country',
+      required: true,
+      width: 'fluid',
+      class_name: 'js-address-form-field-country',
+      value: form.country
+    %}
+  </div>
+  <div class='address-form__actions'>
+    <button
+      class='button button--solid address-drawer-actions__apply-btn js-address-drawer-actions__apply-btn button--width-fluid button--padding-md'
+      type='submit'
+    >
+      <span class='button__text'>{{ 'account.save' | t }}</span>
+    </button>
+  </div>
+</address-drawer-form-fields>

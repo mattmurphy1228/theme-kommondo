@@ -1,0 +1,54 @@
+{%- comment -%}
+  Accepts:
+    - product_rating: number (required)
+      The product's rating, typically a value between 0 and 5.
+    - product_rating_count: number (required)
+      The total number of reviews or ratings that the product has received.
+
+  Usage:
+    {% render 'StarRating', product_rating: product.metafields.reviews.rating.value, product_rating_count: product.metafields.reviews.rating_count %}
+{%- endcomment -%}
+
+{%- if product_rating != blank -%}
+  <div
+    class='star-rating js-star-rating'
+    role='img'
+    aria-label='{{- 'product.rating.description' | t: product_rating: product_rating, product_rating_count: product_rating_count }}'
+  >
+    <div class='star-rating__stars js-star-rating__stars'>
+      {%- for i in (1..5) -%}
+        {%- liquid
+          assign width = 100
+          if i > product_rating
+            assign width = i | minus: product_rating | times: 100
+            assign width = 100 | minus: width
+          endif
+
+          if width < 0
+            assign width = 0
+          endif
+
+          assign width = width | round
+        -%}
+
+        <div class='star-rating__star js-star-rating__star--{{ i }}'>
+          <div class='star-rating__star-body'>
+            <span
+              class='star-rating__star-icon star-rating__star-icon--empty'
+            ></span>
+          </div>
+          <div class='star-rating__star-body star-rating__star-body--filled js-star-rating__star-body--filled' style='width: {{ width }}%'>
+            <span
+              class='star-rating__star-icon star-rating__star-icon--filled'
+            ></span>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+    <span
+      class='text text--regular star-rating__review js-star-rating__review text--center'
+    >
+      ({{ product_rating_count }})
+    </span>
+  </div>
+{%- endif -%}

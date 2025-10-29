@@ -1,0 +1,15 @@
+<div class='image-with-text-background image-with-text--bg-white'>
+  <div class='page-width image-with-text'>
+    {% if image != blank %}
+      <div class='image-with-text__image'>
+        {{ image | image_url: width: 1200 | image_tag }}
+      </div>
+    {% endif %}
+    <div class='image-with-text__text'>
+      <span class='text text--headline text--h3'>
+        {{- title -}}
+      </span>
+      <span class='text text--regular'>{{ text }}</span>
+    </div>
+  </div>
+</div>

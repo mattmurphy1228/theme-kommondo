@@ -1,0 +1,77 @@
+<section class='sales-documents-page'>
+  <div class='sales-documents-page__header'>
+    <div class='sales-documents-page-header__inner page-width'>
+      <h2 class='text text--headline text--h2 text--center sales-documents-page-header__title'>
+        {{ section.settings.title }}
+      </h2>
+      <span class='text text--regular sales-documents-page-header__description text--center'>
+        {{ section.settings.description }}
+      </span>
+    </div>
+  </div>
+  <div class='sales-documents-page__body page-width'>
+    <ul class='sales-documents-page__blocks'>
+      {%- for block in section.blocks -%}
+        <li class='sales-documents-page__bullet'>
+          {% render 'SalesDocumentsBlock',
+            image: block.settings.image,
+            button_label: block.settings.button_label,
+            button_link: block.settings.button_link,
+            text: block.settings.text
+          %}
+        </li>
+      {%- endfor -%}      
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SalesDocumentsPage",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "description",
+      "label": "description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "SalesDocumentsBlock",
+      "name": "SalesDocumentsBlock",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SalesDocumentsPage"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,8 @@
+<address-drawer-form>
+  <div class='address-drawer-form'>
+    {%- form 'customer_address', customer.new_address, aria-labelledBy: 'AddAddressBtn', class: 'address-form js-address-form' -%}
+      <input type='hidden' name='return_to' value='/account#tab-1'>
+      {% render 'AddressDrawerFormFields', form: form %}
+    {%- endform -%}
+  </div>
+</address-drawer-form>

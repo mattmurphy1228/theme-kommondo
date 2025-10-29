@@ -1,0 +1,41 @@
+{%- liquid
+  if class_name != blank
+    assign wrapper_class = class_name | append: ' cart-item-group'
+  else
+    assign wrapper_class = 'cart-item-group'
+  endif
+
+  if section_type == 'cart-page'
+    assign wrapper_class = wrapper_class | append: ' cart-item-group--no-padding-bottom'
+  endif
+
+  if section_type == 'cart-drawer' and cart.items.size > 1
+    assign wrapper_class = wrapper_class | append: ' cart-item-group--no-padding-bottom'
+  endif
+-%}
+
+<div class="{{ wrapper_class }}">
+  {%- if cart != empty -%}
+    <form
+      action="{{ routes.cart_url }}"
+      id="CartItems-Form"
+      method="post"
+      class="cart-item-group__form"
+    >
+      {%- for item in cart.items -%}
+        {% render 'CartItem',
+          cart_item: item
+        %}
+        {%- if forloop.index < cart.items.size -%}
+          <div class="divider-line"></div>
+        {%- endif -%}
+        {%- if section_type == 'cart-page' and forloop.index == cart.items.size -%}
+          <div class="divider-line"></div>
+        {%- endif -%}
+        {%- if section_type == 'cart-drawer' and forloop.index == cart.items.size and cart.items.size > 1 -%}
+          <div class="divider-line"></div>
+        {%- endif -%}
+      {%- endfor -%}
+    </form>
+  {%- endif -%}
+</div>

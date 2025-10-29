@@ -1,0 +1,50 @@
+{%- comment -%}
+  Renders carousel items for a product carousel using Swiper.js
+
+  Accepts:
+    - carousel_products: Array of Product objects (required)
+      The products to display in the carousel
+    - is_mobile: boolean (required)
+      Whether the carousel is being displayed on mobile devices
+
+  Usage:
+    {% render 'ProductCarouselItem',
+      carousel_products: collection.products,
+      is_mobile: true
+    %}
+
+  Requirements:
+    - Requires the ProductCard snippet to be present
+    - Requires Swiper.js for carousel functionality
+{%- endcomment -%}
+
+{%- for product in carousel_products -%}
+  {%- liquid
+    assign product_image = null
+    if product.selected_or_first_available_variant != null
+      if product.selected_or_first_available_variant.featured_media != null
+        if product.selected_or_first_available_variant.featured_media.media_type == 'image'
+          assign product_image = product.selected_or_first_available_variant.featured_media
+        endif
+      endif
+    endif
+
+    if product_image == null
+      for media in product.media
+        if media.media_type == 'image'
+          assign product_image = media
+        endif
+      endfor
+    endif
+  -%}
+  <div
+    class='swiper-slide {% if forloop.index == 1 and is_mobile %}swiper-slide-active{% endif %}'
+    role='group'
+    aria-label='{{ forloop.index }} / {{ forloop.length }}'
+    {% if is_mobile %}
+      style='margin-right: 24px;'
+    {% endif %}
+  >
+    {% render 'ProductCard', product: product %}
+  </div>
+{%- endfor -%}

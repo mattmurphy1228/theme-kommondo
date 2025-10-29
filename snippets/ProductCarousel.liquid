@@ -1,0 +1,21 @@
+{% comment %}
+  Renders a product carousel
+  Accepts:
+  - carousel_products: {Object} Product metafield value
+  - is_mobile: {Boolean} Whether this is the mobile view
+  - wrapper_id: {String} Unique ID for the wrapper
+{% endcomment %}
+<product-carousel class='product-carousel'>
+  <div class='product-carousel__swiper'>
+    <div class='swiper js-swiper swiper-initialized swiper-horizontal{% if is_mobile %} swiper-backface-hidden{% endif %}'>
+      <div class='swiper-wrapper' id='{{ wrapper_id }}' aria-live='polite'>
+        {% render 'ProductCarouselItem',
+          carousel_products: carousel_products,
+          is_mobile: is_mobile
+        %}
+      </div>
+      <span class='swiper-notification' aria-live='assertive' aria-atomic='true'></span>
+    </div>
+    <div class='swiper-pagination'></div>
+  </div>
+</product-carousel>

@@ -1,0 +1,30 @@
+.breadcrumbs.breadcrumbs--custom {
+  padding: 24px;
+  margin: auto;
+  font-size: var(--font-size-sm, 0.875rem);
+  line-height: var(--line-height-xxxl, 1.571);
+  color: var(--color-grey-dark, #848c8c);
+  text-transform: none;
+}
+
+.breadcrumbs.breadcrumbs--custom a {
+  color: var(--color-grey-dark, #848c8c);
+}
+
+.breadcrumbs.breadcrumbs--custom span[class^='bodanu-bc'] {
+  padding: 0 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .breadcrumbs.breadcrumbs--custom {
+    padding: 24px 48px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .breadcrumbs.breadcrumbs--custom {
+    padding: 24px;
+    font-size: var(--font-size-md, 1rem);
+    line-height: var(--line-height-xxl, 1.5);
+  }
+}

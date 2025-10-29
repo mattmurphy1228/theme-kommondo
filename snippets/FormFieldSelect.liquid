@@ -1,0 +1,56 @@
+{%- liquid
+  assign select_width = width | default: 'auto'
+  assign select_class = 'select__field js-select__field'
+  if error contains name
+    assign select_class = select_class | append: ' select__field--error'
+  endif
+
+  if class_name != blank
+    assign wrapper_class = class_name | append: ' form-field-select'
+  else
+    assign wrapper_class = 'form-field-select'
+  endif
+-%}
+
+<div class='{{ wrapper_class }}'>
+  <div class='form-field'>
+    {%- if label != blank -%}
+      <label
+        class='text text--regular form-field__label'
+        for='{{ id }}'
+      >
+        {{ label | t }}
+        {%- if required -%}*{%- endif -%}
+      </label>
+    {%- endif -%}
+    <custom-select data-value='{{ value }}'>
+      <div class='select select--width-{{ select_width }}'>
+        <select
+          class='{{ select_class }}'
+          id='{{ id }}'
+          name='{{ name }}'
+          {%- if placeholder != blank %}
+            placeholder='{{ placeholder | t }}'
+          {% endif %}
+          {%- if value != blank %}
+            value='{{ value }}'
+            data-default='{{ value }}'
+          {% endif %}
+          {%- if required %}
+            required
+            aria-required='true'
+          {% endif %}
+        >
+          {%- if selectOptions == 'country' -%}
+            {{ country_option_tags }}
+          {%- else -%}
+            <option value='' class='option js-option option--default js-option--default'>---</option>
+            {%- for option in selectOptions -%}
+              <option value='{{ option.value }}' class='option js-option'>{{ option.label }}</option>
+            {%- endfor -%}
+          {%- endif -%}
+        </select>
+      </div>
+    </custom-select>
+  </div>
+</div>

@@ -1,0 +1,158 @@
+<div class='order-detail__body'>
+  <div class='order-detail__info'>
+    <div class='order-detail-info'>
+      <div class='order-detail-info__inner'>
+        <div class='order-detail-info__badge'>
+          <span class='text text--regular order-status-badge order-status-badge--{{ order_status }}'>
+            {{ order.financial_status_label }}
+          </span>
+        </div>
+        <div class='order-detail-info__main'>
+          <div class='order-detail-info__row'>
+            <span class='text text--semibold'>
+              {{ 'account.ordered_at' | t }}:
+            </span>
+            <span class='text text--regular order-detail-info__text'>
+              {{ order.created_at | date: '%-d. %B %Y' }}
+            </span>
+          </div>
+          {%- if order.cancelled -%}
+            <div class='order-detail-info__row'>
+              <span class='text text--semibold'>
+                {{ 'account.cancelled_at' | t }}:
+              </span>
+              <span class='text text--regular order-detail-info__text'>
+                {{ order.cancelled_at | date: '%-d. %B %Y um %H:%M' }}
+              </span>
+            </div>
+            <div class='order-detail-info__row'>
+              <span class='text text--semibold'>
+                {{ 'account.reason' | t }}:
+              </span>
+              <span class='text text--regular order-detail-info__text'>
+                {{ order.cancel_reason_label }}
+              </span>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+      <div class='order-detail-info__buttons'>
+        <button
+          class='button button--outlined order-detail-info__return-btn js-order-detail-info__return-btn button--width-auto button--padding-md'
+          type='button'
+          aria-disabled='false'
+        >
+          <span class='button__text'>
+            {{ 'account.request_return' | t }}
+          </span>
+        </button>
+        <button
+          class='button button--solid order-detail-info__buy-btn js-order-detail-info__buy-btn button--width-auto button--padding-md'
+          type='button'
+          aria-disabled='false'
+        >
+          <span class='button__text'>
+            {{ 'account.buy_again' | t }}
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class='order-detail__overview-address'>
+    <div class='order-detail__overview'>
+      <div class='order-detail-overview'>
+        <h4 class='text text--headline text--h4 order-detail-overview__title'>
+          {{ 'account.order_overview' | t }}
+        </h4>
+        <div class='order-detail-overview__products js-order-detail-overview__products'>
+          {% render 'AccountOrderProducts',
+            line_items: order.line_items,
+            selectable: false
+          %}
+        </div>
+        <div class='order-detail-overview__summary'>
+          <div class='order-detail-overview__sub-summary'>
+            <div class='order-detail-overview-sub-summary__row'>
+              <span class='text text--regular'>
+                {{ 'account.subtotal' | t }}
+              </span>
+              <span
+                class='price price--regular order-detail-overview-sub-summary__price'
+                aria-label='{{ 'account.subtotal_price' | t }}'
+              >
+                {{ order.subtotal_price | money }}
+              </span>
+            </div>
+            <div class='order-detail-overview-sub-summary__row'>
+              <span class='text text--regular'>
+                {{ 'account.shipping_standard' | t }}
+              </span>
+              <span
+                class='price price--regular order-detail-overview-sub-summary__price'
+                aria-label='{{ 'account.shipping_price' | t }}'
+              >
+                {{ order.shipping_price | money }}
+              </span>
+            </div>
+            <div class='order-detail-overview-sub-summary__row'>
+              <span class='text text--regular'>
+                {{ 'account.tax' | t }}
+              </span>
+              <span
+                class='price price--regular order-detail-overview-sub-summary__price'
+                aria-label='{{ 'account.tax_price' | t }}'
+              >
+                {{ order.tax_price | money }}
+              </span>
+            </div>
+          </div>
+          <div class='order-detail-overview-sum'>
+            <span class='text text--bold'>
+              {{ 'account.in_total' | t }}
+            </span>
+            <span
+              class='price price--regular order-detail-overview-sum__price'
+              aria-label='{{ 'account.total_price' | t }}'
+            >
+              {{ order.total_price | money }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='order-detail__address'>
+      <div class='order-detail-address'>
+        <div class='order-detail-address__row'>
+          <h4 class='text text--headline text--h4 order-detail-address__subtitle'>
+            {{ 'account.billing_address' | t }}
+          </h4>
+          <div class='order-detail-address__body'>
+            <span class='text text--semibold'>
+              {{ order.customer.name }}
+            </span>
+            <div class='order-detail-address__info'>
+              <span class='text text--regular'>
+                {{ order.billing_address | format_address }}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class='order-detail-address__row'>
+          <h4 class='text text--headline text--h4 order-detail-address__subtitle'>
+            {{ 'account.shipping_address' | t }}
+          </h4>
+          <div class='order-detail-address__body'>
+            <span class='text text--semibold'>
+              {{ order.customer.name }}
+            </span>
+            <div class='order-detail-address__info'>
+              <span class='text text--regular'>
+                {{ order.shipping_address | format_address }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

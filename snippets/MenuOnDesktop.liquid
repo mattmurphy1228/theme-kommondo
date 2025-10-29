@@ -1,0 +1,27 @@
+<div class='main-menu__desktop js-main-menu__desktop'>
+  {% render 'TopMainNavMenu',
+    menu_links: menu_links,
+    secondary_menu_links: secondary_menu_links,
+    sale_menu_item_title: sale_menu_item_title
+  %}
+  <div class='main-menu__mega-menu js-main-menu__mega-menu'>
+    {%- if menu_links != blank and menu_links.size > 0 -%}
+      {%- for menu_item in menu_links -%}
+        {% render 'MegaMenu',
+          menu_links: menu_item.links,
+          class_name: 'mega-menu--hidden',
+          menu_item_placeholder_image: section.settings.menu_item_placeholder_image
+        %}
+      {%- endfor -%}
+    {%- endif -%}
+    {%- if secondary_menu_links != blank and secondary_menu_links.size > 0 -%}
+      {%- for secondary_menu_item in secondary_menu_links -%}
+        {% render 'MegaMenu',
+          menu_links: secondary_menu_item.links,
+          class_name: 'mega-menu--hidden',
+          menu_item_placeholder_image: section.settings.menu_item_placeholder_image
+        %}
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+</div>

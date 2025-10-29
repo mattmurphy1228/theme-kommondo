@@ -1,0 +1,67 @@
+{%- comment -%}
+  Accepts:
+    - product: Product object (required)
+      The product object containing variant information
+    - show_quantity_selector: boolean (required)
+      Whether to show the quantity selector input
+      Whether to show the request quote button
+    - block: object (required)
+      The section block containing Shopify attributes
+
+  Usage:
+    {% render 'AddToCart',
+      product: product,
+      show_quantity_selector: true,
+      block: block
+    %}
+{%- endcomment -%}
+
+{%- liquid
+  assign form_class = 'add-to-cart__atc-form js-add-to-cart__atc-form'
+
+  if product.selected_or_first_available_variant.price == 0
+    assign form_class = form_class | append: ' hidden'
+  endif
+-%}
+
+<div class='add-to-cart' {{ block.shopify_attributes }}>
+  {%- if product.metafields.custom.show_not_for_doctors_hospitals == true -%}
+    <div class="add-to-cart__note">
+      <svg class="icon js-icon" width="25" height="25" aria-hidden="true">
+        <use xlink:href="#info-outline-rounded"></use>
+      </svg>
+      <span class="text text--regular note-for-doctors-hospitals">
+        {{ 'product.add_to_cart.sales_to_doctors_only' | t }}
+      </span>
+    </div>
+  {%- endif -%}
+  {%- form 'product', product, class: form_class, novalidate: 'novalidate' -%}
+    <div class="add-to-cart__atc-form-row">
+      {% if show_quantity_selector %}
+        {% render 'QuantitySelector' %}
+      {% endif %}
+      <input
+        type='hidden'
+        name='id'
+        value='{{ product.selected_or_first_available_variant.id }}'
+      >
+      {%- unless product.tags contains 'FRACHT03' -%}
+        <button
+          class='button button--solid js-add-to-cart__button button--width-fluid button--padding-md'
+          type='submit'
+        >
+          <span class='button__text'>
+            {{- 'product.add_to_cart.add_to_cart' | t -}}
+          </span>
+        </button>
+      {%- endunless -%}
+    </div>
+    <div class="add-to-cart__comment-row">
+      <label for="product_comment" class="text text--regular add-to-cart__comment-label">{{- 'product.add_to_cart.comment' | t -}}</label>
+      <textarea name="properties[Kommentar]" id="product_comment" class="add-to-cart__comment-text"></textarea>
+    </div>
+  {%- endform -%}
+</div>
+<span class='text text--regular need-quote-request-text js-need-quote-request-text need-quote-request-text--hidden'>
+  {{ 'product.add_to_cart.custom_request_quote_text' | t }}
+</span>

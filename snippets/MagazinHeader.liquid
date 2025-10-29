@@ -1,0 +1,25 @@
+{%- comment -%}
+  Magazine Header Component
+  
+  Variables that can be used:
+  - title: The main heading text (required)
+  - description: Descriptive text below the heading (required)
+  - button_text: Text for the CTA button (optional)
+  - button_link: URL for the CTA button (optional, required if button_text is set)
+{%- endcomment -%}
+
+<div class='magazin-header'>
+  <div class='magazin-header__content'>
+    <span class='text text--headline text--h3'>
+      {{ title }}
+    </span>
+  </div>
+  {% if button_text != blank %}
+    <a
+      class='button button--solid button--width-auto button--padding-md'
+      href='{{ button_link }}'
+    >
+      <span class='button__text'>{{ button_text }}</span>
+    </a>
+  {% endif %}
+</div>

@@ -1,0 +1,57 @@
+<customer-account-mobile>
+  {% render 'AccountHeader' %}
+
+  {%- liquid
+    assign orders_tab_title = 'account.orders' | t
+    assign addresses_tab_title = 'account.addresses' | t
+    assign logout_tab_title = 'account.logout' | t
+  -%}
+  <div class='customer-account-tab' aria-label='{{ 'account.account_tabs' | t }}'>
+    <form action='javascript:' class='customer-account-tab__form'>
+      <ul class='customer-account-tab__body'>
+        <li class='customer-account-tab-item'>
+          {% render 'AccountMobileTabItem',
+            index: 0,
+            icon: '#tab-item-orders',
+            title: orders_tab_title
+          %}          
+          <div class='customer-account-tab-item__content'>
+            {% render 'AccountTabContentHeaderMobile',
+              index: 0,
+              title: orders_tab_title
+            %}
+            <div class='customer-account-tab-content__body'>
+              {% render 'AccountOrders', orders_per_page: orders_per_page %}
+            </div>
+          </div>
+        </li>
+        <li class='customer-account-tab-item'>
+          {% render 'AccountMobileTabItem',
+            index: 1,
+            icon: '#tab-item-addresses',
+            title: addresses_tab_title
+          %}
+          <div class='customer-account-tab-item__content'>
+            {% render 'AccountTabContentHeaderMobile',
+              index: 1,
+              title: addresses_tab_title
+            %}
+            <div class='customer-account-tab-content__body'>
+              {% render 'AccountAddresses' %}
+            </div>
+          </div>
+        </li>
+        <li class='customer-account-tab-item'>
+          <div class='customer-account-tab-item__item js-customer-account-tab-item__item'>
+            <svg class='icon js-icon' width='24' height='24' aria-hidden='true'>
+              <use xlink:href='#tab-item-logout'></use>
+            </svg>
+            <a class='text text--regular customer-account-tab-item__item-text' href='{{ routes.account_logout_url }}'>
+              {{ logout_tab_title }}
+            </a>
+          </div>
+        </li>
+      </ul>
+    </form>
+  </div>
+</customer-account-mobile>

@@ -1,0 +1,120 @@
+{{ 'secondary-nav-menu.css' | asset_url | stylesheet_tag }}
+
+
+<div class='secondary-nav-menu'>
+  <div class='secondary-nav-menu__inner'>
+  <ul class='secondary-nav-menu__list'>
+    <li class='secondary-nav-menu__item'>
+      <a href="{{ section.settings.partner_link }}">{{ section.settings.partner_text }}</a>
+    </li>
+    <li class='secondary-nav-menu__item'>
+      <a href="{{ section.settings.eco_link }}">{{ section.settings.eco_text }}</a>
+    </li>
+    <li class='secondary-nav-menu__item'>
+      <a href="{{ section.settings.about_link }}">{{ section.settings.about_text }}</a>
+    </li>
+  </ul>
+
+  {%- if linklists[section.settings.secondary_menu].links != blank -%}
+    {%- liquid
+      assign secondary_menu_title = linklists[section.settings.secondary_menu].title
+      assign secondary_menu_links = linklists[section.settings.secondary_menu].links
+    -%}
+    <sort-dropdown class='sort-dropdown'>
+      <div class='sort-dropdown__inner'>
+        <button
+          id='top-nav-dropdown'
+          class='button button--outlined sort-dropdown__button js-sort-dropdown__button button--width-auto button--padding-md'
+          type='button'
+          aria-label='{{ secondary_menu_title }}'
+          aria-expanded='false'
+          aria-controls='top-nav-dropdown_menu'
+        >
+          <span class='button__text'>
+            <span
+              class='text text--regular sort-dropdown__button-label js-sort-dropdown__button-label'
+            >
+              {{ secondary_menu_title }}
+            </span>
+          </span>
+          <svg class='icon js-icon' width='16' height='16' aria-hidden='true'>
+            <use xlink:href='#dropdown-arrow'></use>
+          </svg>
+        </button>
+        {%- if secondary_menu_links != blank and secondary_menu_links.size > 0 -%}
+          <ul
+            id='top-nav-dropdown_menu'
+            class='js-sort-dropdown__menu sort-dropdown__menu sort-dropdown__menu--hidden'
+            aria-labelledby='top-nav-dropdown'
+          >
+            {%- for link in secondary_menu_links -%}
+              <li class='sort-dropdown__list'>
+                <a
+                  class='text text--regular sort-dropdown__label js-sort-dropdown__label'
+                  href='{{ link.url }}'
+                >
+                  {{ link.title }}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+    </sort-dropdown>
+  {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Secondary Nav Menu",
+  "settings": [
+    {
+      "type": "text",
+      "id": "partner_text",
+      "label": "Partner Link Text",
+      "default": "Unsere Partner"
+    },
+    {
+      "type": "url",
+      "id": "partner_link",
+      "label": "Partner Link URL"
+    },
+    {
+      "type": "text", 
+      "id": "eco_text",
+      "label": "Eco Label Text",
+      "default": "Ökowert-Kennzeichnung"
+    },
+    {
+      "type": "url",
+      "id": "eco_link",
+      "label": "Eco Label URL"
+    },
+    {
+      "type": "text",
+      "id": "about_text",
+      "label": "About Link Text", 
+      "default": "Über Uns"
+    },
+    {
+      "type": "url",
+      "id": "about_link",
+      "label": "About Link URL"
+    },
+    {
+      "type": "link_list", 
+      "id": "secondary_menu",
+      "label": "Secondary Menu",
+      "default": "main-menu",
+      "info": "Select menu to display in secondary navigation"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Secondary Nav Menu"
+    }
+  ]
+}
+{% endschema %}

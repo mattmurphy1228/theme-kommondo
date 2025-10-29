@@ -1,0 +1,21 @@
+{%- comment -%}
+  Search page header component that displays:
+  - Search page title
+  - Results count
+  - Sort dropdown
+  - Filter group
+  - Reset all filters button
+{%- endcomment -%}
+
+<section class='search-page-header' aria-label='Search page header'>
+  <div class='search-page-header__top'>
+    <div class='search-page-header__main'>
+      <h2 class='text text--headline text--h2'>{{ 'search.search_result_for' | t }} ‘{{ search_terms }}’</h2>
+      <span class='text text--regular search-page-header__results search-page-header__results--mobile js-search-page-header__results'></span>
+      <div class='search-page-header__sort'>
+        <span class='text text--regular search-page-header__results search-page-header__results--desktop js-search-page-header__results'></span>
+      </div>
+    </div>
+  </div>
+  <div class='divider-line'></div>
+</section>

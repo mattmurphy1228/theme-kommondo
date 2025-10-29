@@ -1,0 +1,29 @@
+<div class='text-block page-width'>
+  <h3 class='text text--headline text--h3'>{{ section.settings.title }}</h3>
+  <div class='text text--regular text-block__text'>
+    {{- section.settings.text -}}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "TextBlock",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "TextBlock"
+    }
+  ]
+}
+{% endschema %}

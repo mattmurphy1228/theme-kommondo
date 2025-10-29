@@ -1,0 +1,61 @@
+{%- comment -%}
+  Collection header component that displays:
+  - Collection title
+  - Product count (mobile and desktop versions)
+  - Sort dropdown
+  - Filter group
+  - Reset all filters button
+{%- endcomment -%}
+
+<section class='collection-header' aria-label='Collection header'>
+  <div class='collection-header__top'>
+    <div class='collection-header__main'>
+      <h2 class='text text--headline text--h2'>{{ collection.title }}</h2>
+      <span class='text text--regular collection-header__articles collection-header__articles--mobile js-collection-page-header__results'></span>
+      <div class='collection-header__sort'>
+        <span class='text text--regular collection-header__articles collection-header__articles--desktop js-collection-page-header__results'></span>
+        {% render 'SortDropdown' %}
+      </div>
+    </div>
+  </div>
+  {%- if collection.metafields.custom.kurzbeschreibung -%}
+    <p class='text text--regular collection-header__description'>
+      {{ collection.metafields.custom.kurzbeschreibung }}
+    </p>
+  {%- endif -%}
+  {%- if template == 'aktion' -%}
+    <p class='text text--regular collection-header__description'>
+      {{ introduction_text }}
+    </p>
+  {%- endif -%}
+  {%- if template == 'aktion' or template == 'herbst-winter' -%}
+    {% render 'TextBlock',
+      title: "",
+      description: description
+    %}
+  {%- endif -%}
+  <div class='divider-line'></div>
+  <div class='collection-header__filters'>
+    {% render 'FilterGroup' %}
+
+    {%- if collection.filters -%}
+      {% assign active_filters = false %}
+      {%- for filter in collection.filters -%}
+        {%- if filter.active_values.size > 0 -%}
+          {% assign active_filters = true %}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if active_filters -%}
+        <a
+          class='button button--outlined collection-header__reset-all-btn button--width-auto button--padding-md'
+          href='{{ collection.url }}'
+        >
+          <span class='button__text'>
+            {{- 'collection.reset_all_filters' | t -}}
+          </span>
+        </a>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>

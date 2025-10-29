@@ -1,0 +1,39 @@
+{%- liquid
+  if class_name != blank
+    assign wrapper_class = class_name | append: ' cart-summary'
+  else
+    assign wrapper_class = 'cart-summary'
+  endif
+-%}
+
+<div class="{{ wrapper_class }}">
+  <div class="cart-summary__info">
+    <dl class="summary-row">
+      <dt
+        class='text text--regular text--bold text--center'
+        aria-describedby='shipping-info'
+      >
+        {{ 'cart.subtotal' | t }}
+      </dt>
+      <dd
+        class='text text--headline text--h3 js-cart-subtotal text--center'
+        aria-live='polite'
+      >
+        {{ cart.total_price | money }}
+      </dd>
+    </dl>
+    <div class='shipping-info-row'>
+      <span>
+        <span class="text text--regular shipping-info-row__text">
+          {{ 'cart.exclude_vat_plus_shipping_costs' | t }}
+        </span>
+      </span>
+    </div>
+  </div>
+  <a
+    class='button button--solid button--width-auto button--padding-md'
+    href='/checkout'
+  >
+    <span class="button__text">{{ 'cart.checkout' | t }}</span>
+  </a>
+</div>

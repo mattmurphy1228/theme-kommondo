@@ -1,0 +1,43 @@
+{%- if menu_item.links != blank and menu_item.links.size > 0 -%}
+  {% render 'MobileMenuCheckbox',
+    id: id,
+    level: level
+  %}
+  {% assign new_level = level | plus: 1 %}
+  <nav
+    class='
+      mobile-menu__nav-{{ new_level }}
+      js-mobile-menu__nav-{{ new_level }}
+      mobile-menu__nav js-mobile-menu__nav
+    '
+  >
+    <main class='mobile-menu__nav-inner'>
+      {% render 'MobileMenuHeader',
+        text: menu_item.title,
+        back_label_for: id,
+        close_label_for: 'mobile-menu-close'
+      %}
+      <ul
+        class='mobile-menu__body {% if has_footer == false %}mobile-menu__body--without-footer{% endif %}'
+      >
+        {%- for sub_menu_item in menu_item.links -%}
+          {% assign new_parent_index = parent_index | append: '-' | append: forloop.index0 %}
+          {% render 'MobileMenuItemWrapper',
+            menu_item: sub_menu_item,
+            index: forloop.index0,
+            parent_index: new_parent_index
+            level: new_level,
+            has_footer: has_footer,
+            footer_text: footer_text
+          %}
+        {%- endfor -%}
+        {%- if has_footer == true -%}
+          {% render 'MobileMenuFooter',
+            title: footer_text,
+            url: menu_item.url
+          %}
+        {%- endif -%}
+      </ul>
+    </main>
+  </nav>
+{%- endif -%}

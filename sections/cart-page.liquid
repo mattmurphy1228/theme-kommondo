@@ -1,0 +1,89 @@
+{%- liquid
+  assign threshold = settings.free_shipping_threshold
+  assign cart_total = cart.total_price
+  assign threshold = threshold | times: 100
+  assign remaining = threshold | minus: cart_total
+  assign remaining_price = remaining | money
+  
+  if remaining <= 0
+    assign remaining_price = ''
+  endif
+
+  assign percent = cart_total | times: 100 | divided_by: threshold | round
+  if percent > 100
+    assign percent = 100
+  endif
+
+  assign empty_cart_message_class_name = 'empty-cart-message--on-page js-cart-page__empty-cart-message'
+  if cart != empty
+    assign empty_cart_message_class_name = empty_cart_message_class_name | append: ' empty-cart-message--hidden'
+  endif
+
+  assign free_shipping_indicator_class_name = 'js-cart-page__free-shipping-indicator'
+  if cart == empty
+    assign free_shipping_indicator_class_name = free_shipping_indicator_class_name | append: ' cart-page__free-shipping-indicator--hidden'
+  endif
+
+  assign cart_summary_class_name = 'cart-page__cart-summary js-cart-page__cart-summary'
+  if cart == empty
+    assign cart_summary_class_name = cart_summary_class_name | append: ' cart-page__cart-summary--hidden'
+  endif
+-%}
+
+<section class="page-width page-width--no-padding">
+  <div class="cart-page js-cart-page" aria-label="{{ 'cart.shopping_cart' | t }}">
+    <cart-page
+      class="cart-page__inner js-cart-page__inner"
+      data-free-shipping-threshold="{{ settings.free_shipping_threshold }}"
+      data-free-shipping-text="{{ 'cart.amount_for_free_shipping' | t: free_shipping_threshold: remaining_price }}"
+      data-free-shipping-reached-text="{{ 'cart.congrats_on_free_shipping_reached' | t }}"
+    >
+      <script type="application/json" id="cart-page-data">
+        {
+          "cart": {{ cart | json }}
+        }
+      </script>
+      {% render 'CartPageHeader' %}
+      <div class="cart-page__body js-cart-page__body">
+        {% render 'EmptyCartMessage',
+          class_name: empty_cart_message_class_name
+        %}
+        <div
+          class="
+            cart-page__shipping-info-items-wrapper
+            js-cart-page__shipping-info-items-wrapper
+            {% if cart == empty %}cart-page__shipping-info-items-wrapper--hidden{% endif %}
+          "
+        >
+          {% render 'FreeShippingIndicator',
+            class_name: free_shipping_indicator_class_name,
+            percent: percent,
+            remaining_price: remaining_price
+          %}
+          {% render 'CartItemGroup',
+            class_name: 'cart-page__cart-item-group js-cart-page__cart-item-group',
+            section_type: 'cart-page',
+          %}
+        </div>
+        <div class="cart-page__summary js-cart-page__summary {% if cart == empty %}cart-page__summary--hidden{% endif %}">
+          {% render 'CartSummary', class_name: cart_summary_class_name %}
+          {% render 'ShippingInfo',
+            class_name: 'cart-page__shipping-info cart-page__shipping-info--empty'
+          %}
+        </div>
+      </div>
+    </cart-page>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Cart page",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Cart page",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

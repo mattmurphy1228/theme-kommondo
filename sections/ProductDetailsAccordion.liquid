@@ -1,0 +1,39 @@
+<section class='page-width page-width--no-padding'>
+  <div class='product-details-accordion' aria-label='Product details accordion'>
+    <div class='accordion-group' role='group'>
+      <details class='accordion-item accordion-item--description js-accordion-item--description {% if product.description == blank %}visually-hidden{% endif %}' name='product-accordion-item' open=''>
+        <summary class='accordion-item__summary'>{{- 'product.details_accordion.description' | t }}</summary>
+        <div class='accordion-item__content accordion-item__content--description js-accordion-item__content--description'>
+          {{ product.description }}
+        </div>
+      </details>
+      
+      <details class='accordion-item accordion-item--features js-accordion-item--features {% if product.metafields.custom.details_features == blank %}visually-hidden{% endif %}' name='product-accordion-item'>
+        <summary class='accordion-item__summary'>{{- 'product.details_accordion.features' | t }}</summary>
+        <div class='accordion-item__content accordion-item__content--features js-accordion-item__content--features'>
+          {{ product.metafields.custom.details_features | metafield_tag }}
+        </div>
+      </details>
+      
+      <details class='accordion-item accordion-item--reviews js-accordion-item--reviews {% if product.metafields.custom.details_reviews == blank %}visually-hidden{% endif %}' name='product-accordion-item'>
+        <summary class='accordion-item__summary'>{{- 'product.details_accordion.reviews' | t }}</summary>
+        <div class='accordion-item__content accordion-item__content--reviewss js-accordion-item__content--reviews'>
+          {{ product.metafields.custom.details_reviews | metafield_tag }}
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Details Accordion",
+  "blocks": [],
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Details Accordion"
+    }
+  ]
+}
+{% endschema %}

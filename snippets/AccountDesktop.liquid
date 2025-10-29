@@ -1,0 +1,41 @@
+<customer-account-desktop>
+  <div class='customer-account-desktop'>
+    <div class='customer-account-section__header'>
+      {% render 'AccountHeader' %}
+    </div>
+    <div class='customer-account-section__body page-width'>
+      <custom-tabs>
+        <div class='tabs tabs--vertical'>
+          {% render 'AccountDesktopTabList' %}
+          <div class='tab__content'>
+            <div
+              class='tab-content-item tab-content-item--active js-tab-content-item'
+              role='tabpanel'
+              id='panel-0'
+              aria-hidden='false'
+              aria-labelledby='tab-0'
+            >
+              {% render 'AccountOrders', orders_per_page: orders_per_page %}
+            </div>
+            <div
+              class='tab-content-item js-tab-content-item'
+              role='tabpanel'
+              id='panel-1'
+              aria-hidden='true'
+              aria-labelledby='tab-1'
+            >
+              {% render 'AccountAddresses' %}
+            </div>
+            <div
+              class='tab-content-item js-tab-content-item'
+              role='tabpanel'
+              id='panel-2'
+              aria-hidden='true'
+              aria-labelledby='tab-2'
+            ></div>
+          </div>
+        </div>
+      </custom-tabs>
+    </div>
+  </div>
+</customer-account-desktop>

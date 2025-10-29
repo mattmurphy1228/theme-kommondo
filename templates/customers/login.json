@@ -1,0 +1,64 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner_GytDMe": {
+      "type": "Banner",
+      "settings": {
+        "text": "<p>Liebe Kundinnen und Kunden,<br/>im Rahmen der Optimierung unserer Plattform ist eine erneute Registrierung erforderlich. Dies gewährleistet die Sicherheit und Aktualität Ihrer Daten sowie die uneingeschränkte Nutzung aller Funktionen.<br/><br/>Die Neuregistrierung ist schnell und einfach erledigt.</p>",
+        "button_text": "Jetzt ein Konto erstellen",
+        "button_link": "/account/register"
+      }
+    },
+    "login": {
+      "type": "Login",
+      "blocks": {
+        "advantage_g7EhUn": {
+          "type": "advantage",
+          "settings": {
+            "text": "Schnelles Einkaufen"
+          }
+        },
+        "advantage_DXhUNL": {
+          "type": "advantage",
+          "settings": {
+            "text": "Speichern Sie Ihre Daten und Einstellungen."
+          }
+        },
+        "advantage_DL6NdX": {
+          "type": "advantage",
+          "settings": {
+            "text": "Bestellübersicht und Versandinformationen"
+          }
+        },
+        "advantage_T9Ap6C": {
+          "type": "advantage",
+          "settings": {
+            "text": "Verwalten Sie Ihr Newsletter-Abonnement"
+          }
+        }
+      },
+      "block_order": [
+        "advantage_g7EhUn",
+        "advantage_DXhUNL",
+        "advantage_DL6NdX",
+        "advantage_T9Ap6C"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/image_2.png",
+        "advantages_title": "Vorteile einer Registrierung:"
+      }
+    }
+  },
+  "order": [
+    "banner_GytDMe",
+    "login"
+  ]
+}

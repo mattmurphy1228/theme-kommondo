@@ -1,0 +1,114 @@
+<div class="activate-account">
+  <div class="activate-account__header">
+    <h2 class="text text--headline text--h2 text--center">
+      {{ section.settings.title }}
+    </h2>
+    <div class="activate-account-header__note">
+      <p class="text text--regular text--center">
+        {{ section.settings.subTitle }}
+      </p>
+      <p class="text text--regular text--center">
+        {{ section.settings.note }}
+      </p>
+    </div>
+  </div>
+  {%- form 'activate_customer_password', class: 'activate-account__form' -%}
+    {% if form.errors %}
+      <div class='activate-account-form__error'>
+        <svg class="icon js-icon" width="16" height="16" aria-hidden="true">
+          <use xlink:href="#error"></use>
+        </svg>
+        <span class="text text--regular activate-account-form-error__text">
+          {{- form.errors.messages.form -}}
+        </span>
+      </div>
+    {% endif %}
+    <div class="activate-account-form__body">
+      <div class="form-field-input">
+        <div class="form-field">
+          <label class="text text--regular form-field__label" for="password">
+            {{ 'customer.activate_account.password' | t }}*
+          </label>
+          <div class="input input--width-auto">
+            <input
+              class="input__field js-input__field"
+              type="password"
+              value=""
+              id="password"
+              placeholder="{{ 'customer.activate_account.password_placeholder' | t }}"
+              aria-label="{{ 'customer.activate_account.password' | t }}"
+              name="customer[password]"
+              required="true"
+              aria-required="true"
+              autocomplete="new-password"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="form-field-input">
+        <div class="form-field">
+          <label
+            class="text text--regular form-field__label"
+            for="password_confirmation"
+          >
+            {{ 'customer.activate_account.password_confirm' | t }}*
+          </label>
+          <div class="input input--width-auto">
+            <input
+              class="input__field js-input__field"
+              type="password"
+              value=""
+              id="password_confirmation"
+              placeholder="{{ 'customer.activate_account.password_confirm_placeholder' | t }}"
+              aria-label="{{ 'customer.activate_account.password_confirm' | t }}"
+              name="customer[password_confirmation]"
+              required="true"
+              aria-required="true"
+              autocomplete="new-password"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="activate-account-form__footer">
+      <button
+        class="button button--outlined button--width-fluid button--padding-md"
+        type="reset"
+      >
+        <span class="button__text">{{ 'customer.activate_account.decline' | t }}</span>
+      </button>
+      <button
+        class="button button--solid button--width-fluid button--padding-md"
+        type="submit"
+      >
+        <span class="button__text">{{ 'customer.activate_account.activate_account' | t }}</span>
+      </button>
+    </div>
+  {%- endform -%}
+</div>
+
+{% schema %}
+{
+  "name": "Account activation",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Page title"
+    },
+    {
+      "type": "text",
+      "id": "subTitle",
+      "label": "Page sub title"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "note",
+      "label": "Note"
+    }
+  ],
+  "presets": [
+    { "name": "Account activation" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,272 @@
+<product-slider-group>
+  <section
+    class='
+      product-slider-section js-product-slider-section
+      {% if section.settings.page_template != '' %}product-slider-section--{{ section.settings.page_template }}{% endif %}
+      {% if section.blocks.size == 1 %}product-slider-section--with-one-tab{% endif %}
+    '
+    aria-label='Product slider section'
+  >
+    <div class='page-width page-width--no-padding'>
+      <custom-tabs>
+        <div class='tabs {% if section.blocks.size == 1 %}tabs--with-one-tab{% endif %}'>
+          <div
+            role='tablist'
+            class='tab__list tab__list--hidden-on-mobile'
+            aria-label='Tab items'
+          >
+            {% for block in section.blocks %}
+              <div
+                class='tab-item js-tab-item {% if forloop.index0 == 0 %}tab-item--active{% endif %}'
+                role='tab'
+                aria-selected='{%- if forloop.index0 == 0 -%}true{%-else-%}false{%- endif -%}'
+                aria-controls='panel-{{ forloop.index0 }}'
+                id='tab-{{ forloop.index0 }}'
+              >
+                <h3 class='text text--headline text--h3'>
+                  {{ block.settings.title }}
+                </h3>
+              </div>
+            {% endfor %}
+          </div>
+          <div class='tab__content tab__content--hidden-on-mobile'>
+            {% for block in section.blocks %}
+              <div
+                class='tab-content-item {% if forloop.index0 == 0 %}tab-content-item--active{% endif %}'
+                role='tabpanel'
+                id='panel-{{ forloop.index0 }}'
+                aria-hidden='{%- if forloop.index0 == 0 -%}false{%-else-%}true{%- endif -%}'
+                aria-labelledby='tab-{{ forloop.index0 }}'
+              >
+                {%- case block.type -%}
+                  {%- when 'product_accessories' -%}
+                    {% render 'ProductSlider',
+                      products: product.metafields.custom.accessories.value,
+                      page_template: section.settings.page_template,
+                      slides_per_group: section.settings.slides_per_group
+                    %}
+                  {%- when 'product_spare_parts' -%}
+                    {% render 'ProductSlider',
+                      products: product.metafields.custom.accessories_spare_parts.value,
+                      page_template: section.settings.page_template,
+                      slides_per_group: section.settings.slides_per_group
+                    %}
+                  {%- when 'product_recommendations' -%}
+                    {% render 'ProductRecommendations',
+                      page_template: section.settings.page_template,
+                      products_to_show: section.settings.products_to_show,
+                      slides_per_group: section.settings.slides_per_group,
+                      section_id: section.id,
+                      product_id: product.id
+                    %}
+                  {%- when 'product_recently_views' -%}
+                    {% render 'ProductRecentlyViews',
+                      products_to_show: section.settings.products_to_show,
+                      slides_per_group: section.settings.slides_per_group
+                    %}
+                  {%- when 'product_carousel' -%}
+                    {% render 'ProductSlider',
+                      products: block.settings.id_collection.products,
+                      page_template: section.settings.page_template,
+                      slides_per_group: section.settings.slides_per_group
+                    %}
+                {%- endcase -%}
+              </div>
+            {% endfor %}
+          </div>
+          <div class='tab__list-on-mobile'>
+            {% for block in section.blocks %}
+              <div class='tab-item-on-mobile'>
+                <h3
+                  class='text text--headline text--h3 tab-item-on-mobile__title'
+                >
+                  {{ block.settings.title }}
+                </h3>
+                <div class='tab-content-item-on-mobile'>
+                  {%- case block.type -%}
+                    {%- when 'product_accessories' -%}
+                      {% render 'ProductSlider',
+                        products: product.metafields.custom.accessories.value,
+                        page_template: section.settings.page_template,
+                        slides_per_group: section.settings.slides_per_group
+                      %}
+                    {%- when 'product_spare_parts' -%}
+                      {% render 'ProductSlider',
+                        products: product.metafields.custom.accessories_spare_parts.value,
+                        page_template: section.settings.page_template,
+                        slides_per_group: section.settings.slides_per_group
+                      %}
+                    {%- when 'product_recommendations' -%}
+                      {% render 'ProductRecommendations',
+                        page_template: section.settings.page_template,
+                        products_to_show: section.settings.products_to_show,
+                        slides_per_group: section.settings.slides_per_group,
+                        section_id: section.id,
+                        product_id: product.id
+                      %}
+                    {%- when 'product_recently_views' -%}
+                      {% render 'ProductRecentlyViews',
+                        products_to_show: section.settings.products_to_show,
+                        slides_per_group: section.settings.slides_per_group
+                      %}
+                    {%- when 'product_carousel' -%}
+                      {% render 'ProductSlider',
+                        products: block.settings.id_collection.products,
+                        page_template: section.settings.page_template,
+                        slides_per_group: section.settings.slides_per_group
+                      %}
+                  {%- endcase -%}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </custom-tabs>
+    </div>
+  </section>
+</product-slider-group>
+
+{% schema %}
+{
+  "name": "Product slider",
+  "settings": [
+    {
+      "type": "select",
+      "id": "page_template",
+      "label": "Page template",
+      "default": "",
+      "options": [
+        {
+          "value": "",
+          "label": "Home page"
+        },
+        {
+          "value": "pdp",
+          "label": "Product page"
+        },
+        {
+          "value": "cart",
+          "label": "Cart drawer"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 4,
+      "label": "Maximum recommended or recently viewed products to show"
+    },
+    {
+      "type": "range",
+      "id": "slides_per_group",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "default": 4,
+      "label": "Slides per group (number of slides that advance per click)"
+    }
+  ],
+  "max_blocks": 2,
+  "blocks": [
+    {
+      "type": "product_accessories",
+      "name": "Product accessories",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "type": "product_spare_parts",
+      "name": "Product spare parts",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "type": "product_recommendations",
+      "name": "Product recommendations",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "type": "product_recently_views",
+      "name": "Product recently views",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "type": "product_carousel",
+      "name": "Product carousel",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "collection",
+          "id": "id_collection",
+          "label": "Product list"
+        }
+      ],
+      "limit": 2
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product slider",
+      "settings": {
+        "page_template": "",
+        "products_to_show": 4
+      },
+      "blocks": [
+        {
+          "type": "product_accessories",
+          "settings": {}
+        },
+        {
+          "type": "product_spare_parts",
+          "settings": {}
+        },
+        {
+          "type": "product_recommendations",
+          "settings": {}
+        },
+        {
+          "type": "product_recently_views",
+          "settings": {}
+        },
+        {
+          "type": "product_carousel",
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

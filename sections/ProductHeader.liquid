@@ -1,0 +1,146 @@
+{%- comment -%}
+  Accepts:
+    - product: Product object (required)
+      The main product object containing all product information including variants, price, and media
+
+  Usage:
+    {% section 'ProductHeader' %}
+
+  Renders the main product details section including:
+  - Product gallery with main image and thumbnails
+  - Product info like title, price, variants
+  - Add to cart and other product actions
+{%- endcomment -%}
+
+{%- liquid
+  assign display_price = product.price
+  assign display_compare_price = product.compare_at_price
+
+  assign need_quote_request_text = false
+  if product.tags contains 'FRACHT03'
+    assign need_quote_request_text = true
+  endif
+-%}
+
+<script>
+  window.needQuoteRequestText = {{ need_quote_request_text }}
+</script>
+
+<section class='page-width page-width--no-padding'>
+  <div class='product-header'>
+    {% render 'ProductGallery', product: product %}
+    <product-info>
+      <div class='product-info product-header__info'>
+        <div class='product-info__top'>
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'product_info_header' -%}
+                {% render 'ProductInfoHeader',
+                  product_title: product.title,
+                  product_rating: product.metafields.reviews.rating.value,
+                  product_rating_count: product.metafields.reviews.rating_count,
+                  block: block
+                %}
+              {%- when 'variant_group' -%}
+                {% render 'VariantGroup', product: product, block: block %}
+              {%- when 'price_display' -%}
+              <span>
+                {% render 'PriceDisplay',
+                  price: display_price,
+                  compare_at_price: display_compare_price,
+                  showDiscountBadge: true,
+                  showPriceDescription: true,
+                  block: block
+                %}
+            </span>
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+        <div class='product-info__bottom'>
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'product_number' -%}
+                {% render 'ProductNumber',
+                  sku: product.selected_or_first_available_variant.sku,
+                  block: block
+                %}
+              {%- when 'summary' -%}
+                {% render 'Summary', price: display_price, block: block %}
+              {%- when 'add_to_cart' -%}
+                {% render 'AddToCart',
+                  product: product,
+                  block: block,
+                  show_quantity_selector: block.settings.show_quantity_selector
+                %}
+              {%- when 'shipping_info' -%}
+                {% render 'ShippingInfo', product: product %}
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </product-info>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Header",
+  "blocks": [
+    {
+      "name": "Product info header",
+      "type": "product_info_header",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "name": "Variant group",
+      "type": "variant_group",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "name": "Price display",
+      "type": "price_display",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "name": "Product number",
+      "type": "product_number",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "name": "Summary",
+      "type": "summary",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "name": "Add to cart",
+      "type": "add_to_cart",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_quantity_selector",
+          "label": "t:product.add_to_cart.show_quantity_selector",
+          "default": true
+        }
+      ]
+    },
+    {
+      "name": "Shipping info",
+      "type": "shipping_info",
+      "limit": 1,
+      "settings": []
+    }
+  ],
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Header"
+    }
+  ]
+}
+{% endschema %}

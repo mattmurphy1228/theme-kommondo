@@ -1,0 +1,30 @@
+{%- comment -%}
+  Renders a checkbox input component with associated label
+  Accepts:
+  - id: string (required) - Unique identifier for the checkbox
+  - name: string (required) - Name attribute for the checkbox input
+  - value: string (required) - Value attribute for the checkbox input
+  - label: string (required) - Text label to display next to checkbox
+  - checked: boolean - Whether checkbox should be checked by default
+{%- endcomment -%}
+
+<div class='checkbox'>
+  <input
+    type='checkbox'
+    class='checkbox__input js-checkbox__input'
+    id='{{ id }}'
+    name='{{ name }}'
+    value='{{ value }}'
+    {% if checked %}
+      checked
+    {% endif %}
+  >
+  <label
+    for='{{ id }}'
+    class='checkbox__label'
+  >
+    <span class='text text--regular js-checkbox__text'>
+      {{ label }}
+    </span>
+  </label>
+</div>

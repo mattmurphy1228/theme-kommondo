@@ -1,0 +1,35 @@
+<price-slider
+  class='price-slider'
+  role='slider'
+  aria-label='{{ 'collection.filter_drawer.min_price' | t }} - {{ 'collection.filter_drawer.max_price' | t }}'
+>
+  <div class='price-slider__container'>
+    <input
+      type='range'
+      min='0'
+      max='{{ range_max_display }}'
+      value='{{ min_value_display }}'
+      step='0.01'
+      class='price-slider__slider price-slider__slider--min js-price-slider__slider--min'
+    >
+    <input
+      type='range'
+      min='0'
+      max='{{ range_max_display }}'
+      value='{{ max_value_display }}'
+      step='0.01'
+      class='price-slider__slider price-slider__slider--max js-price-slider__slider--max'
+      style='
+        background: linear-gradient(
+        to right,
+        var(--color-grey-medium) 0%,
+        var(--color-grey-medium) 0%,
+        var(--color-basic-black) 0%,
+        var(--color-basic-black) 85%,
+        var(--color-grey-medium) 85%,
+        var(--color-grey-medium) 100%
+        ); z-index: 0;
+      '
+    >
+  </div>
+</price-slider>

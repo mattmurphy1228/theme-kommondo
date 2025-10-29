@@ -1,0 +1,53 @@
+{%- liquid
+  assign id = 'mobile-menu-item-' | append: parent_index
+
+  assign menu_item_url = ''
+  if menu_item.links == blank or menu_item.links.size == 0
+    assign menu_item_url = menu_item.url
+  endif
+
+  assign collection_handle = menu_item.handle
+  assign collection = collections[collection_handle]
+  assign image = nil
+  if collection != blank
+    assign image = collection.featured_image
+    if image == blank
+      assign image = collection.image
+    endif
+
+    if image == blank
+      assign first_product = collection.products.first
+      if first_product != blank
+        assign image = first_product.featured_image
+      endif
+    endif
+  endif
+
+  assign has_sub_items = false
+  if menu_item.links != blank and menu_item.links.size > 0
+    assign has_sub_items = true
+  endif
+
+  assign mobile_menu_item_class_name = menu_item_class_name | default: ''
+-%}
+
+<li class='mobile-menu__item-{{ level }}'>
+  {% render 'MobileMenuItem',
+    image: image,
+    title: menu_item.title,
+    link: menu_item_url,
+    label_for: id,
+    has_sub_items: has_sub_items,
+    class_name: mobile_menu_item_class_name,
+    sale_menu_item_title: sale_menu_item_title
+  %}
+  {% render 'MobileSubMenu',
+    menu_item: menu_item,
+    id: id,
+    index: index,
+    parent_index: parent_index,
+    level: level,
+    has_footer: has_footer,
+    footer_text: footer_text
+  %}
+</li>

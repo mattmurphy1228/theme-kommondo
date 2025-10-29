@@ -1,0 +1,21 @@
+{%- comment -%}
+  Text Block Group - Renders a list of text blocks dynamically. 
+  Each text block consists of a title and a description, which are configured 
+  in the block settings of the Shopify theme. The text blocks are looped over 
+  and rendered using the 'TextBlock' snippet.
+
+  Accepts:
+    - blocks: Array of section blocks containing settings for each text block.
+  
+  Usage:
+    {% render 'TextBlockGroup', blocks: section.blocks %}
+{%- endcomment -%}
+ 
+<div class='text-block-group'>
+  {% for block in blocks %}
+    {% render 'TextBlock',
+      title: block.settings.title,
+      description: block.settings.description
+    %}
+  {% endfor %}
+</div>

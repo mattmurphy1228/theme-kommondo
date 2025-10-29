@@ -1,0 +1,24 @@
+{%- liquid
+  if class_name != blank
+    assign wrapper_class = class_name | append: ' empty-cart-message'
+  else
+    assign wrapper_class = 'empty-cart-message'
+  endif
+-%}
+
+<div class="{{ wrapper_class }}">
+  <div class="empty-cart-message__content">
+    <span class="text text--headline text--h4">
+      {{ 'cart.empty_cart.title' | t }}
+    </span>
+    <p class="text text--regular">
+      {{ 'cart.empty_cart.discover_products' | t }}
+    </p>
+  </div>
+  <a
+    class='button button--solid button--width-auto button--padding-md'
+    href='/collections/all'
+  >
+    <span class="button__text">{{ 'cart.empty_cart.discover_now' | t }}</span>
+  </a>
+</div>

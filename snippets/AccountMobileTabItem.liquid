@@ -1,0 +1,26 @@
+<div class='customer-account-tab-item__item js-customer-account-tab-item__item'>
+  <svg class='icon js-icon' width='24' height='24' aria-hidden='true'>
+    <use xlink:href='{{ icon }}'></use>
+  </svg>
+  <label
+    class='text text--regular customer-account-tab-item__item-text'
+    for='customer-account-tab-item-{{ index }}'
+  >
+    {{ title }}
+  </label>
+</div>
+<custom-checkbox>
+  <div class='checkbox customer-account-tab-item__toggle js-customer-account-tab-item__toggle'>
+    <input
+      type='checkbox'
+      class='checkbox__input js-checkbox__input'
+      id='customer-account-tab-item-{{ index }}'
+    />
+    <label
+      for='customer-account-tab-item-{{ index }}'
+      class='checkbox__label'
+    >
+      <span class='text text--regular checkbox__text js-checkbox__text'></span>
+    </label>
+  </div>
+</custom-checkbox>

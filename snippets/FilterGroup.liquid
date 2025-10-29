@@ -1,0 +1,35 @@
+{%- comment -%}
+  Filter group component that displays:
+  - Up to 3 filter dropdowns
+  - 'All filters' button if there are more than 3 filters
+  Accepts:
+  - collection.filters: array - Collection filters to display
+{%- endcomment -%}
+
+<filter-group
+  data-all-filter-text='Alle Filter'
+  data-all-filter-text-on-mobile='Filtern & Sortieren'
+>
+  <div class='filter-group' role='group' aria-label='Filter group'>
+    <div class='filter-group__dropdowns js-filter-group__dropdowns'>
+      {% for filter in collection.filters limit: 3 %}
+        {% render 'FilterDropdown', filter: filter %}
+      {% endfor %}
+    </div>
+    {% comment %} {% if collection.filters.size > 3 %} {% endcomment %}
+      <button
+        class='button button--solid filter-group__all-filter-btn js-filter-group__all-filter-btn button--width-auto button--padding-md'
+        id='filter-group__all-filter-btn'
+        type='button'
+        aria-label='Show advanced filter drawer'
+      >
+        <span class='button__text'>
+          {{ 'collection.filter_group.all_filters' | t }}
+        </span>
+        <svg class='icon js-icon' width='24' height='24' aria-hidden='true'>
+          <use xlink:href='#filter-all'></use>
+        </svg>
+      </button>
+    {% comment %} {% endif %} {% endcomment %}
+  </div>
+</filter-group>

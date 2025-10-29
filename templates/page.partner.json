@@ -1,0 +1,304 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image-with-text_1": {
+      "type": "ImageWithText",
+      "settings": {
+        "image": "shopify://shop_images/partner_page.png",
+        "title": "<p>Partnerschaften</p>",
+        "text": "<p>Wir legen bei Kommondo größten Wert auf die Auswahl unserer Kooperationspartner. Jeder Partner wird von uns sorgfältig geprüft, um sicherzustellen, dass er unseren hohen Anforderungen an Qualität, Zuverlässigkeit, Preisgestaltung und Nachhaltigkeit entspricht. Eine persönliche Beziehung zu unseren Lieferanten ist uns ebenso wichtig, denn nur so können wir gemeinsam exzellente Leistungen für unsere Kunden erbringen. Entdecken Sie die Früchte erfolgreicher Zusammenarbeit und profitieren Sie von unserem Engagement für Qualität und Kundenzufriedenheit.</p>",
+        "button_1_label": "",
+        "button_1_link": "",
+        "button_2_label": "",
+        "button_2_link": "",
+        "flip_order": false,
+        "background_color": "white"
+      }
+    },
+    "kpi-stats": {
+      "type": "KpiStats",
+      "blocks": {
+        "kpi_stat_1": {
+          "type": "kpi_stat",
+          "settings": {
+            "title": "Lieferanten und Hersteller",
+            "value": "208"
+          }
+        },
+        "kpi_stat_2": {
+          "type": "kpi_stat",
+          "settings": {
+            "title": "Artikel und Varianten",
+            "value": "79971"
+          }
+        }
+      },
+      "block_order": [
+        "kpi_stat_1",
+        "kpi_stat_2"
+      ],
+      "settings": {}
+    },
+    "image-list": {
+      "type": "ImageList",
+      "blocks": {
+        "image_1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/partnerPage1.png",
+            "link": ""
+          }
+        },
+        "image_2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/partnerPage2.png",
+            "link": ""
+          }
+        },
+        "image_EW7Erx": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Datacollect-traffic.jpg",
+            "link": ""
+          }
+        },
+        "image_Kn89RG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Fritz-Lange.jpg",
+            "link": ""
+          }
+        },
+        "image_ytRYFA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/horizont-group.jpg",
+            "link": ""
+          }
+        },
+        "image_DmqReB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/JIslon.jpg",
+            "link": ""
+          }
+        },
+        "image_8rnaDA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Keller-kalmbach.jpg",
+            "link": ""
+          }
+        },
+        "image_TCRNfe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Schake.jpg",
+            "link": ""
+          }
+        },
+        "image_jPD8Xf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/signature-hiller.jpg",
+            "link": ""
+          }
+        },
+        "image_9gChiX": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Wemas-absperrtechnik.jpg",
+            "link": ""
+          }
+        },
+        "image_CFAxqg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/WSM.jpg",
+            "link": ""
+          }
+        },
+        "image_YJNUNK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Beilharz.jpg",
+            "link": ""
+          }
+        },
+        "image_Fjc4Dj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Blumberg-systempapier.jpg",
+            "link": ""
+          }
+        },
+        "image_xxApyi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Craemer.jpg",
+            "link": ""
+          }
+        },
+        "image_9ARQrt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Geveko.jpg",
+            "link": ""
+          }
+        },
+        "image_EUMapJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/glaeser-eurogreen.jpg",
+            "link": ""
+          }
+        },
+        "image_JRQrQz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Lueft-Verkehrstechnik.jpg",
+            "link": ""
+          }
+        },
+        "image_AJWEWX": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Moravia.jpg",
+            "link": ""
+          }
+        },
+        "image_7D9KDr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Moedel-Werk1.jpg",
+            "link": ""
+          }
+        },
+        "image_gm9pNT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/munk-steigtechnik.jpg",
+            "link": ""
+          }
+        },
+        "image_m3TyJN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Kaffeeroesterei-murnau.jpg",
+            "link": ""
+          }
+        },
+        "image_zDnHpw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Osapiens.jpg",
+            "link": ""
+          }
+        },
+        "image_ak9ApV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/practica-bello.jpg",
+            "link": ""
+          }
+        },
+        "image_JjnDN6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Renner.jpg",
+            "link": ""
+          }
+        },
+        "image_mzgVbf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/RSA-Schulungsteam.jpg",
+            "link": ""
+          }
+        },
+        "image_TTnKaK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SCF.jpg",
+            "link": ""
+          }
+        },
+        "image_Q9MCby": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/scheibe-energietechnik.jpg",
+            "link": ""
+          }
+        },
+        "image_V84CdR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Schwarz-Schwarz.jpg",
+            "link": ""
+          }
+        },
+        "image_dkVQ3P": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Sigel.jpg",
+            "link": ""
+          }
+        },
+        "image_UP6Vwn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/TonacoLogo.jpg",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_1",
+        "image_2",
+        "image_EW7Erx",
+        "image_Kn89RG",
+        "image_ytRYFA",
+        "image_DmqReB",
+        "image_8rnaDA",
+        "image_TCRNfe",
+        "image_jPD8Xf",
+        "image_9gChiX",
+        "image_CFAxqg",
+        "image_YJNUNK",
+        "image_Fjc4Dj",
+        "image_xxApyi",
+        "image_9ARQrt",
+        "image_EUMapJ",
+        "image_JRQrQz",
+        "image_AJWEWX",
+        "image_7D9KDr",
+        "image_gm9pNT",
+        "image_m3TyJN",
+        "image_zDnHpw",
+        "image_ak9ApV",
+        "image_JjnDN6",
+        "image_mzgVbf",
+        "image_TTnKaK",
+        "image_Q9MCby",
+        "image_V84CdR",
+        "image_dkVQ3P",
+        "image_UP6Vwn"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "image-with-text_1",
+    "kpi-stats",
+    "image-list"
+  ]
+}

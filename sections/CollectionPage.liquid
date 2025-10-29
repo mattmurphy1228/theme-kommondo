@@ -1,0 +1,123 @@
+<collection-page
+  data-products-per-page='{{ section.settings.products_per_page }}'
+  data-results-count='{{ 'search.results_count' | t: count: '[count]' }}'
+  data-price-from-text='{{ 'product.price.from' | t }}'
+  data-request-quote-text='{{ 'product.add_to_cart.request_quote' | t }}'
+  data-manufacturer-logo-title='{{ 'product.manufacturer.logo' | t }}'
+>
+  <div class='collection-page page-width'>
+    {% render 'FilterDrawer' %}
+    {% if collection.featured_image %}
+      <div class='collection-page__menu__image--mobile'>
+        {{
+          collection.featured_image
+          | image_url: width: 600
+          | image_tag
+        }}
+      </div>
+    {% endif %}
+    <div class='collection-page__container'>
+      <div class='collection-page__menu'>
+        {% if collection.featured_image %}
+          <div class='collection-page__menu__image'>
+            {{
+              collection.featured_image
+              | image_url: width: 1200
+              | image_tag
+            }}
+          </div>
+        {% endif %}
+        <div class='collection-page__menu__collection__menu'>
+          {% render 'CollectionMenu' %}
+        </div>
+      </div>
+      <div class='collection-page__content'>
+        {% render 'CollectionHeader' %}
+        {% assign placeholder_name = settings.product_placeholder_name | default: 'product-1' %}
+        <div class="visually-hidden product-placeholder-image js-product-placeholder-image">
+          {{ placeholder_name | placeholder_svg_tag: 'image image--product-placeholder' }}
+        </div>
+        <section
+          class='product-grid js-product-grid'
+          aria-label='{{ 'collection.product_grid' | t }}'
+          role='group'
+        >
+        </section>
+        <div class="collection-page__footer">
+          <nav class="pagination">
+            <ol class="pagination__list">
+              <li>
+                <a
+                  class="anchor anchor--regular pagination-button pagination-button--disabled pagination-button--prev js-pagination-button--prev"
+                  href="#"
+                >
+                  <span class="visually-hidden">{{ 'general.prev_page' | t }}</span>
+                  <svg
+                    class="icon js-icon"
+                    width="16"
+                    height="16"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#pagination-prev"></use>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="anchor anchor--regular pagination-button pagination-button--disabled pagination-button--next js-pagination-button--next"
+                  href="#"
+                >
+                  <span class="visually-hidden">{{ 'general.next_page' | t }}</span>
+                  <svg
+                    class="icon js-icon"
+                    width="16"
+                    height="16"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#pagination-next"></use>
+                  </svg>
+                </a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% render 'TextBlock',
+    title: "",
+    description: collection.description
+  %}
+</collection-page>
+
+{% schema %}
+{
+  "name": "CollectionPage",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Collection image"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_mobile",
+      "label": "Collection image mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_desktop",
+      "label": "Collection image desktop"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 48,
+      "step": 8,
+      "default": 24,
+      "label": "Products per page"
+    }
+  ]
+}
+{% endschema %}

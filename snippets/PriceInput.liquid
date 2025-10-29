@@ -1,0 +1,15 @@
+<price-input
+  data-classname='price-range__{{ type }} js-price-range__{{ type }}'
+  data-type='{{ type }}'
+>
+  <div class='price-input price-range__{{ type }} js-price-range__{{ type }}'>
+    {% render 'NumberInput',
+      name: name,
+      min: min,
+      value: value,
+      max: max,
+      aria_label: aria_label
+    %}
+    <span class='text text--regular'>€</span>
+  </div>
+</price-input>

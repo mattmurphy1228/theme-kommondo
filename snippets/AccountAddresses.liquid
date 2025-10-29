@@ -1,0 +1,27 @@
+<customer-address-group class='customer-address-group'>
+  <section class='customer-address-group__inner'>
+    <div class='customer-address-group__header'>
+      <h3 class='text text--headline text--h3 customer-address-group__title'>
+        {{ 'account.addresses_title' | t }}
+      </h3>
+      <button
+        class='button button--solid button--width-fluid button--padding-md js-customer-address-group__add-btn'
+        type='button'
+        id='AddAddressBtn'
+        aria-disabled='false'
+        aria-controls='add-address-drawer'
+      >
+        <span class='button__text'>
+          {{ 'account.add_new_address' | t }}
+        </span>
+      </button>
+    </div>
+    <div class='customer-address-group__body'>
+      {%- for address in customer.addresses -%}
+        {% render 'AccountAddress',
+          address: address
+        %}
+      {%- endfor -%}
+    </div>
+  </section>
+</customer-address-group>  

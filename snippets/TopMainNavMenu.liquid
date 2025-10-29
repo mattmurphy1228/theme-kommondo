@@ -1,0 +1,21 @@
+<nav class='top-main-nav' aria-label='{{ 'main_menu.main_navigation' | t }}'>
+  <ul class='top-main-navmenu'>
+    {%- for menu_item in menu_links -%}
+      <li>
+        <a
+          class='
+            anchor
+            anchor--semibold
+            top-main-navmenu__item-anchor
+            js-top-main-navmenu__item-anchor
+            {% if menu_item.title == sale_menu_item_title %}top-main-navmenu__item-anchor--sale{% endif %}
+          '
+          href='{{ menu_item.url }}'
+        >
+          {{ menu_item.title }}
+          {% if menu_item.title == sale_menu_item_title %}%{% endif %}
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>

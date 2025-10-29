@@ -1,0 +1,25 @@
+{%- comment -%}
+  Accepts:
+    - product_title: string (required)
+      The title of the product to display
+    - product_rating: number (required)
+      The average rating value for the product
+    - product_rating_count: number (required)
+      The total number of ratings for the product
+    - block: object (required)
+      The section block containing Shopify attributes
+
+  Usage:
+    {% render 'ProductInfoHeader',
+      product_title: product.title,
+      product_rating: product.metafields.reviews.rating.value,
+      product_rating_count: product.metafields.reviews.rating_count,
+      block: block
+    %}
+{%- endcomment -%}
+
+<div class='product-info-header' {{ block.shopify_attributes }}>
+  <h2 class='text text--headline text--h3 js-product-title'>
+    {{ product_title | escape }}
+  </h2>
+</div>

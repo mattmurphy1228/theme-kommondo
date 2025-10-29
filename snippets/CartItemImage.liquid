@@ -1,0 +1,16 @@
+{% assign placeholder_name = settings.product_placeholder_name | default: 'product-1' %}
+
+<div class='cart-item__image'>
+  {%- if cart_item.image != blank -%}
+    {{
+      cart_item.image
+      | image_url: width: 200
+      | image_tag:
+        class: 'image',
+        loading: lazy,
+        alt: cart_item.image.alt
+    }}
+  {%- else -%}
+    {{ placeholder_name | placeholder_svg_tag: 'image' }}
+  {%- endif -%}
+</div>

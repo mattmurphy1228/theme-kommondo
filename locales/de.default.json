@@ -1,0 +1,437 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "general": {
+    "back_button": "Zurück-Schaltfläche",
+    "prev_slide": "Vorherige Folie",
+    "next_slide": "Nächste Folie",
+    "prev_page": "Vorherige Seite",
+    "next_page": "Nächste Seite"
+  },
+  "header": {
+    "input_search_keyword": "Suchbegriff eingeben",
+    "search_input": "Sucheingabe",
+    "search": "Suchen",
+    "go_to_user_account": "Zum Benutzerkonto",
+    "cart_empty": "Warenkorb ist leer",
+    "cart_with_count": "Warenkorb mit {{ count }} Artikeln",
+    "open_mobile_menu": "Mobiles Navigationsmenü öffnen",
+    "suggestions": "VORSCHLÄGE",
+    "no_results_found": "Keine Suchergebnisse gefunden",
+    "products": "PRODUKTE",
+    "show_all": "Alle anzeigen"
+  },
+  "footer": {
+    "payment_options": {
+      "rechnung": "Auf Rechnung"
+    }
+  },
+  "main_menu": {
+    "main_navigation": "Hauptnavigation",
+    "mega_menu": "Mega-Menü",
+    "menu_overlay": "Menü-Overlay",
+    "mega_menu_item": "Mega-Menüpunkt",
+    "submenu": "Untermenü",
+    "mobile_menu": "Mobiles Menü",
+    "menu_logo": "Menü-Logo",
+    "toggle_menu": "Menü umschalten",
+    "sales_menu_item_title": "Aktion"
+  },
+  "product": {
+    "product_number": "Produktnummer",
+    "rating": {
+      "description": "{{ product_rating }} von 5 Sternen basierend auf {{ product_rating_count }} Bewertungen"
+    },
+    "price": {
+      "description": "Preise exkl. MwSt. zzgl. Versandkosten",
+      "discount": "rabatt",
+      "price": "Preis",
+      "original_price": "Ursprünglicher Preis",
+      "price_on_request": "Preis auf Anfrage",
+      "from": "ab"
+    },
+    "options": {
+      "title": "Optionen",
+      "punching_of_traffic_signs": "Lochung von Verkehrszeichen",
+      "qr_code_label": "QR-Code Ettikett",
+      "choose_option": "Wählen Sie eine Option"
+    },
+    "summary": {
+      "title": "Zusammenfassung",
+      "product_price": "Produktpreis",
+      "quantity": "Menge",
+      "subtotal": "Zwischensumme",
+      "qr_code": "QR-Code",
+      "total_price": "Gesamtpreis"
+    },
+    "add_to_cart": {
+      "add_to_cart": "In den Warenkorb",
+      "request_quote": "Angebotsanfrage",
+      "decrease_quantity": "Menge verringern",
+      "increase_quantity": "Menge erhöhen",
+      "show_offer_button": "Angebot anfragen",
+      "show_quantity_selector": "Menge auswählen",
+      "input_label": "Anzahl von {{ product }}",
+      "adjust_quantity": "Menge anpassen",
+      "sales_to_doctors_only": "Verkauf nur an Ärzte",
+      "custom_request_quote_text": "Bitte fragen Sie diesen Artikel bei uns an, da die Versandkosten je nach Menge, Lieferort und Versandart stark variieren können. Gerne erstellen wir Ihnen ein individuelles Angebot.",
+      "comment": "Kommentar"
+    },
+    "shipping": {
+      "immediately_available": "Sofort verfügbar",
+      "delivery_time_weeks_range": "Lieferzeit: {{ estimated_delivery_time_weeks_range }} Wochen",
+      "free_shipping_from": "Versandkostenfrei ab {{ free_shipping_threshold }}",
+      "tested_range": "Geprüftes Sortiment",
+      "simple_processing": "Einfache Abwicklung",
+      "sold_out": "Ausverkauft"
+    },
+    "details_accordion": {
+      "description": "Beschreibung",
+      "features": "Eigenschaften",
+      "reviews": "Bewertungen"
+    },
+    "carousels": {
+      "accessories": "ZUBEHÖR",
+      "accessories_spare_parts": "ZUBEHÖR & ERSATZTEILE",
+      "customer_also_bought": "KUNDEN KAUFTEN AUCH",
+      "recently_seen": "ZULETZT GESEHEN",
+      "no_products_available": "Keine Produkte verfügbar"
+    },
+    "manufacturer": {
+      "logo": "Hersteller LOGO"
+    }
+  },
+  "newsletter": {
+    "accessibility": {
+      "success": "Vielen Dank! Ihre Anmeldung zum Newsletter war erfolgreich."
+    }
+  },
+  "collection": {
+    "reset_all_filters": "Alle zurücksetzen",
+    "products_count": "{{ count }} Artikel",
+    "sort_by": {
+      "manual": "Unsere Empfehlungen",
+      "relevance": "Relevanz",
+      "title-ascending": "Alphabetisch, A-Z",
+      "title-descending": "Alphabetisch, Z-A",
+      "price-ascending": "Preis, niedrig nach hoch",
+      "price-descending": "Preis, hoch nach niedrig",
+      "created-descending": "Datum, neu zu alt",
+      "created-ascending": "Datum, alt zu neu"
+    },
+    "filter_group": {
+      "all_filters": "Alle Filter"
+    },
+    "filter_drawer": {
+      "title": "FILTER & SORTIEREN",
+      "sort_by_label": "Sortieren nach",
+      "filter_actions": {
+        "reset_button_label": "Zurücksetzen",
+        "apply_button_label": "Anzeigen"
+      },
+      "price_label": "Preis",
+      "price_range": {
+        "error_message": "Der Mindestpreis muss kleiner sein als der Höchstpreis."
+      },
+      "close_button": "",
+      "min_price": "",
+      "max_price": ""
+    },
+    "product_grid": "Produktraster"
+  },
+  "register": {
+    "title": "KONTO ERSTELLEN",
+    "salutation": "Anrede",
+    "salutation_placeholder": "Anrede",
+    "first_name": "Vorname",
+    "first_name_placeholder": "Vorname",
+    "last_name": "Nachname",
+    "last_name_placeholder": "Nachname",
+    "company": "Firma",
+    "company_placeholder": "Firma",
+    "department": "Abteilung",
+    "department_placeholder": "Abteilung",
+    "vat_id": "Umsatztsteuer-ID",
+    "vat_id_placeholder": "Umsatztsteuer-ID",
+    "email": "Email",
+    "email_placeholder": "Email",
+    "password": "Passwort",
+    "password_placeholder": "Passwort",
+    "address_title": "Adresse",
+    "street_house_number": "Straße und Hausnummer",
+    "street_house_number_placeholder": "Straße und Hausnummer",
+    "zip_code": "PLZ",
+    "zip_code_placeholder": "PLZ",
+    "city": "Stadt",
+    "city_placeholder": "Stadt",
+    "country": "Land",
+    "country_placeholder": "Land",
+    "register": "Registrieren",
+    "terms_of_service": "Ich habe die Datenschutzbestimmungen zur Kenntnis genommen und die AGB gelesen und bin mit ihnen einverstanden.",
+    "terms_error": "Error in terms of service",
+    "error": "Fehler beim Erstellen des Kontos",
+    "female": "Frau",
+    "male": "Herr"
+  },
+  "reset_password": {
+    "title": "Passwort zurücksetzen",
+    "password_label": "Passwort",
+    "password_confirmation_label": "Passwort bestätigen",
+    "submit_button_text": "Passwort zurücksetzen",
+    "cancel_button_text": "Abbrechen",
+    "error": "Das Passwort",
+    "password_placeholder": "Ihr neues Passwort",
+    "password_repeat_placeholder": "Neues Passwort wiederholen"
+  },
+  "login": {
+    "title": "Kundenkonto",
+    "recover_password": {
+      "title": "Passwort vergessen?",
+      "subtext": "Geben Sie Ihre E-Mail-Adresse ein, um ein neues Passwort zu erstellen.",
+      "submit": "Passwort zurücksetzen",
+      "cancel": "Abbrechen"
+    },
+    "new_customer": "Neuer Kunde?",
+    "create_account": "Ein Konto erstellen",
+    "email": "Email",
+    "email_placeholder": "Email",
+    "password": "Passwort",
+    "password_placeholder": "Passwort",
+    "address_title": "IHRE ADRESSE",
+    "street_house_number": "Straße und Hausnummer",
+    "street_house_number_placeholder": "Straße und Hausnummer",
+    "zip_code": "PLZ",
+    "zip_code_placeholder": "PLZ",
+    "city": "Stadt",
+    "city_placeholder": "Stadt",
+    "country": "Land",
+    "country_placeholder": "Land",
+    "terms_of_service": "Ich habe die Datenschutzbestimmungen zur Kenntnis genommen und die AGB gelesen und bin mit ihnen einverstanden.",
+    "terms_error": "Error in terms of service",
+    "register": "Registrieren",
+    "forgot_password": "Passwort vergessen?",
+    "sign_in": "Jetzt anmelden"
+  },
+  "cart": {
+    "amount_for_free_shipping": "Nur noch {{ free_shipping_threshold }} für kostenfreien Versand!",
+    "congrats_on_free_shipping_reached": "Gratulation! Free Shipping für dich aktiv.",
+    "shopping_cart": "Warenkorb",
+    "close_button_label": "Einkaufswagenschublade schließen",
+    "empty_cart": {
+      "title": "IHR WARENKORB IST LEER!",
+      "discover_products": "Entdecken Sie unsere Produkte und fügen Sie jetzt Artikel hinzu.",
+      "discover_now": "Jetzt entdecken"
+    },
+    "free_shipping": {
+      "progress": "Fortschritte in Richtung Gratisversand",
+      "percent": "{{ percent }}% in Richtung Gratisversand"
+    },
+    "delete_cart_item": "Artikel aus dem Warenkorb löschen",
+    "like_collection_title": "DAS KÖNNTE AUCH IHNEN GEFALLEN",
+    "subtotal": "Zwischensumme",
+    "include_free_shipping": "Inkl. MwSt., kostenfreier Versand (DE)",
+    "exclude_vat_plus_shipping_costs": "Preise exkl. MwSt. zzgl. Versandkosten",
+    "checkout": "Jetzt sicher zur Kasse",
+    "cart_error": "Beim Aktualisieren Deines Warenkorbs ist ein Fehler aufgetreten. Bitte versuche es erneut.",
+    "cart_quantity_error_html": "Du kannst Deinem Warenkorb nur {{ quantity }} Stück dieses Artikels hinzufügen.",
+    "forgot_password": "Passwort vergessen?",
+    "sign_in": "Anmelden",
+    "login_error": "Ungültige Anmeldedaten"
+  },
+  "account": {
+    "account_section": "Bereich „Kundenkonto“",
+    "hello": "HALLO",
+    "account_tabs": "Registerkarten für Kundenkonten",
+    "orders": "Bestellungen",
+    "order": "Bestellung",
+    "address": "Adresse",
+    "address_item_aria_label": "Adresse {{ address_id }}",
+    "addresses": "Adressen",
+    "addresses_title": "ADRESSEN",
+    "logout": "Abmelden",
+    "no_orders": "SIE HABEN KEINE BESTELLUNGEN!",
+    "start_shopping_and_find_products": "Starten Sie jetzt Ihren Einkauf und finden Sie Ihre Lieblingsprodukte.",
+    "shop_now": "Jetzt shoppen",
+    "total_price": "Gesamtpreis",
+    "article": "Artikel",
+    "no_products_available": "Keine Produkte verfügbar",
+    "buy_again": "Erneut kaufen",
+    "view_details": "Details Anzeigen",
+    "ordered_at": "Bestelt am",
+    "cancelled_at": "Bestellung storniert am",
+    "reason": "Grund",
+    "request_return": "Ruckgabe anfragen",
+    "order_overview": "BESTELLUBERSICHT",
+    "price": "Preis",
+    "subtotal": "Zwischensumme",
+    "subtotal_price": "Zwischensummenpreis",
+    "shipping_standard": "Versand ( Standard )",
+    "tax": "Steuer ( DE MwSt 19.0% )",
+    "in_total": "Gesamt",
+    "shipping_price": "Versandkosten",
+    "tax_price": "Steuer",
+    "billing_address": "RECHNUNGSADRESSE",
+    "shipping_address": "LIEFERANSCHRIFT",
+    "request_return_title": "RÜCKGABE ANFRAGEN",
+    "select_items_for_return": "Artikel für die Rückgabe auswählen",
+    "reason_for_return": "Rücksendegrund",
+    "request_return_success_message": "Ihr Rücksendeantrag wurde übermittelt und wird geprüft.",
+    "request_return_error_message": "Bei Ihrer Rücksendeanforderung ist ein Fehler aufgetreten.",
+    "please_enter_return_reason": "Bitte geben Sie den Grund für die Rücksendung ein.",
+    "read_privacy_policy": "Ich habe die Datenschutzbestimmungen zur Kenntnis genommen.",
+    "submit": "Absenden",
+    "tab_items": "Registerkartenelemente",
+    "add_new_address": "Neue Adresse hinzufügen",
+    "edit_address_item": "Adresselement bearbeiten",
+    "delete_address_item": "Delete address item",
+    "delete_address_confirm": "Möchten Sie diese Adresse wirklich löschen?",
+    "standard_address": "Standardadresse",
+    "add_address": "ADRESSE HINZUFÜGEN",
+    "edit_address": "ADRESSE BEARBEITEN",
+    "delete_address": "ADRESSE LÖSCHEN",
+    "salutation": "Anrede",
+    "salutation_placeholder": "Anrede",
+    "first_name": "Vorname",
+    "first_name_placeholder": "Vorname",
+    "last_name": "Nachname",
+    "last_name_placeholder": "Nachname",
+    "company": "Firma",
+    "company_placeholder": "Firma",
+    "address_extension": "Adresszusatz",
+    "address_extension_placeholder": "Adresszusatz",
+    "street_house_number": "Straße und Hausnummer",
+    "street_house_number_placeholder": "Straße und Hausnummer",
+    "zip_code": "PLZ",
+    "zip_code_placeholder": "PLZ",
+    "city": "Stadt",
+    "city_placeholder": "Stadt",
+    "country": "Land",
+    "country_placeholder": "Land",
+    "save": "Sichern",
+    "confirm_delete_address": "Sind Sie sicher, dass Sie diese Adresse löschen möchten?",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "delete_address_modal_aria_label": "Modal zum Löschen von Adressen schließen",
+    "failed_to_save_address": "Adresse konnte nicht gespeichert werden"
+  },
+  "contact": {
+    "title": "Fragen? Schreiben Sie uns",
+    "form_aria_label": "Fragen? Schreiben Sie uns Form",
+    "form_error": "Fehler beim Senden des Kontakts",
+    "salutation": "Anrede",
+    "salutation_placeholder": "Anrede",
+    "first_name": "Vorname",
+    "first_name_placeholder": "Vorname",
+    "last_name": "Nachname",
+    "last_name_placeholder": "Nachname",
+    "email": "Email",
+    "email_placeholder": "Email",
+    "telephone": "Telefon",
+    "telephone_placeholder": "Telefon",
+    "comment": "Kommentar",
+    "comment_placeholder": "Kommentar",
+    "contact_us_directly": "Sie erreichen uns direkt",
+    "contact_via_whatsapp": "Oder per Whatsapp",
+    "read_privacy_policy_error": "Fehler beim Akzeptieren der Datenschutzrichtlinie",
+    "send": "Abschicken"
+  },
+  "search": {
+    "no_results": "Keine Suchergebnisse gefunden",
+    "results_with_count": {
+      "one": "{{ count }} Ergebnis",
+      "other": "{{ count }} Ergebnisse"
+    },
+    "results_suggestions_with_count": {
+      "one": "{{ count }} Vorschlag",
+      "other": "{{ count }} Vorschläge"
+    },
+    "results_pages_and_blogs_with_count": {
+      "one": "{{ count }} Seite",
+      "other": "{{ count }} Seiten und Blogbeiträge"
+    },
+    "results_products_with_count": {
+      "one": "{{ count }} Produkt",
+      "other": "{{ count }} Produkte"
+    },
+    "search_result_for": "Suchergebnisse für",
+    "results_count": "{{ count }} Ergebnisse",
+    "no_results_title": "Wir konnten zu Ihrer Suche nach ‘{{ search_terms }}’ leider nichts finden."
+  },
+  "customer": {
+    "activate_account": {
+      "password": "Passwort",
+      "password_placeholder": "Passwort",
+      "password_confirm": "Passwort bestätigen",
+      "password_confirm_placeholder": "Passwort bestätigen",
+      "decline": "Ablehnen",
+      "activate_account": "Konto Aktivieren"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "order_summary": {
+        "estimated_taxes_label": "Steuern",
+        "estimated_tax_label": "Steuern",
+        "total_label": "Gesamtbrutto"
+      }
+    }
+  },
+  "page": {
+    "aktion": {
+      "view_pdf": "Zum Flyer",
+      "view_details": "Zu den Artikeln"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
+    }
+  }
+}

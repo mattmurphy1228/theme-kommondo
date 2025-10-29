@@ -1,0 +1,48 @@
+{% assign sort_by = collection.sort_by | default: 'manual' %}
+{% assign translation_id = 'collection.sort_by.' | append: sort_by %}
+{% assign sort_by_text = translation_id | t %}
+
+{% assign sort_options = collection.sort_options %}
+
+{% capture content %}
+  <div
+    class='sort-accordion__options'
+    role='radiogroup'
+    aria-label='{{ 'collection.filter_drawer.sort_by_label' | t }}'
+  >
+    {% for option in sort_options %}
+      {%- unless option.value == 'best-selling' -%}
+        {% assign checked = false %}
+        {% if option.value == sort_by %}
+          {% assign checked = true %}
+        {% endif %}
+        {% render 'Radio',
+          label: option.name,
+          value: option.value,
+          checked: checked,
+          name: 'sort_by'
+        %}
+      {%- endunless -%}
+    {% endfor %}
+  </div>
+{% endcapture %}
+
+{% capture sort_by_label %}
+  <span class='sort-accordion__summary-title-wrapper'>
+    <span class='text text--regular filter-accordion__summary-title '>
+      {{ 'collection.filter_drawer.sort_by_label' | t }}
+    </span>
+    <span class='sort-accordion__summary-selected js-sort-accordion__summary-selected'>
+      {{ sort_by_text }}
+    </span>
+  </span>
+{% endcapture %}
+
+<sort-accordion>
+  {% render 'AccordionItem',
+    summary: sort_by_label,
+    isOpened: false,
+    content: content,
+    itemId: 'sort-accordion-item'
+  %}
+</sort-accordion>

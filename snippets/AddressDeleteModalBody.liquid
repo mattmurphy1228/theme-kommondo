@@ -1,0 +1,33 @@
+<address-delete-modal-body
+  class='address-delete-modal-body'
+  data-address-item-id='address-{{ address_id }}'
+>
+  <form
+    class='address-delete-form js-address-delete-form'
+    method='post'
+    action='/account/addresses/{{ address_id }}'
+  >
+    <input type='hidden' name='_method' value='delete'>
+    <input type='hidden' name='utf8' value='✓'>
+    <input type='hidden' name='return_to' value='/account'>
+    <div class='address-delete-form__body'>
+      <span class='text text--regular text--center'>
+        {{ 'account.confirm_delete_address' | t }}
+      </span>
+      <div class='address-delete-form__buttons'>
+        <button
+          class='button button--outlined address-delete-form__cancel-btn js-address-delete-form__cancel-btn button--width-fluid button--padding-md'
+          type='reset'
+        >
+          <span class='button__text'>{{ 'account.cancel' | t }}</span>
+        </button>
+        <button
+          class='button button--solid address-delete-form__delete-btn js-address-delete-form__delete-btn button--width-fluid button--padding-md'
+          type='submit'
+        >
+          <span class='button__text'>{{ 'account.delete' | t }}</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</address-delete-modal-body>

@@ -1,0 +1,194 @@
+{%- liquid
+  assign collections_count = predictive_search.resources.collections.size
+  assign articles_count = predictive_search.resources.articles.size
+  assign pages_count = predictive_search.resources.pages.size
+  assign products_count = predictive_search.resources.products.size
+
+  assign total_results = collections_count | plus: articles_count | plus: pages_count | plus: products_count
+
+  assign suggest_collections = settings.suggest_collections
+  assign suggest_articles = settings.suggest_articles
+  assign suggest_pages = settings.suggest_pages
+  assign suggest_products = settings.suggest_products
+  
+  assign show_collections = false
+  if collections_count > 0 and suggest_collections
+    assign show_collections = true
+  endif
+
+  assign show_articles = false
+  if articles_count > 0 and suggest_articles
+    assign show_articles = true
+  endif
+
+  assign show_pages = false
+  if pages_count > 0 and suggest_pages
+    assign show_pages = true
+  endif
+
+  assign show_products = false
+  if products_count > 0 and suggest_products
+    assign show_products = true
+  endif
+
+  if show_products
+    assign unique_groups = ''
+
+    for product in predictive_search.resources.products
+      assign sku = product.selected_or_first_available_variant.sku | split: '-' | first
+      
+      unless unique_groups contains sku
+        assign unique_groups = unique_groups | append: sku | append: ','
+      endunless
+    endfor
+
+    assign unique_groups = unique_groups | split: ','
+
+    assign products_count = unique_groups.size
+  endif
+
+  unless suggest_collections
+    assign total_results = total_results | minus: collections_count
+  endunless
+  unless suggest_articles
+    assign total_results = total_results | minus: articles_count
+  endunless
+  unless suggest_pages
+    assign total_results = total_results | minus: pages_count
+  endunless
+  unless suggest_products
+    assign total_results = total_results | minus: products_count
+  endunless
+-%}
+
+
+{%- if predictive_search.performed -%}
+  <div class='search__suggestion-results-inner'>
+    <div class='search__suggestion js-search__suggestion {% if total_results == 0 %}search__suggestion--no-results{% endif %}'>
+      <div
+        class='suggestion-box'
+        aria-label='Search suggestion box'
+      >
+        {%- if total_results > 0 -%}
+          <h4 class='text text--headline text--h4'>
+            {{ 'header.suggestions' | t }}
+          </h4>
+        {%- endif -%}
+        {%- if total_results == 0 -%}
+          <span class='text text--regular suggestion-box__no-results-text'>
+            {{ 'header.no_results_found' | t }}
+          </span>
+        {%- endif -%}
+        <div class='suggestion-box__results'>
+          {%- if show_collections -%}
+            {%- for collection in predictive_search.resources.collections -%}
+              {% render 'SearchSuggestionItem',
+                href: collection.url,
+                aria_label: collection.title,
+                title: collection.title
+              %}
+            {%- endfor -%}
+          {%- endif -%}
+
+          {%- if show_articles -%}
+            {%- for article in predictive_search.resources.articles -%}
+              {% render 'SearchSuggestionItem',
+                href: article.url,
+                aria_label: article.title,
+                title: article.title
+              %}
+            {%- endfor -%}
+          {%- endif -%}
+
+          {%- if show_pages -%}
+            {%- for page in predictive_search.resources.pages -%}
+              {% render 'SearchSuggestionItem',
+                href: page.url,
+                aria_label: page.title,
+                title: page.title
+              %}
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+
+    {%- if show_products -%}
+      <div class='search__results'>
+        <div
+          class='search-product-box'
+          aria-label='Search product box'
+        >
+          <div class='search-product-box__header'>
+            <div class='search-product-box__title-count'>
+              <h4 class='text text--headline text--h4'>{{ 'header.products' | t }}</h4>
+              <h4
+                class='text text--headline text--h4 search-product-box__count'
+                aria-live='polite'
+              >
+                ({{ products_count }})
+              </h4>
+            </div>
+            <button
+              class='button button--outlined search-product-box__show-all-btn js-search-product-box__show-all-btn search-product-box__show-all-btn--desktop button--width-auto button--padding-md'
+              type='button'
+            >
+              <span class='button__text'>{{ 'header.show_all' | t }}</span>
+            </button>
+          </div>
+          <div class='search-product-box__body'>
+            {%- for group in unique_groups limit: 5 -%}
+              {%- if group != '' -%}
+                {% assign stop_loop = false %}
+                {%- for product in predictive_search.resources.products -%}
+                  {%- if stop_loop == false -%}
+                    {% assign sku = product.selected_or_first_available_variant.sku | split: "-" | first %}
+                    {%- if sku == group -%}
+                      {% assign stop_loop = true %}
+                      <div class='search-product-box__product'>
+                        {% render 'ProductCard', product: product %}
+                      </div>
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+          <button
+            class='button button--outlined search-product-box__show-all-btn js-search-product-box__show-all-btn search-product-box__show-all-btn--mobile button--width-fluid button--padding-md'
+            type='button'
+          >
+            <span class='button__text'>{{ 'header.show_all' | t }}</span>
+          </button>
+        </div>
+      </div>
+    {%- endif -%}
+    <span class="hidden" data-predictive-search-live-region-count-value aria-live="polite">
+      {%- liquid
+        if total_results == 0
+          echo 'search.no_results' | t: terms: predictive_search.terms
+        else
+          echo 'search.results_with_count' | t: count: total_results | append: ': '
+
+          if show_collections
+            assign count = collections_count
+            unless count == 0
+              echo 'search.results_suggestions_with_count' | t: count: count | append: ', '
+            endunless
+          endif
+
+          if show_products
+            echo 'search.results_products_with_count' | t: count: products_count | append: ', '
+          endif
+
+          if show_pages or show_articles
+            assign count = pages_count | plus: articles_count
+            unless count == 0
+              echo 'search.results_pages_and_blogs_with_count' | t: count: count
+            endunless
+          endif
+        endif
+      -%}
+    </span>
+  </div>
+{%- endif -%}

@@ -1,0 +1,29 @@
+<div
+  role='tablist'
+  class='tab__list tab__list--vertical'
+  aria-label='{{ 'account.tab_items' | t }}'
+>
+  {%- liquid
+    assign orders_tab_title = 'account.orders' | t
+    assign addresses_tab_title = 'account.addresses' | t
+    assign logout_tab_title = 'account.logout' | t
+  -%}
+  {% render 'AccountDesktopTabItem',
+    index: 0,
+    active: true,
+    icon: '#tab-item-orders',
+    title: orders_tab_title
+  %}
+  {% render 'AccountDesktopTabItem',
+    index: 1,
+    active: false,
+    icon: '#tab-item-addresses',
+    title: addresses_tab_title
+  %}
+  {% render 'AccountDesktopTabItem',
+    index: 2,
+    active: false,
+    icon: '#tab-item-logout',
+    title: logout_tab_title
+  %}
+</div>

@@ -1,0 +1,194 @@
+<div class='login'>
+  <!-- Recovery Form -->
+  {%- form 'recover_customer_password',
+    class: 'recovery__form',
+    id: 'recover'
+  -%}
+    <div class='login__container'>
+      <div class='login__form-info'>
+        <div class='login__form-header'>
+          <h2 class='text text--headline text--h2'>
+            {{- 'login.recover_password.title' | t -}}
+          </h2>
+          <p class='text text--regular'>
+            {{- 'login.recover_password.subtext' | t -}}
+          </p>
+        </div>
+        <div class='login__form-fields'>
+          <div class='login__form-fields-group'>
+            {%
+              render 'LabeledInput',
+              id: 'RecoverEmail',
+              name: 'email',
+              input_type: 'email',
+              label: 'login.email' | t,
+              placeholder: 'login.email_placeholder' | t,
+              autocomplete: 'email',
+              input_class: 'input__field',
+            %}
+          </div>
+          <button
+            class='button button--solid button--width-auto button--padding-md'
+            type='submit'
+          >
+            <span class='button__text'>
+              {{- 'login.recover_password.submit' | t -}}
+            </span>
+          </button>
+          <a href='#' class='anchor login__form-link'>
+            <span class='text text--regular'>
+              {{- 'login.recover_password.cancel' | t -}}
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class='login__image'
+      style='--login-image: url({{ section.settings.image | image_url: width: 1024 }})'
+    >
+      <div class='login__image-overlay'></div>
+      <div class='login__image-content'>
+        <span class='text text--headline text--h3 login__image-title'>
+          {{ section.settings.advantages_title }}
+        </span>
+        <div class='login__image-advantages'>
+          {% for block in section.blocks %}
+            {% render 'Advantage', block: block %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {%- endform -%}
+
+  <!-- Login Form -->
+  {% form 'customer_login', class: 'login__form', id: 'login' %}
+    <div class='login__container'>
+      <div class='login__form-info'>
+        <div class='login__form-header'>
+          <h2 class='text text--headline text--h2'>
+            {{- 'login.title' | t -}}
+          </h2>
+        </div>
+        {% if form.errors %}
+          <div class='login__form-error'>
+            <svg class="icon js-icon" width="16" height="16" aria-hidden="true">
+              <use xlink:href="#error"></use>
+            </svg>
+            <span
+              class='text text--regular'
+              style='color: var(--color-error-red, #DB1420);'
+            >
+              {{- form.errors.messages.form -}}
+            </span>
+          </div>
+        {% endif %}
+        <div class='login__form-fields'>
+          <div class='login__form-fields-group'>
+            {%
+              render 'LabeledInput',
+              id: 'CustomerEmail',
+              name: 'customer[email]',
+              input_type: 'email',
+              label: 'login.email' | t,
+              placeholder: 'login.email_placeholder' | t,
+              autocomplete: 'email',
+              input_class: 'input__field',
+            %}
+            <div class='form__password-group'>
+              {%
+                render 'LabeledInput',
+                id: 'CustomerPassword',
+                name: 'customer[password]',
+                input_type: 'password',
+                label: 'login.password' | t,
+                placeholder: 'login.password_placeholder' | t,
+                autocomplete: 'current-password',
+                input_class: 'input__field',
+              %}
+
+              <a
+                class='anchor login__form-link'
+                href='/account/login#recover'
+              >
+                <span class='text text--regular'>
+                  {{- 'login.forgot_password' | t -}}
+                </span>
+              </a>
+            </div>
+          </div>
+          <button
+            class='button button--solid button--width-auto button--padding-md'
+            type='submit'
+          >
+            <span class='button__text'>{{ 'login.sign_in' | t }}</span>
+          </button>
+        </div>
+      </div>
+      <div class='divider-line login__divider'></div>
+      <div class='login__register'>
+        <span class='text text--regular text--semibold'>
+          {{- 'login.new_customer' | t -}}
+        </span>
+        <a
+          class='button button--outlined button--width-auto button--padding-md'
+          href='/account/register'
+        >
+          <span class='button__text'>{{ 'login.create_account' | t }}</span>
+        </a>
+      </div>
+    </div>
+    <div
+      class='login__image'
+      style='--login-image: url({{ section.settings.image | image_url: width: 1024 }})'
+    >
+      <div class='login__image-overlay'></div>
+      <div class='login__image-content'>
+        <span class='text text--headline text--h3 login__image-title'>
+          {{ section.settings.advantages_title }}
+        </span>
+        <div class='login__image-advantages'>
+          {% for block in section.blocks %}
+            {% render 'Advantage', block: block %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endform %}
+</div>
+
+{% schema %}
+{
+  "name": "Login",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Login Image"
+    },
+    {
+      "type": "text",
+      "id": "advantages_title",
+      "label": "Advantage Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "advantage",
+      "name": "Advantage",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Advantage Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Login"
+    }
+  ]
+}
+{% endschema %}

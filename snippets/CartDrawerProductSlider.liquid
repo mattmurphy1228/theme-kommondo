@@ -1,0 +1,61 @@
+<product-slider-group>
+  <section
+    class='product-slider-section js-product-slider-section product-slider-section--with-one-tab product-slider-section--cart'
+    aria-label='Product slider section'
+  >
+    <div class='page-width page-width--no-padding'>
+      <custom-tabs>
+        <div class='tabs tabs--with-one-tab'>
+          <div
+            role='tablist'
+            class='tab__list tab__list--hidden-on-mobile'
+            aria-label='Tab items'
+          >
+            <div
+              class='tab-item tab-item--active'
+              role='tab'
+              aria-selected='true'
+              aria-controls='panel-0'
+              id='tab-0'
+            >
+              <h3 class='text text--headline text--h3'>
+                {{ 'cart.like_collection_title' | t }}
+              </h3>
+            </div>
+          </div>
+          <div class='tab__content tab__content--hidden-on-mobile'>
+            <div
+              class='tab-content-item tab-content-item--active js-tab-content-item'
+              role='tabpanel'
+              id='panel-0'
+              aria-hidden='false'
+              aria-labelledby='tab-0'
+            >
+              {% render 'ProductSlider',
+                products: like_collection.products,
+                page_template: '',
+                slides_per_group: slides_per_group
+              %}
+            </div>
+          </div>
+          <div class='tab__list-on-mobile'>
+            <div class='tab-item-on-mobile'>
+              <h3
+                class='text text--headline text--h3 tab-item-on-mobile__title'
+              >
+                {{ 'cart.like_collection_title' | t }}
+              </h3>
+              <div class='tab-content-item-on-mobile'>
+                {% render 'ProductSlider',
+                  products: like_collection.products,
+                  page_template: '',
+                  slides_per_group: slides_per_group
+                %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </custom-tabs>
+    </div>
+  </section>
+</product-slider-group>

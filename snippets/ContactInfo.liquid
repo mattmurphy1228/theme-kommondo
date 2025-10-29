@@ -1,0 +1,31 @@
+{% comment %}
+  This snippet dynamically displays contact information.
+  Variables used:
+  - `contact_title`: Title for the contact section (e.g., 'Contact Us').
+  - `tel`: Phone number in plain format (e.g., '1234567890').
+  - `tel_text`: Display text for the phone number (e.g., '+1 234 567 890').
+  - `email`: Email address (e.g., 'example@example.com').
+  - `email_text`: Display text for the email (e.g., 'Email Us').
+  - `whatsapp_title`: Title for the WhatsApp section (e.g., 'Chat with Us').
+  - `whatsapp`: WhatsApp number in plain format (e.g., '1234567890').
+  - `whatsapp_text`: Display text for the WhatsApp link (e.g., 'Message Us on WhatsApp').
+{% endcomment %}
+
+
+<div class='contact-info'>
+  <div class='contact-info__row'>
+    <span class='text text--regular text--semibold'>{{ contact_title }}</span>
+    <a class='anchor anchor--regular' href='tel:{{ tel }}'>
+      {{ tel_text }}
+    </a>
+    <a class='anchor anchor--regular' href='mailto:{{ email }}'>
+      {{ email_text }}
+    </a>
+  </div>
+  <div class='contact-info__row contact-info__row--hidden-on-desktop'>
+    <span class='text text--regular text--semibold'>{{ whatsapp_title }}</span>
+    <a class='anchor anchor--regular' href='https://wa.me/{{ whatsapp }}'>
+      {{ whatsapp_text }}
+    </a>
+  </div>
+</div>

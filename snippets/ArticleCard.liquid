@@ -1,0 +1,42 @@
+{%- comment -%}
+  Article Card Component
+
+  Variables that can be used:
+  - image: The article's featured image (optional)
+  - created_at: Publication date (required)
+  - content: Full article content for reading time calculation (required)
+  - title: Article title (required)
+  - excerpt_or_content: Article excerpt or fallback content (required)
+{%- endcomment -%}
+
+<a href='{{ href }}' class='article-card'>
+  {% if image != blank %}
+    <div class='article-card__image'>
+      {{ image | image_url: width: 600 | image_tag }}
+    </div>
+  {% endif %}
+  <div class='article-card__content'>
+    <div class='article-card__info'>
+      <div class='article-card__main-info'>
+        <span class='text text--regular text--small'>
+          {{- created_at | date: '%d.%m.%Y' -}}
+        </span>
+        <span class='text text--regular text--small'>|</span>
+        <reading-time data-words='{{ content | strip_html | split: ' ' | size }}'>
+          <span class='text text--regular text--small js-reading-time'> </span>
+        </reading-time>
+      </div>
+      <span class='text text--small article-card__category'>
+        {{- category -}}
+      </span>
+    </div>
+    <div class='article-card__description'>
+      <span class='text text--regular text--bold article-card__title'>
+        {{- title -}}
+      </span>
+      <span class='text text--regular article-card__excerpt'>
+        {{ excerpt_or_content | strip_html }}
+      </span>
+    </div>
+  </div>
+</a>

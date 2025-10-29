@@ -1,0 +1,17 @@
+{%- comment -%}
+  Accepts:
+    - sku: string (required)
+      The SKU/product number to display
+    - block: object (required)
+      The section block containing Shopify attributes
+
+  Usage:
+    {% render 'ProductNumber', sku: product.selected_or_first_available_variant.sku, block: block %}
+{%- endcomment -%}
+
+<dl class='product-number' {{ block.shopify_attributes }}>
+  <dt class='text text--regular text--semibold'>
+    {{- 'product.product_number' | t }}:
+  </dt>
+  <dd class='text text--regular'>{{- sku -}}</dd>
+</dl>

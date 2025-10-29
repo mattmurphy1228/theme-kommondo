@@ -1,0 +1,23 @@
+{%- comment -%}
+  Renders a grid of products using ProductCard components
+
+  Accepts:
+  - products: {Array} Collection of product objects to display in the grid
+    Each product should have standard Shopify product properties
+
+  Usage:
+  {% render 'ProductGrid', products: collection.products %}
+
+  Requirements:
+  - Requires the ProductCard snippet to be present
+{%- endcomment -%}
+
+<section
+  class='product-grid js-product-grid'
+  aria-label='{{ 'collection.product_grid' | t }}'
+  role='group'
+>
+  {% for product in products %}
+    {% render 'ProductCard', product: product %}
+  {% endfor %}
+</section>

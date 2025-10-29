@@ -1,0 +1,21 @@
+{% assign input_min = min | default: 0 %}
+{% assign input_max = max | default: 0 %}
+{% assign input_value = value | default: 0 %}
+{% assign input_name = name | default: 'quantity' %}
+
+<number-input class='number-input-container'>
+  <input
+    class='number-input js-number-input'
+    type='number'
+    value='{{ input_value }}'
+    {% if input_min != blank %}
+      min='{{ input_min }}'
+    {% endif %}
+    {% if input_max != blank %}
+      max='{{ input_max }}'
+    {% endif %}
+    name='{{ input_name }}'
+    step='0.01'
+    aria-label='{{ aria_label }}'
+  >
+</number-input>

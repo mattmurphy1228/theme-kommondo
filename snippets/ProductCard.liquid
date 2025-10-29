@@ -1,0 +1,65 @@
+{%- comment -%}
+  Renders a product card with image, rating, title and price.
+
+  Accepts:
+    - product: Product object (required)
+      The product to display, containing:
+      - url: string
+      - featured_image: Image object
+      - title: string
+      - metafields.reviews.rating.value: number
+      - metafields.reviews.rating_count: number
+      - selected_or_first_available_variant.price: number
+      - selected_or_first_available_variant.compare_at_price: number
+
+  Usage:
+    {% render 'ProductCard', product: product %}
+{%- endcomment -%}
+
+{%- liquid
+  assign placeholder_name = settings.product_placeholder_name | default: 'product-1'
+
+  assign display_price = product.selected_or_first_available_variant.price
+  assign display_compare_price = product.selected_or_first_available_variant.compare_at_price
+-%}
+
+<article class='product-card'>
+  <a class='anchor product-card__link' href='{{ product.url }}'>
+    <div class='product-card__image js-product-card-image__img'>
+      {%- if product.featured_image != blank -%}
+        {{
+          product.featured_image
+          | image_url: width: 240
+          | image_tag:
+            class: 'image',
+            loading: lazy
+        }}
+      {%- else -%}
+        {{ placeholder_name | placeholder_svg_tag: 'image' }}
+      {%- endif -%}
+    </div>
+    <section class='product-card__body js-product-card__body'>
+      <div class='product-card__main'>
+        {%- assign product_rating = product.metafields.reviews.rating.value -%}
+        {%- assign product_rating_count = product.metafields.reviews.rating_count -%}
+        {% render 'StarRating',
+          product_rating: product_rating,
+          product_rating_count: product_rating_count
+        %}
+        <span class='text text--regular product-card__title js-product-card__title'>
+          {{ product.title }}
+        </span>
+      </div>
+      <div class='product-card__price'>
+        <span>
+          {% render 'PriceDisplay',
+            price: display_price,
+            compare_at_price: display_compare_price,
+            showDiscountBadge: false,
+            showPriceDescription: false
+          %}
+        </span>
+      </div>
+    </section>
+  </a>
+</article>

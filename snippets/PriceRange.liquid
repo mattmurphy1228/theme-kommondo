@@ -1,0 +1,35 @@
+{%-liquid
+  assign aria_label_min = 'collection.filter_drawer.min_price' | t
+  assign aria_label_max = 'collection.filter_drawer.max_price' | t
+%}
+
+<price-range
+  data-min-price='{{ min_value }}'
+  data-max-price='{{ max_value }}'
+  data-range-max='{{ range_max }}'
+>
+  <div class='price-range'>
+    <div class='price-range__inner'>
+      {% render 'PriceInput',
+        type: 'min',
+        name: 'filter.v.price.gte',
+        min: 0,
+        max: range_max_display,
+        value: min_value_display,
+        aria_label: aria_label_min
+      %}
+      <div class='range-separator'></div>
+      {% render 'PriceInput',
+        type: 'max',
+        name: 'filter.v.price.lte',
+        min: 0,
+        max: range_max_display,
+        value: max_value_display,
+        aria_label: aria_label_max
+      %}
+    </div>
+    <div class='price-range__error price-range__error--hidden js-price-range__error'>
+      <span class='text text--regular price-range__error-text js-price-range__error-text'></span>
+    </div>
+  </div>
+</price-range>

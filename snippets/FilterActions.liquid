@@ -1,0 +1,19 @@
+<filter-actions class='filter-actions'>
+  <a
+    class='button button--outlined filter-actions__reset-btn js-filter-actions__reset-btn button--width-fluid button--padding-md'
+    type='reset'
+    href='{{ collection.url }}'
+  >
+    <span class='button__text'>
+      {{ 'collection.filter_drawer.filter_actions.reset_button_label' | t }}
+    </span>
+  </a>
+  <button
+    class='button button--solid filter-actions__apply-btn js-filter-actions__apply-btn button--width-fluid button--padding-md'
+    type='submit'
+  >
+    <span class='button__text'>
+      {{ 'collection.filter_drawer.filter_actions.apply_button_label' | t }}
+    </span>
+  </button>
+</filter-actions>

@@ -1,0 +1,128 @@
+{%- liquid
+  assign terms = search.terms | escape
+  assign no_results_title = 'search.no_results_title' | t: search_terms: terms
+  
+  assign results_count = 0
+  if search.results_count
+    assign results_count = search.results_count
+  elsif search.products_count == search.all_products_count
+    assign results_count = search.products_count
+  else
+    assign results_count = search.all_products_count
+  endif
+
+  assign unique_groups = ''
+  for item in search.results
+    if item.object_type == 'product'
+      assign sku = item.selected_or_first_available_variant.sku | split: '-' | first
+      
+      unless unique_groups contains sku
+        assign unique_groups = unique_groups | append: sku | append: ','
+      endunless
+    endif
+  endfor
+
+  assign unique_groups = unique_groups | split: ','
+
+  assign results_count = unique_groups.size
+-%}
+
+<search-page
+  data-products-per-page='{{ section.settings.products_per_page }}'
+  data-results-count='{{ 'search.results_count' | t: count: '[count]' }}'
+>
+  <div class='search-page page-width'>
+    {%- if search.results.size == 0 or search.performed == false -%}
+      {% render 'ImageWithText',
+        image: section.settings.no_results_image,
+        title: no_results_title,
+        text: section.settings.no_results_text
+      %}
+    {%- else -%}
+      <div class='search-page__content'>
+        <div class='search-page__header'>
+          {% render 'SearchPageHeader',
+            search_terms: terms,
+            results_count: results_count
+          %}
+        </div>
+        {% assign placeholder_name = settings.product_placeholder_name | default: 'product-1' %}
+        <div class="visually-hidden product-placeholder-image js-product-placeholder-image">
+          {{ placeholder_name | placeholder_svg_tag: 'image image--product-placeholder' }}
+        </div>
+        <section
+          class='product-grid js-product-grid'
+          aria-label='{{ 'collection.product_grid' | t }}'
+          role='group'
+        >
+        </section>
+        <div class="search-page__footer">
+          <nav class="pagination">
+            <ol class="pagination__list">
+              <li>
+                <a
+                  class="anchor anchor--regular pagination-button pagination-button--disabled pagination-button--prev js-pagination-button--prev"
+                  href="#"
+                >
+                  <span class="visually-hidden">{{ 'general.prev_page' | t }}</span>
+                  <svg
+                    class="icon js-icon"
+                    width="16"
+                    height="16"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#pagination-prev"></use>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="anchor anchor--regular pagination-button pagination-button--disabled pagination-button--next js-pagination-button--next"
+                  href="#"
+                >
+                  <span class="visually-hidden">{{ 'general.next_page' | t }}</span>
+                  <svg
+                    class="icon js-icon"
+                    width="16"
+                    height="16"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#pagination-next"></use>
+                  </svg>
+                </a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</search-page>
+
+{% schema %}
+{
+  "name": "SearchPage",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "no_results_image",
+      "label": "Image for no results"
+    },
+    {
+      "type": "richtext",
+      "id": "no_results_text",
+      "label": "Description for no results"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 48,
+      "step": 8,
+      "default": 24,
+      "label": "Products per page"
+    }
+  ],
+  "presets": [{ "name": "SearchPage" }]
+}
+{% endschema %}

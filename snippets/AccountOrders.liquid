@@ -1,0 +1,40 @@
+<order-item-group class='order-item-group'>
+  <section class='order-item-group__inner'>
+    <h3 class='text text--headline text--h3 order-item-group__title js-order-item-group__title'>
+      {{ 'account.orders' | t }}
+    </h3>
+    <div class='order-item-group__body'>
+      {%- if customer.orders.size == 0 -%}
+        <div class='order-item-group-body__empty'>
+          <div class='empty-order-item-group'>
+            <div class='empty-order-item-group__notes'>
+              <h4 class='text text--headline text--h4'>
+                {{ 'account.no_orders' | t }}
+              </h4>
+              <span class='text text--regular'>
+                {{ 'account.start_shopping_and_find_products' | t }}
+              </span>
+            </div>
+            <a
+              class='button button--solid button--width-fit-content button--padding-md'
+              aria-disabled='false'
+              href='/collections/all'
+            >
+              <span class='button__text'>{{ 'account.shop_now' | t }}</span>
+            </a>
+          </div>
+        </div>
+      {%- else -%}
+        {% paginate customer.orders by orders_per_page %}
+          {% render 'AccountOrderRows', orders: customer.orders %}
+  
+          {%- if paginate.pages > 1 -%}
+            <div class='order-item-group__pagination'>
+              {% render 'Pagination', paginate: paginate %}
+            </div>
+          {%- endif -%}
+        {% endpaginate %}        
+      {%- endif -%}
+    </div>
+  </section>
+</order-item-group>

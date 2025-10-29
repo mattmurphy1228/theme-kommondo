@@ -1,0 +1,65 @@
+{%- liquid
+  assign cart_item_index = cart_item.index | plus: 1
+  assign cart_item_id = 'cart-item-' | append: cart_item_index
+  
+  assign display_price = cart_item.final_line_price
+  assign display_compare_price = cart_item.original_line_price
+-%}
+
+<cart-item>
+  <a class='anchor' href='{{ cart_item.url }}'>
+    <article class='cart-item js-cart-item' data-cart-item-id='{{ cart_item_id }}'>
+      {% render 'CartItemImage',
+        cart_item: cart_item
+      %}
+      <section class='cart-item__body'>
+        <div class='cart-item__main'>
+          <span class='text text--regular cart-item__product-name'>
+            {{ cart_item.product.title }}
+          </span>
+          {% if cart_item.properties != blank %}
+            <ul class="cart-item__properties">
+              {% for prop in cart_item.properties %}
+                {% assign key = prop.first %}
+                {% assign val = prop.last %}
+                {% unless val == blank or key contains '_has_gpo' %}
+                  <li class="cart-item__property-row"><strong>{{ key }}:</strong> {{ val }}</li>
+                {% endunless %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+          <span>
+          {% render 'PriceDisplay',
+            price: display_price,
+            compare_at_price: display_compare_price,
+            showDiscountBadge: false,
+            showPriceDescription: false
+          %}
+          </span>
+        </div>
+        <div class='cart-item__footer'>
+          {%- liquid
+            assign quantity_min = 1
+            if cart_item.variant.quantity_rule.min != null
+              assign quantity_min = cart_item.variant.quantity_rule.min
+            endif
+
+            assign quantity_max = null
+            if cart_item.variant.quantity_rule.max != null
+              assign quantity_max = cart_item.variant.quantity_rule.max
+            endif
+          -%}
+          {% render 'QuantitySelector',
+            value: cart_item.quantity,
+            min: quantity_min,
+            max: quantity_max,
+            step: cart_item.variant.quantity_rule.increment,
+            variant_id: cart_item.variant.id,
+            id: cart_item_index
+          %}
+          {% render 'CartItemTrashButton', cart_item_id: cart_item_id  %}
+        </div>
+      </section>
+    </article>
+  </a>
+</cart-item>

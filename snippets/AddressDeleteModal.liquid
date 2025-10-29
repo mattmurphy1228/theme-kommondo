@@ -1,0 +1,13 @@
+<address-delete-modal
+  class='address-delete-modal js-address-delete-modal address-delete-modal--closed'
+  data-address-item-id='address-{{ address.id }}'
+>
+  <div class='address-delete-modal__inner'>
+    <div class='address-delete-modal__header'>
+      {% render 'AddressDeleteModalHead', address_id: address.id %}
+    </div>
+    <div class='address-delete-modal__body'>
+      {% render 'AddressDeleteModalBody', address_id: address.id %}
+    </div>
+  </div>
+</address-delete-modal>

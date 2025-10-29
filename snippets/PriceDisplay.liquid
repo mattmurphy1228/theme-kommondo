@@ -1,0 +1,57 @@
+{%- comment -%}
+  Accepts:
+    - price: number (required)
+      The current product price displayed as the regular price.
+    - compare_at_price: number (optional)
+      The original price displayed if the product is on sale, indicating a discount.
+    - showDiscountBadge: boolean (optional)
+      Whether to show a discount badge when the product is on sale.
+    - showPriceDescription: boolean (optional)
+      Whether to show a price description below the price.
+    - block: object (required)
+      The section block containing Shopify attributes
+
+  Usage:
+    {% render 'PriceDisplay', price: product.selected_or_first_available_variant.price, compare_at_price: product.selected_or_first_available_variant.compare_at_price, showDiscountBadge: true, showPriceDescription: true, block: block %}
+{%- endcomment -%}
+
+<div class='price-display' {{ block.shopify_attributes }}>
+  <div class='price-display__main'>
+    {%- if price == 0 -%}
+      <span class='price price--regular' aria-label='{{- 'product.price.price' | t }}'>
+        {{ 'product.price.price_on_request' | t }}
+      </span>
+    {%- else -%}
+      <span
+        class='price price--regular js-price--regular {% if price < compare_at_price %}price--with-compare {% endif %}'
+        aria-label='{{- 'product.price.price' | t }}'
+      >
+        {{- price | money -}}
+      </span>
+      {%- if price < compare_at_price -%}
+        <span
+          class='price price--compare js-price--compare'
+          aria-label='{{- 'product.price.original_price' | t }}'
+        >
+          {{- compare_at_price | money -}}
+        </span>
+        {%- if showDiscountBadge -%}
+          {%- assign discount_rate = compare_at_price | minus: price -%}
+          {%- assign discount_rate = discount_rate
+            | times: 100.0
+            | divided_by: compare_at_price
+          -%}
+          <span
+            class='badge price-display__badge js-price-display__badge'
+            aria-label='{{ discount_rate | round }}% {{- 'product.price.discount' | t }}'
+          >
+            -{{ discount_rate }}%
+          </span>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+  {%- if showPriceDescription -%}
+    <span class='text text--small'>{{- 'product.price.description' | t }}</span>
+  {%- endif -%}
+</div>

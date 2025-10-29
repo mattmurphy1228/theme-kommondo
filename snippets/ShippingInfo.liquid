@@ -1,0 +1,88 @@
+{%- comment -%}
+  Usage:
+    {% render 'ShippingInfo' %}
+{%- endcomment -%}
+
+{%- liquid
+  if class_name != blank
+    assign wrapper_class = class_name | append: ' shipping-info'
+  else
+    assign wrapper_class = 'shipping-info'
+  endif
+
+  assign estimated_delivery_time_weeks_range = settings.estimated_delivery_time_weeks_range
+  if product.metafields.custom.estimated_delivery_time_weeks_range != blank
+    assign estimated_delivery_time_weeks_range = product.metafields.custom.estimated_delivery_time_weeks_range
+  endif
+-%}
+
+<div class='{{ wrapper_class }}'>
+  <div
+    class='
+      shipping-info-row
+      shipping-info-row--available
+      js-shipping-info-row--available
+      {% if product.available == false %}shipping-info-row--hidden{% endif %}
+    '
+  >
+    <svg class='icon js-icon' width='24' height='24' aria-hidden='true'>
+      <use xlink:href='#shipping-blue-dot'></use>
+    </svg>
+    <span>
+      <span class='text text--small shipping-info-row__text'>
+        <strong>{{ 'product.shipping.immediately_available' | t }}</strong>, 
+        {{ 'product.shipping.delivery_time_weeks_range' | t: estimated_delivery_time_weeks_range: estimated_delivery_time_weeks_range }}
+      </span>
+    </span>
+  </div>
+  <div
+    class='
+      shipping-info-row
+      shipping-info-row--unavailable
+      js-shipping-info-row--unavailable
+      {% if product.available == true %}shipping-info-row--hidden{% endif %}
+    '
+  >
+    <svg class='icon js-icon' width='24' height='24' aria-hidden='true'>
+      <use xlink:href='#shipping-grey-dot'></use>
+    </svg>
+    <span>
+      <span class='text text--small shipping-info-row__text'>
+        {{ 'product.shipping.sold_out' | t }}
+      </span>
+    </span>
+  </div>
+  {%- if settings.free_shipping_threshold != blank -%}
+    {% comment %} <div class='shipping-info-row'>
+      <svg class='icon js-icon' width='24' height='24' aria-hidden='true'>
+        <use xlink:href='#shipping-truck'></use>
+      </svg>
+      <span>
+        <span class='text text--small shipping-info-row__text'>
+          {% assign free_shipping_threshold = settings.free_shipping_threshold | money %}
+          {{ 'product.shipping.free_shipping_from' | t: free_shipping_threshold: free_shipping_threshold }}
+        </span>
+      </span>
+    </div> {% endcomment %}
+  {%- endif -%}
+  <div class='shipping-info-row'>
+    <svg class='icon js-icon' width='24' height='24' aria-hidden='true'>
+      <use xlink:href='#shipping-rocket'></use>
+    </svg>
+    <span>
+      <span class='text text--small shipping-info-row__text'>
+        {{ 'product.shipping.tested_range' | t }}
+      </span>
+    </span>
+  </div>
+  <div class='shipping-info-row'>
+    <svg class='icon js-icon' width='24' height='24' aria-hidden='true'>
+      <use xlink:href='#clock'></use>
+    </svg>
+    <span>
+      <span class='text text--small shipping-info-row__text'>
+        {{ 'product.shipping.simple_processing' | t }}
+      </span>
+    </span>
+  </div>
+</div>

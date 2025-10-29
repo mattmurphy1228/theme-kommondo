@@ -1,0 +1,25 @@
+{%- comment -%}
+  Accordion Group - Renders a list of accordion items dynamically. 
+  Each accordion item consists of a title (summary) and a description (content), 
+  which are configured in the block settings of the Shopify theme. The accordion 
+  items are looped over and rendered using the 'AccordionItem' snippet.
+
+  Accepts:
+    - blocks: Array of section blocks containing settings for each accordion item.
+      
+  Usage:
+    {% render 'ContentAccordion', blocks: section.blocks %}
+{%- endcomment -%}
+
+<div class='accordion-group' role='group'>
+  {% for block in blocks %}
+    {% capture item_id %}{{ 'accordion-item-' | append: forloop.index }}{% endcapture %}
+    {% render 'AccordionItem',
+      summary: block.settings.title,
+      isOpened: false,
+      content: block.settings.description,
+      itemId: item_id,
+      name: 'accordion-item'
+    %}
+  {% endfor %}
+</div>

@@ -1,0 +1,17 @@
+<address-delete-button
+  data-address-item-id='address-{{ address_id }}'
+  aria-label='{{ 'account.delete_address_item' | t }}'
+  class='address-delete-button js-address-item__delete-btn'
+  data-confirm-message='{{ 'account.delete_address_confirm' | t }}'
+  role='button'
+>
+  <button
+    class='button button--outlined button--width-auto button--padding-sm'
+    type='button'
+    aria-disabled='false'
+  >
+    <svg class='icon js-icon' width='24' height='24'>
+      <use xlink:href='#trash'></use>
+    </svg>
+  </button>
+</address-delete-button>

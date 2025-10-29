@@ -1,0 +1,62 @@
+<main-menu class="mainmenu" role='navigation' aria-label='{{ 'main_menu.main_navigation' | t }}'>
+  <section class='main-menu js-main-menu page-width page-width--no-padding'>
+    <div
+      class='main-menu__overlay js-main-menu__overlay main-menu__overlay--hidden'
+      role='dialog'
+      aria-modal='true'
+      aria-label='{{ 'main_menu.menu_overlay' | t }}'
+    ></div>
+    {% render 'MenuOnDesktop',
+      menu_links: section.settings.menu.links,
+      secondary_menu_links: section.settings.secondary_menu.links,
+      sale_menu_item_title: section.settings.sale_menu_item_title,
+      menu_item_placeholder_image: section.settings.menu_item_placeholder_image
+    %}
+    {% render 'MenuOnMobile',
+      menu_links: section.settings.menu.links,
+      secondary_menu_links: section.settings.secondary_menu,
+      sale_menu_item_title: section.settings.sale_menu_item_title,
+      logo_image: section.settings.logo,
+      footer_text: section.settings.footer_text
+    %}
+  </section>
+</main-menu>
+
+{% schema %}
+{
+  "name": "Menu",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main Menu"
+    },
+    {
+      "type": "link_list",
+      "id": "secondary_menu",
+      "label": "Secondary Menu"
+    },
+    {
+      "type": "text",
+      "id": "sale_menu_item_title",
+      "label": "Sale menu item title"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer text"
+    },
+    {
+      "type": "image_picker",
+      "id": "menu_item_placeholder_image",
+      "label": "Menu item placeholder image"
+    }
+  ],
+  "presets": [{ "name": "Menu" }]
+}
+{% endschema %}

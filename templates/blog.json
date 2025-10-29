@@ -1,0 +1,48 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "Blog": {
+      "type": "Blog",
+      "blocks": {
+        "blog_43nxHB": {
+          "type": "blog",
+          "settings": {
+            "blog": "allgemeines"
+          }
+        },
+        "blog_ypYrce": {
+          "type": "blog",
+          "disabled": true,
+          "settings": {
+            "blog": "mensch"
+          }
+        },
+        "blog_hAALhJ": {
+          "type": "blog",
+          "settings": {
+            "blog": "mobilitat"
+          }
+        }
+      },
+      "block_order": [
+        "blog_43nxHB",
+        "blog_ypYrce",
+        "blog_hAALhJ"
+      ],
+      "settings": {
+        "title": "Kommondo Magazin"
+      }
+    }
+  },
+  "order": [
+    "Blog"
+  ]
+}

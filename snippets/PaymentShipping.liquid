@@ -1,0 +1,23 @@
+<div
+  class='payment-shipping'
+  role='group'
+  aria-label='Payment and Shipping Options'
+>
+  <div class='payment-shipping__col' aria-label='Accepted Payment Methods'>
+    <svg class='icon js-icon' width='35' height='24' role="img" aria-labelledby="pi-rechnung" aria-hidden='true'>
+      <title id="pi-rechnung">{{ 'footer.payment_options.rechnung' | t }}</title>
+      <use xlink:href='#rechnung'></use>
+    </svg>
+    {% for type in shop.enabled_payment_types -%}
+      {{ type | payment_type_svg_tag }}
+    {% endfor %}
+  </div>
+  <div class='payment-shipping__col' aria-label='Shipping Methods'>
+    <img
+      class='image'
+      src='{{ 'shipping.png' | asset_url }}'
+      width='80'
+      height='24'
+    >
+  </div>
+</div>

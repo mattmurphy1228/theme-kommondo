@@ -1,0 +1,140 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page-header": {
+      "type": "PageHeader",
+      "settings": {}
+    },
+    "hero_Q3gTbM": {
+      "type": "Hero",
+      "blocks": {
+        "image_zmCL3w": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/unternehmen-karriere-titel_1920x1920_31d8e906-6fcd-4497-912d-1d893e4e2006.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_zmCL3w"
+      ],
+      "settings": {}
+    },
+    "image-with-text": {
+      "type": "ImageWithText",
+      "settings": {
+        "title": "<p>Karriere bei Kommondo</p>",
+        "text": "<p>Wir suchen Menschen, die Lust haben sich einzubringen und zu gestalten. Ob Mann, Frau oder divers – bei uns sind alle willkommen! Egoismus und Pessimismus sind bei uns allerdings fehl am Platz.</p>",
+        "button_1_label": "",
+        "button_1_link": "",
+        "button_2_label": "",
+        "button_2_link": "",
+        "flip_order": false,
+        "background_color": "white"
+      }
+    },
+    "testimonials_c9tyEp": {
+      "type": "Testimonials",
+      "blocks": {
+        "testimonial_card_gjWprC": {
+          "type": "testimonial_card",
+          "settings": {
+            "image": "shopify://shop_images/unternehmen-karriere-daheim_800x800_0c3ff692-b918-42c8-8880-69a3012d4fb1.jpg",
+            "title": "Wo sind wir zu Hause?",
+            "description": "<p>In Weilheim/Oberbayern und da, wo wir gebraucht werden.</p>",
+            "author": "",
+            "position": "",
+            "company": ""
+          }
+        },
+        "testimonial_card_RMkLh6": {
+          "type": "testimonial_card",
+          "settings": {
+            "image": "shopify://shop_images/unternehmen-karriere-suchen_800x800_87c7f797-716c-4415-97d2-bd558aee1f01.jpg",
+            "title": "Was wir suchen",
+            "description": "<p>Menschen, die nah am Kunden sein wollen und sich für Themen begeistern können. Du bist richtig bei uns, wenn du dich über flexibel ändernde Aufgaben in unserem jungen Unternehmen freust.</p>",
+            "author": "",
+            "position": "",
+            "company": ""
+          }
+        },
+        "testimonial_card_dpiYx4": {
+          "type": "testimonial_card",
+          "settings": {
+            "image": "shopify://shop_images/Ausbildung_quadrat.jpg",
+            "title": "Ausbildung",
+            "description": "<p>Du bist kommunikativ, kundenorientiert und hast Lust, in spannende Themen einzutauchen?  In unserem jungen Unternehmen erwarten dich abwechslungsreiche Aufgaben, bei denen du deine Flexibilität und deine Stärken voll einbringen kannst.</p>",
+            "author": "",
+            "position": "",
+            "company": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_card_gjWprC",
+        "testimonial_card_RMkLh6",
+        "testimonial_card_dpiYx4"
+      ],
+      "settings": {
+        "section_title": ""
+      }
+    },
+    "image_with_text_HAKyE6": {
+      "type": "ImageWithText",
+      "settings": {
+        "title": "<p>Kundenbetreuer im Innendienst (m/w/d)</p>",
+        "text": "<p>Unser Kernsortiment liegt im Bereich Straße und Verkehr, angefangen bei Absperrtechnik bis hin zu Zusatzschildern. Unsere Kunden sind Ordnungsämter, Bauämter, Grünflächenämter, Straßenämter, Betriebshöfe oder Stadtwerke. Wir sind stolz darauf, dass mittlerweile über 1.000 öffentliche Kunden unser breites Sortiment nutzen und regelmäßig unsere Beratung suchen. Schau dich gerne auf unserer Homepage um, dann bekommst du ein Gefühl dafür, wo unser Schwerpunkt liegt.</p><p></p><p></p><p> <br/></p><p>Die Weiterentwicklung unseres Unternehmens stoppt natürlich nie! In unseren Köpfen finden sich zahlreiche konkrete Ideen, die wir möglichst rasch umsetzen möchten. Und dafür brauchen wir dich - mit dir gemeinsam wollen wir unseren Kundenservice auf das nächste Level bringen.  </p><p><br/>Nach einer gründlichen Einarbeitung schaffst du es gemeinsam mit deinem Team unsere Aufträge souverän abzuwickeln. Dabei geht es richtig abwechslungsreich zu: Du legst die Stammdaten in SAP an, kümmerst dich um die Beratung der Kundinnen und Kunden am Telefon, sprichst direkt mit Lieferanten, bestellst eigenständig und stellst sicher, dass am Ende des Prozesses ein positives Kauf-Erlebnis steht. <br/><br/></p><p>Transparenz und Kommunikation: Du sorgst dafür, dass alle bei Kommondo und deine Kundinnen und Kunden verstehen, woran du gerade arbeitest und was die nächsten Schritte sind. Umgekehrt tauschen wir uns regelmäßig über News und Fortschritte aus und feiern Erfolge gerne zusammen mit dir. Natürlich ist auch bei uns ordentlich was los, deshalb ist wichtig: Du kannst die Anforderungen aller Beteiligten moderieren und auch mal nein sagen. </p><p><strong><br/>Das bringst du mit: </strong></p><ul><li>Du hast mehrjährige Erfahrung im Bereich Kundenbetreuung oder in einer vergleichbaren Position. </li><li>Du übernimmst gerne Verantwortung und fühlst dich in agilen Arbeitsweisen wohl </li><li>für dich sind dies nicht nur Schlagworte, sondern deine Überzeugung. </li><li>Du bist nicht nur ein Teamplayer, sondern hast auch ein gutes situatives Gespür. </li><li>Du erkennst Chancen und gestaltest Prozesse mit einem klaren Fokus. </li><li>Ehrliches Feedback, offene Kommunikation und kurze Entscheidungswege sind für dich das A und O.<br/><br/></li></ul><p>...wenn du das Gefühl hast, du bist die oder der Richtige für uns, auch wenn du nicht bei jedem Punkt der Jobbeschreibung ein Häkchen für dich setzen kannst, komm gerne auf uns zu. Lass uns darüber sprechen und herausfinden, ob wir trotzdem zueinander passen!</p>",
+        "button_1_label": "",
+        "button_1_link": "",
+        "button_2_label": "",
+        "button_2_link": "",
+        "flip_order": true,
+        "background_color": "white"
+      }
+    },
+    "image_with_text_W68k3k": {
+      "type": "ImageWithText",
+      "settings": {
+        "title": "<p>Ausbildung bei Kommondo</p>",
+        "text": "<p>Starte Deine Ausbildung bei der Kommondo GmbH!</p><p></p><p>Wir suchen motivierte Auszubildende ab 2025 in den folgenden Berufsfeldern:</p><p></p><ul><li><strong>Kaufmann/-frau für Dialogmarketing </strong></li><li><strong>Kaufmann/-frau für Büromanagement </strong></li><li><strong>Kaufmann/-frau für Groß- und Außenhandelsmanagement (Großhandel) </strong></li></ul><p></p><p>Bei Kommondo erwartet dich eine praxisnahe Ausbildung mit vielfältigen Aufgaben und spannenden Projekten in einem dynamischen Team. Als innovatives Unternehmen im Bereich der kommunalen Beschaffung gestalten wir Prozesse effizienter, digitaler und nachhaltiger.</p><p></p><p><strong>Was wir dir bieten: </strong></p><ul><li>Abwechslungsreiche Aufgaben und interessante Projekte</li><li>Individuelle Betreuung und gezielte Entwicklungsmöglichkeiten</li><li>Langfristige Perspektiven und hervorragende Karrierechancen</li></ul><p></p><p>Werde Teil unseres Teams und gestalte die Zukunft der kommunalen Beschaffung mit!</p><p></p><p>Bewirb dich jetzt per E-Mail oder ruf uns an. Wir freuen uns auf deine Bewerbung.</p>",
+        "button_1_label": "",
+        "button_1_link": "",
+        "button_2_label": "",
+        "button_2_link": "",
+        "flip_order": false,
+        "background_color": "white"
+      }
+    },
+    "image_with_text_zRRAYG": {
+      "type": "ImageWithText",
+      "settings": {
+        "image": "shopify://shop_images/unternehmen-karriere-ansprechpartner_1920x1920_508898ca-c0fd-4392-bdcc-4c20a6017057.jpg",
+        "title": "<p>Ansprechpartner</p>",
+        "text": "<p>Stephan Spiess<br/>Verwaltungsleiter, Prokurist<br/>+49 881 925860 -0</p>",
+        "button_1_label": "Jetzt anschreiben",
+        "button_1_link": "mailto:stephan.spiess@kommondo.de",
+        "button_2_label": "",
+        "button_2_link": "",
+        "flip_order": true,
+        "background_color": "greylight"
+      }
+    }
+  },
+  "order": [
+    "page-header",
+    "hero_Q3gTbM",
+    "image-with-text",
+    "testimonials_c9tyEp",
+    "image_with_text_HAKyE6",
+    "image_with_text_W68k3k",
+    "image_with_text_zRRAYG"
+  ]
+}

@@ -1,0 +1,58 @@
+{%- comment -%}
+  Renders a submenu for the collection menu accordion item
+
+  Accepts:
+  - menuTitle: {String} The title of the parent menu item, used for aria-label
+  - menuItems: {Array} Array of menu items to display
+    Each menu item should have:
+    - title: {String} Text to display
+    - url: {String} URL to link to
+    - active: {Boolean} Whether this is the current page
+    - links: {Array} Optional nested submenu items with same structure
+
+  Usage:
+  {% render 'CollectionMenuSubcategory',
+    menuTitle: 'Category',
+    menuItems: menu.links
+  %}
+{%- endcomment -%}
+
+<div
+  class='collection-menu-accordion__submenu'
+  aria-label='{{ menuTitle }} sub menu'
+>
+  <nav aria-label='Collection menu sub category'>
+    <ul class='collection-menu-sub'>
+      {% for item in menuItems %}
+        <li class='collection-menu-sub__item'>
+          <a
+            class='anchor anchor--regular collection-menu-sub__text {% if item.active %}collection-menu-sub__text--current{% endif %}'
+            href='{{ item.url }}'
+            {% if item.active %}
+              aria-current='page'
+            {% endif %}
+          >
+            {{ item.title }}
+          </a>
+          {% if item.links.size > 0 %}
+            <ul class='collection-menu-sub__sub'>
+              {% for subItem in item.links %}
+                <li class='collection-menu-sub__item'>
+                  <a
+                    class='anchor anchor--regular collection-menu-sub__text {% if subItem.active %}collection-menu-sub__text--current{% endif %}'
+                    href='{{ subItem.url }}'
+                    {% if subItem.active %}
+                      aria-current='page'
+                    {% endif %}
+                  >
+                    {{ subItem.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>

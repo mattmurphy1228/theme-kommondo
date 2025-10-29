@@ -1,0 +1,22 @@
+<div class="certification-block certification-page__block">
+  {%- if image -%}
+    {{
+      image
+      | image_url: height: 150
+      | image_tag:
+        class: 'image certification-block__image',
+        alt: title,
+        loading: 'lazy'
+    }}
+  {%- endif -%}
+  <div class="certification-block__body">
+    <h4 class="text text--headline text--h4 text--center">
+      {{ title }}
+    </h4>
+    <span
+      class="text text--regular certification-block__description text--center"
+    >
+      {{ description }}
+    </span>
+  </div>
+</div>

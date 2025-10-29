@@ -1,0 +1,91 @@
+{%- liquid
+  assign threshold = settings.free_shipping_threshold
+  assign cart_total = cart.total_price
+  assign threshold = threshold | times: 100
+  assign remaining = threshold | minus: cart_total
+  assign remaining_price = remaining | money
+  
+  if remaining <= 0
+    assign remaining_price = ''
+  endif
+
+  assign percent = cart_total | times: 100 | divided_by: threshold | round
+  if percent > 100
+    assign percent = 100
+  endif
+
+  assign empty_cart_message_class_name = 'js-cart-drawer__empty-cart-message'
+  if cart != empty
+    assign empty_cart_message_class_name = empty_cart_message_class_name | append: ' empty-cart-message--hidden'
+  endif
+
+  assign free_shipping_indicator_class_name = 'js-cart-drawer__free-shipping-indicator'
+  if cart == empty
+    assign free_shipping_indicator_class_name = free_shipping_indicator_class_name | append: ' cart-drawer__free-shipping-indicator--hidden'
+  endif
+
+  assign cart_summary_class_name = 'js-cart-drawer__cart-summary'
+  if cart == empty
+    assign cart_summary_class_name = cart_summary_class_name | append: ' cart-drawer__cart-summary--hidden'
+  endif
+
+  assign cart_drawer_class_name = 'cart-drawer js-cart-drawer cart-drawer--closed'
+  if template.name == 'cart'
+    assign cart_drawer_class_name = cart_drawer_class_name | append: ' cart-drawer--hidden'
+  endif
+-%}
+
+<cart-drawer
+  class="{{ cart_drawer_class_name }}"
+  data-free-shipping-threshold="{{ settings.free_shipping_threshold }}"
+  data-free-shipping-text="{{ 'cart.amount_for_free_shipping' | t: free_shipping_threshold: remaining_price }}"
+  data-free-shipping-reached-text="{{ 'cart.congrats_on_free_shipping_reached' | t }}"
+>
+  <script type='application/json' id='cart-data'>
+    {
+      "cart": {{ cart | json }}
+    }
+  </script>
+  <div class='cart-drawer__overlay js-cart-drawer__overlay cart-drawer__overlay--hidden'></div>
+  <div
+    class="cart-drawer__inner js-cart-drawer__inner"
+    role="dialog"
+    aria-modal="true"
+    aria-label="{{ 'cart.shopping_cart' | t }}"
+    tabindex="-1"
+    {{ block.shopify_attributes }}
+  >
+    {% render 'CartHeader' %}
+    <div
+      class='cart-drawer__body js-cart-drawer__body {% if cart != empty %}cart-drawer__body--with-padding-bottom{% endif %}'
+    >
+      {% render 'EmptyCartMessage',
+        class_name: empty_cart_message_class_name
+      %}
+      <div
+        class='
+          cart-drawer__shipping-info-items-wrapper
+          js-cart-drawer__shipping-info-items-wrapper
+          {% if cart == empty %}cart-drawer__shipping-info-items-wrapper--hidden{% endif %}
+        '
+      >
+        {% render 'FreeShippingIndicator',
+          class_name: free_shipping_indicator_class_name,
+          percent: percent,
+          remaining_price: remaining_price
+        %}
+        {% render 'CartItemGroup',
+          class_name: 'cart-drawer__cart-item-group js-cart-drawer__cart-item-group',
+          section_type: 'cart-drawer'
+        %}
+      </div>
+      {% render 'CartDrawerProductSlider',
+        like_collection: like_collection,
+        slides_per_group: slides_per_group
+      %}
+    </div>
+    {% render 'CartSummary',
+      class_name: cart_summary_class_name
+    %}
+  </div>  
+</cart-drawer>

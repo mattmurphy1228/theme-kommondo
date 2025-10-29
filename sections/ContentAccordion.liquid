@@ -1,0 +1,47 @@
+<section class='content-accordion page-width' role='group'>
+  <h2 class='text text--headline text--h2 content-accordion__title'>
+    {{ section.settings.title }}
+  </h2>
+  <div class="content-accordion__desktop">
+    {% render 'TextBlockGroup', blocks: section.blocks %}
+  </div>
+  <div class="content-accordion__mobile">
+    {% render 'ContentAccordion', blocks: section.blocks %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Content accordion",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "accordion_item",
+      "name": "Accordion item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Content accordion"
+    }
+  ]
+}
+{% endschema %}
